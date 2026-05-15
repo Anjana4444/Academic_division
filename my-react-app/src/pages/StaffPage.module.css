@@ -1,0 +1,89 @@
+.staffSection {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.heading {
+  color: #800000;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.subtext {
+  color: #666666;
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  text-align: left;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid rgba(128, 0, 0, 0.15);
+  border-radius: 10px;
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(128, 0, 0, 0.1);
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #800000;
+  color: #e8c97a;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #4a0b16;
+}
+
+.role {
+  font-size: 13px;
+  color: #888888;
+}
+
+.contact {
+  font-size: 13px;
+  color: #555555;
+  margin-top: 6px;
+}
+
+.email {
+  font-size: 13px;
+  color: #800000;
+  border-bottom: 1px solid rgba(128, 0, 0, 0.3);
+  width: fit-content;
+}
+
+.email:hover {
+  color: #4a0b16;
+  border-bottom-color: #4a0b16;
+}
