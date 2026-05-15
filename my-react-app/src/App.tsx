@@ -1,74 +1,55 @@
-import { useState } from "react";
+import React from "react";
+import "./App.css"; // Import the CSS file here
 
-const App = () => {
-  const [count, setCount] = useState<number>(0);
-
+const App: React.FC = () => {
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>Hello, React + TypeScript</h1>
-      <p style={styles.subtitle}>Edit this file to start building your app.</p>
-
-      <div style={styles.card}>
-        <p style={styles.countLabel}>Count: <strong>{count}</strong></p>
-        <div style={styles.buttonRow}>
-          <button style={styles.button} onClick={() => setCount((c) => c - 1)}>−</button>
-          <button style={styles.button} onClick={() => setCount(0)}>Reset</button>
-          <button style={styles.button} onClick={() => setCount((c) => c + 1)}>+</button>
+    <div className="page-wrapper">
+      <nav className="navbar">
+        <div className="nav-container">
+          <div className="logo-section">
+            <div className="logo-circle">UoP</div>
+            <span className="university-name">University of Peradeniya</span>
+          </div>
+          <div className="nav-links">
+            <a href="#home" className="nav-link">Home</a>
+            <a href="#about" className="nav-link">About</a>
+            <a href="#staff" className="nav-link">Staff</a>
+            <a href="#contact" className="nav-link">Contact</a>
+          </div>
         </div>
-      </div>
+      </nav>
+
+      <header id="home" className="hero-section">
+        <div className="hero-background-image"></div>
+        <div className="hero-overlay"></div>
+        <div className="hero-content">
+          <h1 className="main-title">
+            ACADEMIC <span className="gold-highlight">ESTABLISHMENTS</span> DIVISION
+          </h1>
+          <div className="gold-divider"></div>
+          <p className="hero-subtitle">Professional Administrative Support for Academic Excellence</p>
+        </div>
+      </header>
+
+      <section id="about" className="content-section">
+        <h2 className="section-heading">About the Division</h2>
+        <p className="description-text">
+          The Academic Establishments Division is one of the most important divisions in the University. 
+          Managed by dedicated senior officers at the University of Peradeniya.
+        </p>
+      </section>
+
+      <footer id="contact" className="footer">
+        <div className="footer-container">
+          <div className="footer-info">
+            <h3 className="gold-highlight">Academic Establishments Division</h3>
+            <p>University of Peradeniya, Sri Lanka</p>
+          </div>
+          <div className="map-box">Google Map Integration</div>
+        </div>
+      </footer>
     </div>
   );
-};
-
-const styles: Record<string, React.CSSProperties> = {
-  container: {
-    minHeight: "100vh",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    fontFamily: "'Segoe UI', sans-serif",
-    backgroundColor: "#f5f5f5",
-    padding: "2rem",
-  },
-  title: {
-    fontSize: "2rem",
-    fontWeight: 700,
-    marginBottom: "0.5rem",
-    color: "#111",
-  },
-  subtitle: {
-    color: "#666",
-    marginBottom: "2rem",
-    fontSize: "1rem",
-  },
-  card: {
-    backgroundColor: "#fff",
-    borderRadius: "12px",
-    padding: "2rem",
-    boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
-    textAlign: "center",
-    minWidth: "240px",
-  },
-  countLabel: {
-    fontSize: "1.25rem",
-    marginBottom: "1.25rem",
-    color: "#333",
-  },
-  buttonRow: {
-    display: "flex",
-    gap: "0.75rem",
-    justifyContent: "center",
-  },
-  button: {
-    padding: "0.5rem 1.25rem",
-    fontSize: "1rem",
-    borderRadius: "8px",
-    border: "1px solid #ddd",
-    backgroundColor: "#fff",
-    cursor: "pointer",
-    transition: "background 0.2s",
-  },
 };
 
 export default App;
