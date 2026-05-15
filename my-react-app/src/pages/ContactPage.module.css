@@ -1,0 +1,92 @@
+.pageWrapper {
+  width: 100%;
+}
+
+.heroSection {
+  position: relative;
+  height: 500px; /* Adjust this to your preferred banner height */
+  width: 100%;
+  /* Remove display: flex from here so absolute positioning works correctly */
+  margin-bottom: 50px; 
+}
+
+.heroImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  top: 20%; /* Positions the "Get Support" text above the center */
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+}
+
+.heroTitle {
+  color: white;
+  font-size: 3rem;
+  font-family: 'Playfair Display', serif; /* Elegant serif font */
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  margin: 0;
+}
+
+/* THE FIX: Centering the grid in the middle of the image */
+.cardGrid {
+  position: absolute;
+  top: 60%; /* Moves the start of the grid to the middle area */
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers it perfectly */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 90%;
+  max-width: 1000px;
+  z-index: 10;
+}
+
+.contactCard {
+  background: white;
+  /* Aspect ratio trick to keep them rectangular like the image */
+  padding: 60px 20px; 
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.contactCard:hover {
+  transform: translate(0, -10px); /* Lift effect on hover */
+}
+
+/* Icon and Text Styling */
+.icon {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.actionText {
+  color: #000;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.subTitle {
+  color: #777;
+  font-size: 0.8rem;
+  margin: 0;
+  text-transform: none;
+}

@@ -1,0 +1,150 @@
+.aboutContainer {
+  font-family: 'Inter', sans-serif;
+  color: #2d3748;
+  background-color: #ffffff;
+}
+
+/* Pink Header */
+.heroHeader {
+  background-color: #ffffff; /* Matching the pinkish-mauve in the image */
+  padding: 100px 20px 160px 20px;
+  text-align: center;
+}
+
+.mainHeading {
+  font-size: 3rem;
+  font-weight: 800;
+  font-family: 'Segoe UI';
+  color: #800000;
+  margin: 0;
+}
+
+/* Content Area */
+.contentSection {
+  max-width: 1000px;
+  margin: -100px auto 0 auto; /* Pulls image up into the pink area */
+  padding: 0 20px 80px 20px;
+}
+
+.imageWrapper {
+  width: 100%;
+  max-width: 800px; /* Adjust to your preference */
+  margin: -100px auto 40px auto; /* Keep the overlap effect */
+  display: block;
+}
+.heroImage {
+  width: 100%;
+  height: 450px; /* Give it a specific height */
+  border: 15px solid #800000;    /* Thick white border like a frame */
+  border-radius: 12px;          /* Rounded corners */
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+}
+.heroImage :global(.swiper-button-next),
+.heroImage :global(.swiper-button-prev) {
+  color: #800000; /* Maroon */
+  transform: scale(0.7); /* Smaller arrows */
+}
+.heroImage :global(.swiper-pagination-bullet-active) {
+  background: #D4AF37; /* Gold */
+}
+
+.textContent {
+  max-width: 700px;
+  margin: 40px auto;
+  text-align: left;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Feature Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 60px;
+}
+
+.card {
+  padding: 30px;
+  border: 1px solid #edf2f7;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.cardDescription {
+  font-size: 0.95rem;
+  color: #718096;
+  line-height: 1.5;
+}
+.functionsCard {
+  background-color: #ffcc00; /* UoP Gold */
+  border-radius: 12px;
+  padding: 40px;
+  margin: 40px auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  color: #1a1a1a; /* Dark text for high contrast */
+}
+
+.functionsHeading {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 25px;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+}
+
+.functionsList {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Split into 2 columns on desktop */
+  gap: 15px 40px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.functionsList li {
+  position: relative;
+  padding-left: 25px;
+  font-size: 1rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* Custom Checkmark/Bullet */
+.functionsList li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+  color: #800000; /* Maroon color for the checkmark */
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 768px) {
+  .functionsList {
+    grid-template-columns: 1fr; /* Single column on mobile */
+  }
+  
+  .functionsCard {
+    padding: 25px;
+  }
+}

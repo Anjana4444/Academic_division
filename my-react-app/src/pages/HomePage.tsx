@@ -12,9 +12,16 @@ const HomePage: React.FC = () => {
           </div>
           <div className="nav-links">
             <a href="#home" className="nav-link">Home</a>
-            <a href="#about" className="nav-link">About</a>
+            <a href="/about" className="nav-link">About</a>
             <a href="/staff" className="nav-link">Staff</a>
-            <a href="#contact" className="nav-link">Contact</a>
+            <a href="/contact" className="nav-link">Contact</a>
+            <a 
+                href="https://www.pdn.ac.lk/" 
+                className="nav-link" 
+                target="_blank" 
+                rel="noopener noreferrer"
+            > UoP
+</a>
           </div>
         </div>
       </nav>
@@ -33,13 +40,6 @@ const HomePage: React.FC = () => {
         </div>
       </header>
 
-      <section id="about" className="content-section">
-        <h2 className="section-heading">About the Division</h2>
-        <p className="description-text">
-          The Academic Establishments Division is one of the most important divisions in the University.
-          Managed by dedicated senior officers at the University of Peradeniya.
-        </p>
-      </section>
 
       <footer id="contact" className="footer">
         <div className="footer-container">
