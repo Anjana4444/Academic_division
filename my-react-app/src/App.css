@@ -78,40 +78,41 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  position: relative;
+  position: relative; /* Required for z-index to work */
   overflow: hidden;
 }
 
 .hero-background-image {
   position: absolute;
   inset: 0;
-  background-image: url('./assets/university-bg.jpg'); /* Ensure image is in src/assets */
+  /* Use your university image here */
+  background-image: url('/slide-4.jpg'); 
   background-size: cover;
   background-position: center;
-  z-index: 0;
+  z-index: 1; /* Lowest layer */
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background-color: var(--overlay-opacity);
-  backdrop-filter: blur(2px);
-  z-index: 1;
+  background-color: rgba(128, 0, 0, 0.6); /* Dark Maroon with 60% transparency */
+  backdrop-filter: blur(3px); /* Modern frosted glass effect */
+  z-index: 2; /* Middle layer */
 }
 
 .hero-content {
-  position: relative;
-  zIndex: 2;
+  position: relative; 
+  z-index: 3; /* Highest layer - brings text to the very front */
+  text-align: center;
   padding: 0 20px;
 }
 
 .main-title {
   color: #ffffff;
-  font-size: 3.5rem;
+  font-size: 4rem; /* Larger for more impact */
   font-weight: 800;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Adds depth to the text */
   margin: 0;
-  letter-spacing: -1px;
 }
 
 .gold-highlight {
