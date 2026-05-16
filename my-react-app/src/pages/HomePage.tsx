@@ -44,16 +44,7 @@ const HomePage: React.FC = () => {
         </div>
       </header>
 
-
-      <footer id="contact" className="footer">
-        <div className="footer-container">
-          <div className="footer-info">
-            <h3 className="gold-highlight">Academic Establishments Division</h3>
-            <p>University of Peradeniya, Sri Lanka</p>
-          </div>
-          <div className="map-box">Google Map Integration</div>
-        </div>
-      </footer>
+      
     </div>
   )
 }
