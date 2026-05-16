@@ -76,6 +76,7 @@
 .hero-section {
   height: 100vh;
   display: flex;
+  color: #ffffff;
   align-items: center;
   justify-content: center;
   position: relative; /* Required for z-index to work */
