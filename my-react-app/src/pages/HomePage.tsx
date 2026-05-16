@@ -13,6 +13,9 @@ const HomePage: React.FC = () => {
           <div className="nav-links">
             <a href="#home" className="nav-link">Home</a>
             <a href="/about" className="nav-link">About</a>
+
+
+
             <a href="/staff" className="nav-link">Staff</a>
             <a href="/contact" className="nav-link">Contact</a>
             <a 
@@ -21,6 +24,7 @@ const HomePage: React.FC = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
             > UoP
+           <a href="/contact" className="nav-link">Contact</a> 
 </a>
           </div>
         </div>
