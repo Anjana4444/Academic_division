@@ -2,43 +2,48 @@
   font-family: 'Inter', sans-serif;
   color: #2d3748;
   background-color: #ffffff;
+  margin-top: 60px;
 }
 
 /* Pink Header */
+/* Change this section */
 .heroHeader {
-  background-color: #ffffff; /* Matching the pinkish-mauve in the image */
-  padding: 100px 20px 160px 20px;
+  background-color: #4a0b16; /* Dark Maroon like Special Notices */
+  border-bottom: 3px solid #c9922a; /* The Gold line */
+  padding: 60px 20px; /* Adjusted padding */
   text-align: center;
 }
-
+/* Change this section */
 .mainHeading {
-  font-size: 3rem;
-  font-weight: 800;
+  color: #e8c97a; /* Gold color */
+  font-size: 1.9rem; /* Matching Special Notices size */
   font-family: 'Segoe UI';
-  color: #800000;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   margin: 0;
 }
+
 
 /* Content Area */
 .contentSection {
   max-width: 1000px;
-  margin: -100px auto 0 auto; /* Pulls image up into the pink area */
+  margin: 40px auto 0 auto; /* Change from -100px to 40px */
   padding: 0 20px 80px 20px;
 }
 
 .imageWrapper {
-  width: 100%;
-  max-width: 800px; /* Adjust to your preference */
-  margin: -100px auto 40px auto; /* Keep the overlap effect */
+  width: 90%;                /* Controls how much space is on the sides */
+  max-width: 900px;          /* Maximum width of the image box */
+  margin: 0 auto;
   display: block;
 }
 .heroImage {
   width: 100%;
-  height: 450px; /* Give it a specific height */
-  border: 15px solid #800000;    /* Thick white border like a frame */
-  border-radius: 12px;          /* Rounded corners */
+  height: 450px; 
+  border-radius: 12px;       /* Keep rounded corners */
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   background-color: #fff;
 }
 .heroImage :global(.swiper-button-next),
@@ -147,4 +152,37 @@
   .functionsCard {
     padding: 25px;
   }
+}
+
+.swiperBackground {
+  background-color: #4a0b16; /* Maroon color */
+  padding: 60px 0;           /* Space above and below the image */
+  width: 100vw;              /* Make it span the full screen width */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.swiperBackground::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Use your university image as the background */
+  background-image: url('/uop.jpg'); 
+  background-size: cover;
+  background-position: center;
+  
+  /* The Blur Effect */
+  filter: blur(15px) brightness(0.4); /* Adjust brightness to keep text readable */
+  transform: scale(1.1); /* Prevents white edges caused by blurring */
+  z-index: 1;
 }

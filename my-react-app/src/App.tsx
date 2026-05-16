@@ -6,6 +6,17 @@ import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
 import SpecialNoticesPage from './pages/SpecialNoticesPage'
 import ApplicationsPage from './pages/ApplicationsPage'
+import AgreementForm from './applicationforms/AgreementForm'
+import Appendix16Form from './applicationforms/Appendix16Form'
+import ApplicationforConfirmationForm from './applicationforms/ApplicationforConfirmationForm'
+import ApplicationforRailwayWarrantsForm from './applicationforms/ApplicationforRailwayWarrantsForm'
+import ApplicationforSabbaticalLeaveForm from './applicationforms/ApplicationforSabbaticalLeaveForm'
+import ApplicationforTRForm from './applicationforms/ApplicationforTRForm'
+import ApplicationforUniversityIdentityCardsForm from './applicationforms/ApplicationforUniversityIdentityCardsForm'
+import ConcessionaryMotorVehiclePermitForm from './applicationforms/ConcessionaryMotorVehiclePermitForm'
+import ETFForm from './applicationforms/ETFForm'
+import ProbationaryLeaveApplicationForm from './applicationforms/ProbationaryLeaveApplicationForm'
+
 
 export default function App() {
   return (
@@ -19,6 +30,16 @@ export default function App() {
         <Route path="/applications" element={<ApplicationsPage />} />
 
         <Route path="/applications/:slug" element={<ApplicationsPage />} />
+        <Route path="/applications/agreement" element={<AgreementForm />} />
+        <Route path="/applications/appendix-16" element={<Appendix16Form />} />
+        <Route path="/applications/promotion" element={<ApplicationforConfirmationForm />} />
+        <Route path="/applications/railway" element={<ApplicationforRailwayWarrantsForm />} />
+        <Route path="/applications/sabbatical" element={<ApplicationforSabbaticalLeaveForm />} />
+        <Route path="/applications/leave" element={<ApplicationforTRForm />} />
+        <Route path="/applications/identity-cards" element={<ApplicationforUniversityIdentityCardsForm />} />
+        <Route path="/applications/motor-vehicle" element={<ConcessionaryMotorVehiclePermitForm />} />
+        <Route path="/applications/etf-form" element={<ETFForm />} />
+        <Route path="/applications/probationary" element={<ProbationaryLeaveApplicationForm />} />
       </Route>
     </Routes>
   )

@@ -1,32 +1,35 @@
-import styles from './AgreementForm.module.css'
+import styles from './AgreementForm.module.css';
 
 export default function AgreementForm() {
   return (
     <div className={styles.page}>
-      {/* Hero Header Section */}
-      <div className={styles.heroSection}>
-        <h1 className={styles.heading}>AGREEMENT FORM</h1>
-        <div className={styles.redDivider}></div>
-      </div>
+      {/* Hero Section - The dark area with dots */}
+      <section className={styles.hero}>
+        <div className={styles.heroContent}>
+          <h1 className={styles.title}>AGREMENT</h1>
+          <div className={styles.redUnderline}></div>
+        </div>
+      </section>
 
-      {/* Content Section */}
-      <div className={styles.container}>
-        <div className={styles.infoBox}>
-          <p className={styles.subtext}>
+      {/* Main Content Area */}
+      <main className={styles.content}>
+        <div className={styles.linkContainer}>
+          <p className={styles.description}>
             Agreement for the appointment of academic staff - University of Peradeniya
           </p>
           
-          {/* Links matching the style in your image */}
-          <div className={styles.linksContainer}>
-             <a href="#" className={styles.downloadLink}>
-               Agreement Form for Academic Staff (Schedule) - pdf
-             </a>
-             <a href="#" className={styles.downloadLink}>
-               Agreement Form for Academic Staff (Schedule) - doc
-             </a>
+          <div className={styles.links}>
+            <a href="/path-to-pdf" className={styles.fileLink}>
+              Agreement Form for Academic Staff (Schedule) - pdf
+            </a>
+            <a href="/path-to-doc" className={styles.fileLink}>
+              Agreement Form for Academic Staff (Schedule) - doc
+            </a>
           </div>
         </div>
-      </div>
+      </main>
+
+     
     </div>
-  )
+  );
 }

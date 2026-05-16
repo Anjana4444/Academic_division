@@ -45,33 +45,35 @@ export default function AboutPage() {
     <div className={styles.aboutContainer}>
       {/* Pink Top Section */}
       <section className={styles.heroHeader}>
-        <h1 className={styles.mainHeading}>About</h1>
+        <h1 className={styles.mainHeading}>About us</h1>
       </section>
 
       {/* Overlapping Content Section */}
       <section className={styles.contentSection}>
-        <div className={styles.imageWrapper}>
-  <Swiper
-    modules={[Navigation, Pagination, Autoplay]}
-    spaceBetween={0}
-    slidesPerView={1}
-    navigation
-    pagination={{ clickable: true }}
-    autoplay={{ delay: 4000 }}
-    loop={true}
-    className={styles.heroImage} 
-  >
-    {slides.map((slide) => (
-      <SwiperSlide key={slide.id}>
-        <img 
-          src={slide.src} 
-          alt={slide.alt} 
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
-        />
-      </SwiperSlide>
-    ))}
-  </Swiper>
-</div>
+        <div className={styles.swiperBackground}>
+    <div className={styles.imageWrapper}>
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        spaceBetween={0}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 4000 }}
+        loop={true}
+        className={styles.heroImage} 
+      >
+        {slides.map((slide) => (
+          <SwiperSlide key={slide.id}>
+            <img 
+              src={slide.src} 
+              alt={slide.alt} 
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  </div>
 
         <div className={styles.textContent}>
           <p>

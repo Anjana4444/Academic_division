@@ -48,9 +48,9 @@ export default function ApplicationsPage() {
 
   // POINT OF CHANGE: If a slug exists, show the specific form instead of the grid
   if (slug === 'agreement') return <AgreementForm />;
-  if (slug === 'sabbatical') return <Appendix16Form />;
-  if (slug === 'promotion-16') return <ApplicationforConfirmationForm />;
-  if (slug === 'etf-form') return <ApplicationforRailwayWarrantsForm />;
+  if (slug === 'appendix-16') return <Appendix16Form />;
+  if (slug === 'promotion') return <ApplicationforConfirmationForm />;
+  if (slug === 'railway') return <ApplicationforRailwayWarrantsForm />;
   if (slug === 'sabbatical') return <ApplicationforSabbaticalLeaveForm />;
   if (slug === 'leave') return <ApplicationforTRForm />;
   if (slug === 'identity-cards') return <ApplicationforUniversityIdentityCardsForm />;
