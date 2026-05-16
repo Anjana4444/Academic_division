@@ -1,5 +1,17 @@
 import { useState } from 'react'
 import styles from './ApplicationsPage.module.css'
+import { useParams } from 'react-router-dom'; // Add this import
+import AgreementForm from '../applicationforms/AgreementForm';
+import Appendix16Form from '../applicationforms/AgreementForm';
+import ApplicationforConfirmationForm from '../applicationforms/AgreementForm';
+import ApplicationforRailwayWarrantsForm from '../applicationforms/AgreementForm';
+import ApplicationforSabbaticalLeaveForm from '../applicationforms/AgreementForm';
+import ApplicationforTRForm from '../applicationforms/AgreementForm';
+import ApplicationforUniversityIdentityCardsForm from '../applicationforms/AgreementForm';
+import ConcessionaryMotorVehiclePermitForm from '../applicationforms/AgreementForm';
+import ETFForm from '../applicationforms/AgreementForm';
+import ProbationaryLeaveApplicationForm from '../applicationforms/AgreementForm';
+
 
 interface Application {
   id: number
@@ -31,7 +43,21 @@ type FilterType = 'All' | Application['type']
 const FILTERS: FilterType[] = ['All', 'PDF', 'Form', 'Application']
 
 export default function ApplicationsPage() {
-  const [active, setActive] = useState<FilterType>('All')
+  const { slug } = useParams(); // Get the slug from the URL
+  const [active, setActive] = useState<FilterType>('All');
+
+  // POINT OF CHANGE: If a slug exists, show the specific form instead of the grid
+  if (slug === 'agreement') return <AgreementForm />;
+  if (slug === 'sabbatical') return <Appendix16Form />;
+  if (slug === 'promotion-16') return <ApplicationforConfirmationForm />;
+  if (slug === 'etf-form') return <ApplicationforRailwayWarrantsForm />;
+  if (slug === 'sabbatical') return <ApplicationforSabbaticalLeaveForm />;
+  if (slug === 'leave') return <ApplicationforTRForm />;
+  if (slug === 'identity-cards') return <ApplicationforUniversityIdentityCardsForm />;
+  if (slug === 'motor-vehicle') return <ConcessionaryMotorVehiclePermitForm />;
+  if (slug === 'etf-form') return <ETFForm />;
+  if (slug === 'probationary') return <ProbationaryLeaveApplicationForm />;
+
 
   const filtered = applications.filter(
     (app) => active === 'All' || app.type === active

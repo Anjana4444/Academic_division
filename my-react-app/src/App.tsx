@@ -17,6 +17,8 @@ export default function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/notices" element={<SpecialNoticesPage />} />
         <Route path="/applications" element={<ApplicationsPage />} />
+
+        <Route path="/applications/:slug" element={<ApplicationsPage />} />
       </Route>
     </Routes>
   )
