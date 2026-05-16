@@ -1,89 +1,169 @@
-.staffSection {
-  padding: 80px 20px;
-  max-width: 900px;
-  margin: 0 auto;
+.page {
+  min-height: 100vh;
+  background-color: #faf8f5;
+  padding-bottom: 60px;
+}
+
+.pageHeader {
+  background-color: #4a0b16;
+  border-bottom: 3px solid #c9922a;
+  padding: 52px 20px 36px;
   text-align: center;
 }
 
 .heading {
-  color: #800000;
-  font-size: 2.2rem;
-  margin-bottom: 10px;
+  color: #e8c97a;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
 }
 
 .subtext {
-  color: #666666;
-  font-size: 1rem;
-  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  text-align: left;
+.section {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 40px 24px 0;
 }
 
-.card {
-  background-color: #ffffff;
-  border: 1px solid rgba(128, 0, 0, 0.15);
-  border-radius: 10px;
-  padding: 24px;
+.sectionLabel {
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c9922a;
+  margin-bottom: 28px;
+}
+
+/* Senior officers */
+.seniorGrid {
   display: flex;
-  align-items: flex-start;
-  gap: 16px;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.seniorCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 200px;
+}
+
+.seniorPhoto {
+  width: 155px;
+  height: 175px;
+  object-fit: cover;
+  object-position: top;
+  border: 3px solid #c9922a;
+  margin-bottom: 14px;
+}
+
+.divider {
+  width: 60px;
+  height: 2px;
+  background-color: #c9922a;
+  margin: 40px auto 0;
+}
+
+/* Staff grid */
+.staffGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.staffCard {
+  background-color: #ffffff;
+  border: 0.5px solid rgba(128, 0, 0, 0.12);
+  border-top: 3px solid #c9922a;
+  border-radius: 0 0 8px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
   transition: box-shadow 0.2s ease;
 }
 
-.card:hover {
+.staffCard:hover {
   box-shadow: 0 4px 16px rgba(128, 0, 0, 0.1);
 }
 
-.avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background-color: #800000;
-  color: #e8c97a;
-  font-size: 18px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+.staffPhoto {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  object-position: top;
 }
 
-.info {
+.cardInfo {
+  padding: 10px 10px 14px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  gap: 3px;
 }
 
+/* Shared text */
 .name {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 0.72rem;
+  font-weight: 700;
   color: #4a0b16;
+  line-height: 1.4;
+}
+
+.nickname {
+  font-size: 0.68rem;
+  color: #999999;
 }
 
 .role {
-  font-size: 13px;
+  font-size: 0.68rem;
   color: #888888;
+  font-style: italic;
+  margin-top: 2px;
 }
 
-.contact {
-  font-size: 13px;
+.phone {
+  font-size: 0.7rem;
   color: #555555;
-  margin-top: 6px;
+  margin-top: 4px;
 }
 
 .email {
-  font-size: 13px;
+  font-size: 0.65rem;
   color: #800000;
-  border-bottom: 1px solid rgba(128, 0, 0, 0.3);
-  width: fit-content;
+  border-bottom: 1px solid rgba(128, 0, 0, 0.25);
+  margin-top: 4px;
+  word-break: break-all;
 }
 
 .email:hover {
   color: #4a0b16;
   border-bottom-color: #4a0b16;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .staffGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .staffGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .seniorGrid {
+    gap: 24px;
+  }
 }
