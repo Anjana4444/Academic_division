@@ -1,34 +1,11 @@
 import React from 'react'
 import '../App.css'
+import Navbar from '../components/Navbar'
 
 const HomePage: React.FC = () => {
   return (
     <div className="page-wrapper">
-      <nav className="navbar">
-        <div className="nav-container">
-          <div className="logo-section">
-            <div className="logo-circle">UoP</div>
-            <span className="university-name">University of Peradeniya</span>
-          </div>
-          <div className="nav-links">
-            <a href="#home" className="nav-link">Home</a>
-            <a href="/about" className="nav-link">About</a>
-
-
-
-            <a href="/staff" className="nav-link">Staff</a>
-            <a href="/contact" className="nav-link">Contact</a>
-            <a 
-                href="https://www.pdn.ac.lk/" 
-                className="nav-link" 
-                target="_blank" 
-                rel="noopener noreferrer"
-            > UoP
-           <a href="/contact" className="nav-link">Contact</a> 
-</a>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       <header id="home" className="hero-section">
         <div className="hero-background-image"></div>

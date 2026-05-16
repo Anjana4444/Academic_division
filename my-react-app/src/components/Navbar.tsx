@@ -25,8 +25,17 @@ export default function Navbar() {
 
         {/* Logo */}
         <div className="logo-section">
-          <div className="logo-circle">UoP</div>
-          <span className="university-name">University of Peradeniya</span>
+          <img 
+  src='logo-2.webp' 
+  alt="ACADEMIC ESTABLISHMENTS DIVISION- University of Peradeniya" 
+  className="itc-logo"
+  style={{ height: '58px', width: 'auto' }}
+/>
+
+        <div className="title-wrapper">
+            <div className="division-name">Academic Establishments Division</div>
+            <div className="university-name">University of Peradeniya</div>
+          </div>
         </div>
 
         {/* Nav links */}
@@ -74,6 +83,14 @@ export default function Navbar() {
 
           <Link to="/staff" className="nav-link">Staff</Link>
           <Link to="/contact" className="nav-link">Contact</Link>
+         <a
+            href="https://www.pdn.ac.lk/"
+            className="nav-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            UoP
+          </a>
         </div>
 
       </div>
