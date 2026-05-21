@@ -55,13 +55,15 @@ function StaffCard({ member, size }: { member: StaffMember; size: 'large' | 'sma
   return (
     <div className={size === 'large' ? styles.seniorCard : styles.staffCard}>
       <img
-        src={member.image}
-        alt={member.name}
-        className={size === 'large' ? styles.seniorPhoto : styles.staffPhoto}
-        onError={(e) => {
-          (e.target as HTMLImageElement).src = '/staff/placeholder.jpg'
-        }}
-      />
+  src={member.image}
+  alt={member.name}
+  className={size === 'large' ? styles.seniorPhoto : styles.staffPhoto}
+  onError={(e) => {
+    const target = e.target as HTMLImageElement
+    target.style.display = 'none'
+    target.parentElement!.classList.add(styles.noPhoto)
+  }}
+/>
       <div className={styles.cardInfo}>
         <p className={styles.name}>{member.name}</p>
         {member.nickname && (

@@ -21,8 +21,6 @@ const HomePage: React.FC = () => {
         </div>
       </header>
 
-
-  
     </div>
   )
 }

@@ -1,4 +1,4 @@
-/* Color Variables for the University Branding */
+
 :root {
   --uop-maroon: #800000;
   --uop-gold: #D4AF37;
@@ -14,7 +14,7 @@
   scroll-behavior: smooth;
 }
 
-/* Navigation Bar */
+
 .navbar {
   background-color: var(--uop-maroon);
   color: #ffffff;
@@ -72,7 +72,6 @@
   color: var(--uop-gold);
 }
 
-/* Hero Section with Transparency Overlay */
 .hero-section {
   height: 100vh;
   display: flex;
@@ -86,7 +85,7 @@
 .hero-background-image {
   position: absolute;
   inset: 0;
-  /* Use your university image here */
+
   background-image: url('/slide-4.jpg'); 
   background-size: cover;
   background-position: center;
@@ -97,7 +96,7 @@
   position: absolute;
   inset: 0;
   background-color: rgba(128, 0, 0, 0.6); /* Dark Maroon with 60% transparency */
-  backdrop-filter: blur(3px); /* Modern frosted glass effect */
+  backdrop-filter: blur(1.3px); /* Modern frosted glass effect */
   z-index: 2; /* Middle layer */
 }
 

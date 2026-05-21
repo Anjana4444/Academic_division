@@ -91,6 +91,7 @@
   text-align: center;
   overflow: hidden;
   transition: box-shadow 0.2s ease;
+  min-height: 280px;
 }
 
 .staffCard:hover {
@@ -99,9 +100,10 @@
 
 .staffPhoto {
   width: 100%;
-  height: 140px;
+  height: 200px;
   object-fit: cover;
-  object-position: top;
+  object-position: center 15%;
+  display: block;
 }
 
 .cardInfo {
