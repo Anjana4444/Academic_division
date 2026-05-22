@@ -26,11 +26,11 @@ export default function Navbar() {
         {/* Logo */}
         <div className="logo-section">
           <img 
-  src='logo-2.webp' 
-  alt="ACADEMIC ESTABLISHMENTS DIVISION- University of Peradeniya" 
-  className="itc-logo"
-  style={{ height: '58px', width: 'auto' }}
-/>
+          src='logo-2.webp' 
+          alt="ACADEMIC ESTABLISHMENTS DIVISION- University of Peradeniya" 
+          className="itc-logo"
+          style={{ height: '58px', width: 'auto' }}
+          />
 
         <div className="title-wrapper">
             <div className="division-name">Academic Establishments Division</div>
