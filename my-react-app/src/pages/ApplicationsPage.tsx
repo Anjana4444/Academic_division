@@ -33,18 +33,13 @@ const applications: Application[] = [
   { id: 10, title: 'Probationary Leave Application',                     type: 'Application', downloadUrl: '#' },
 ]
 
-const TYPE_COLORS: Record<Application['type'], string> = {
-  PDF:         styles.tagPdf,
-  Form:        styles.tagForm,
-  Application: styles.tagApplication,
-}
 
-type FilterType = 'All' | Application['type']
-const FILTERS: FilterType[] = ['All', 'PDF', 'Form', 'Application']
+
+
 
 export default function ApplicationsPage() {
   const { slug } = useParams(); // Get the slug from the URL
-  const [active, setActive] = useState<FilterType>('All');
+  const [search, setSearch] = useState('')
 
   // POINT OF CHANGE: If a slug exists, show the specific form instead of the grid
   if (slug === 'agreement') return <AgreementForm />;
@@ -59,9 +54,9 @@ export default function ApplicationsPage() {
   if (slug === 'probationary') return <ProbationaryLeaveApplicationForm />;
 
 
-  const filtered = applications.filter(
-    (app) => active === 'All' || app.type === active
-  )
+  const filtered = applications.filter((app) =>
+  app.title.toLowerCase().includes(search.toLowerCase())
+)
 
   return (
     <div className={styles.page}>
@@ -77,17 +72,16 @@ export default function ApplicationsPage() {
       <div className={styles.container}>
 
         {/* Filter buttons */}
-        <div className={styles.filters}>
-          {FILTERS.map((f) => (
-            <button
-              key={f}
-              onClick={() => setActive(f)}
-              className={`${styles.filterBtn} ${active === f ? styles.filterActive : ''}`}
-            >
-              {f}
-            </button>
-          ))}
-        </div>
+        <div className={styles.searchBar}>
+  <span className={styles.searchIcon}>🔍</span>
+  <input
+    type="text"
+    placeholder="Search applications..."
+    value={search}
+    onChange={(e) => setSearch(e.target.value)}
+    className={styles.searchInput}
+  />
+</div>
 
         {/* Applications grid */}
         <div className={styles.grid}>
@@ -97,15 +91,13 @@ export default function ApplicationsPage() {
               <div className={styles.cardBody}>
                 <p className={styles.cardTitle}>{app.title}</p>
                 <div className={styles.cardFooter}>
-                  <span className={`${styles.tag} ${TYPE_COLORS[app.type]}`}>
-                    {app.type}
-                  </span>
+                  
                   
                    <a href={app.downloadUrl}
                     className={styles.downloadBtn}
                     download
                   >
-                    ↓ Download
+                     Download
                   </a>
                 </div>
               </div>

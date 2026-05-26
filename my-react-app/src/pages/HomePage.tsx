@@ -11,7 +11,7 @@ const HomePage: React.FC = () => {
         <div className="hero-background-image"></div>
         <div className="hero-overlay"></div>
         <div className="hero-content">
-          <h1 className="main-title">
+          <h1 className="main-title text-yellow-300">
             ACADEMIC <span className="gold-highlight">ESTABLISHMENTS</span> DIVISION
           </h1>
           <div className="gold-divider"></div>
