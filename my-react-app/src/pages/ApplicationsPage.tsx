@@ -1,17 +1,15 @@
 import { useState } from 'react'
-import styles from './ApplicationsPage.module.css'
-import { useParams } from 'react-router-dom'; // Add this import
-import AgreementForm from '../applicationforms/AgreementForm';
-import Appendix16Form from '../applicationforms/AgreementForm';
-import ApplicationforConfirmationForm from '../applicationforms/AgreementForm';
-import ApplicationforRailwayWarrantsForm from '../applicationforms/AgreementForm';
-import ApplicationforSabbaticalLeaveForm from '../applicationforms/AgreementForm';
-import ApplicationforTRForm from '../applicationforms/AgreementForm';
-import ApplicationforUniversityIdentityCardsForm from '../applicationforms/AgreementForm';
-import ConcessionaryMotorVehiclePermitForm from '../applicationforms/AgreementForm';
-import ETFForm from '../applicationforms/AgreementForm';
-import ProbationaryLeaveApplicationForm from '../applicationforms/AgreementForm';
-
+import { useParams } from 'react-router-dom'
+import AgreementForm from '../applicationforms/AgreementForm'
+import Appendix16Form from '../applicationforms/AgreementForm'
+import ApplicationforConfirmationForm from '../applicationforms/AgreementForm'
+import ApplicationforRailwayWarrantsForm from '../applicationforms/AgreementForm'
+import ApplicationforSabbaticalLeaveForm from '../applicationforms/AgreementForm'
+import ApplicationforTRForm from '../applicationforms/AgreementForm'
+import ApplicationforUniversityIdentityCardsForm from '../applicationforms/AgreementForm'
+import ConcessionaryMotorVehiclePermitForm from '../applicationforms/AgreementForm'
+import ETFForm from '../applicationforms/AgreementForm'
+import ProbationaryLeaveApplicationForm from '../applicationforms/AgreementForm'
 
 interface Application {
   id: number
@@ -21,88 +19,95 @@ interface Application {
 }
 
 const applications: Application[] = [
-  { id: 1,  title: 'Agreement',                                          type: 'PDF',         downloadUrl: '#' },
-  { id: 2,  title: 'Appendix 16',                                        type: 'PDF',         downloadUrl: '#' },
-  { id: 3,  title: 'ETF Form',                                           type: 'PDF',         downloadUrl: '#' },
-  { id: 4,  title: 'Concessionary Motor Vehicle Permit',                 type: 'Form',        downloadUrl: '#' },
+  { id: 1,  title: 'Agreement',                                                                      type: 'PDF',         downloadUrl: '#' },
+  { id: 2,  title: 'Appendix 16',                                                                    type: 'PDF',         downloadUrl: '#' },
+  { id: 3,  title: 'ETF Form',                                                                       type: 'PDF',         downloadUrl: '#' },
+  { id: 4,  title: 'Concessionary Motor Vehicle Permit',                                             type: 'Form',        downloadUrl: '#' },
   { id: 5,  title: 'Application for Confirmation / Promotion to Senior Lecturer Grade II / Grade I', type: 'Application', downloadUrl: '#' },
-  { id: 6,  title: 'Application for University Identity Cards',          type: 'Application', downloadUrl: '#' },
-  { id: 7,  title: 'Application for Sabbatical Leave',                   type: 'Application', downloadUrl: '#' },
-  { id: 8,  title: 'Application for TR / Conference / Vacation / No-pay Leave', type: 'Application', downloadUrl: '#' },
-  { id: 9,  title: 'Application for Railway Warrants',                   type: 'Application', downloadUrl: '#' },
-  { id: 10, title: 'Probationary Leave Application',                     type: 'Application', downloadUrl: '#' },
+  { id: 6,  title: 'Application for University Identity Cards',                                      type: 'Application', downloadUrl: '#' },
+  { id: 7,  title: 'Application for Sabbatical Leave',                                               type: 'Application', downloadUrl: '#' },
+  { id: 8,  title: 'Application for TR / Conference / Vacation / No-pay Leave',                      type: 'Application', downloadUrl: '#' },
+  { id: 9,  title: 'Application for Railway Warrants',                                               type: 'Application', downloadUrl: '#' },
+  { id: 10, title: 'Probationary Leave Application',                                                 type: 'Application', downloadUrl: '#' },
 ]
 
-
-
-
-
 export default function ApplicationsPage() {
-  const { slug } = useParams(); // Get the slug from the URL
+  const { slug } = useParams()
   const [search, setSearch] = useState('')
 
-  // POINT OF CHANGE: If a slug exists, show the specific form instead of the grid
-  if (slug === 'agreement') return <AgreementForm />;
-  if (slug === 'appendix-16') return <Appendix16Form />;
-  if (slug === 'promotion') return <ApplicationforConfirmationForm />;
-  if (slug === 'railway') return <ApplicationforRailwayWarrantsForm />;
-  if (slug === 'sabbatical') return <ApplicationforSabbaticalLeaveForm />;
-  if (slug === 'leave') return <ApplicationforTRForm />;
-  if (slug === 'identity-cards') return <ApplicationforUniversityIdentityCardsForm />;
-  if (slug === 'motor-vehicle') return <ConcessionaryMotorVehiclePermitForm />;
-  if (slug === 'etf-form') return <ETFForm />;
-  if (slug === 'probationary') return <ProbationaryLeaveApplicationForm />;
-
+  if (slug === 'agreement')      return <AgreementForm />
+  if (slug === 'appendix-16')    return <Appendix16Form />
+  if (slug === 'promotion')      return <ApplicationforConfirmationForm />
+  if (slug === 'railway')        return <ApplicationforRailwayWarrantsForm />
+  if (slug === 'sabbatical')     return <ApplicationforSabbaticalLeaveForm />
+  if (slug === 'leave')          return <ApplicationforTRForm />
+  if (slug === 'identity-cards') return <ApplicationforUniversityIdentityCardsForm />
+  if (slug === 'motor-vehicle')  return <ConcessionaryMotorVehiclePermitForm />
+  if (slug === 'etf-form')       return <ETFForm />
+  if (slug === 'probationary')   return <ProbationaryLeaveApplicationForm />
 
   const filtered = applications.filter((app) =>
-  app.title.toLowerCase().includes(search.toLowerCase())
-)
+    app.title.toLowerCase().includes(search.toLowerCase())
+  )
 
   return (
-    <div className={styles.page}>
+    <div className="min-h-screen bg-stone-50 pb-20">
 
       {/* Page header */}
-      <div className={styles.pageHeader}>
-        <h1 className={styles.heading}>Applications & Forms</h1>
-        <p className={styles.subtext}>
+      <div className="bg-[#4a0b16] border-b-4 border-[#c9922a] px-5 pt-14 pb-9 text-center">
+        <h1 className="text-[#e8c97a] text-3xl font-bold tracking-widest uppercase mb-1.5">
+          Applications & Forms
+        </h1>
+        <p className="text-white/50 text-sm">
           Download the relevant forms and submit them to the division
         </p>
       </div>
 
-      <div className={styles.container}>
+      <div className="max-w-4xl mx-auto mt-10 px-6">
 
-        {/* Filter buttons */}
-        <div className={styles.searchBar}>
-  <span className={styles.searchIcon}>🔍</span>
-  <input
-    type="text"
-    placeholder="Search applications..."
-    value={search}
-    onChange={(e) => setSearch(e.target.value)}
-    className={styles.searchInput}
-  />
-</div>
+        {/* Search bar */}
+        <div className="flex items-center gap-3 bg-white border border-[#80000033] rounded-lg px-4 py-2.5 mb-6">
+          <span className="text-gray-400 text-sm">🔍</span>
+          <input
+            type="text"
+            placeholder="Search applications..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="border-none outline-none text-sm text-[#4a0b16] bg-transparent w-full placeholder-gray-300"
+          />
+        </div>
 
-        {/* Applications grid */}
-        <div className={styles.grid}>
-          {filtered.map((app) => (
-            <div key={app.id} className={styles.card}>
-              <div className={styles.cardIcon}>📄</div>
-              <div className={styles.cardBody}>
-                <p className={styles.cardTitle}>{app.title}</p>
-                <div className={styles.cardFooter}>
-                  
-                  
-                   <a href={app.downloadUrl}
-                    className={styles.downloadBtn}
-                    download
-                  >
-                     Download
-                  </a>
-                </div>
+        {/* Applications list */}
+        <div className="flex flex-col gap-3">
+          {filtered.length === 0 ? (
+            <p className="text-center text-gray-400 text-sm py-16">
+              No applications found.
+            </p>
+          ) : (
+            filtered.map((app) => (
+              <div
+                key={app.id}
+                className="bg-white border border-[#80000020] border-l-4 border-l-[#c9922a] rounded-r-lg px-5 py-4 flex items-center gap-4 hover:shadow-md transition-shadow duration-200"
+              >
+                {/* Icon */}
+                <span className="text-2xl shrink-0">📄</span>
+
+                {/* Title */}
+                <p className="flex-1 text-sm font-semibold text-[#4a0b16] leading-snug">
+                  {app.title}
+                </p>
+
+                {/* Download button */}
+                
+                 <a href={app.downloadUrl}
+                  className="shrink-0 text-xs font-semibold text-[#4a0b16] border border-[#80000050] px-4 py-1.5 rounded hover:bg-[#4a0b16] hover:text-[#e8c97a] transition-colors duration-150"
+                  download
+                >
+                  ↓ Download
+                </a>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
 
       </div>
