@@ -1,5 +1,3 @@
-import styles from './StaffPage.module.css'
-
 interface StaffMember {
   id: number
   name: string
@@ -52,28 +50,60 @@ const managementAssistants: StaffMember[] = [
 ]
 
 function StaffCard({ member, size }: { member: StaffMember; size: 'large' | 'small' }) {
-  return (
-    <div className={size === 'large' ? styles.seniorCard : styles.staffCard}>
-      <img
-  src={member.image}
-  alt={member.name}
-  className={size === 'large' ? styles.seniorPhoto : styles.staffPhoto}
-  onError={(e) => {
-    const target = e.target as HTMLImageElement
-    target.style.display = 'none'
-    target.parentElement!.classList.add(styles.noPhoto)
-  }}
-/>
-      <div className={styles.cardInfo}>
-        <p className={styles.name}>{member.name}</p>
+  if (size === 'large') {
+    return (
+      <div className="flex flex-col items-center text-center w-48">
+        <img
+          src={member.image}
+          alt={member.name}
+          className="w-36 h-44 object-cover object-top border-3 border-[#c9922a] mb-3"
+          style={{ border: '3px solid #c9922a' }}
+          onError={(e) => {
+            (e.target as HTMLImageElement).style.display = 'none'
+          }}
+        />
+        <p className="text-xs font-bold text-[#4a0b16] leading-snug">{member.name}</p>
         {member.nickname && (
-          <p className={styles.nickname}>({member.nickname})</p>
+          <p className="text-[11px] text-gray-400">({member.nickname})</p>
         )}
-        <p className={styles.role}>{member.role}</p>
+        <p className="text-[11px] text-gray-500 italic mt-0.5">{member.role}</p>
         {member.phone && (
-          <p className={styles.phone}>{member.phone}</p>
+          <p className="text-[11px] text-gray-500 mt-1">{member.phone}</p>
         )}
-        <a href={`mailto:${member.email}`} className={styles.email}>
+        
+         <a href={`mailto:${member.email}`}
+          className="text-[11px] text-[#800000] border-b border-[#80000040] mt-1 hover:text-[#4a0b16] break-all"
+        >
+          {member.email}
+        </a>
+      </div>
+    )
+  }
+
+  return (
+    <div className="bg-white border border-[#80000020] border-t-4 border-t-[#c9922a] rounded-b-lg flex flex-col items-center text-center overflow-hidden hover:shadow-md transition-shadow duration-200 min-h-[280px]">
+      <img
+        src={member.image}
+        alt={member.name}
+        className="w-full h-48 object-cover object-[center_15%] block"
+        onError={(e) => {
+          const target = e.target as HTMLImageElement
+          target.style.display = 'none'
+          if (target.parentElement) {
+            target.parentElement.style.background = '#f0e8e8'
+          }
+        }}
+      />
+      <div className="px-2.5 py-3 flex flex-col items-center gap-0.5">
+        <p className="text-[11px] font-bold text-[#4a0b16] leading-snug">{member.name}</p>
+        {member.nickname && (
+          <p className="text-[10px] text-gray-400">({member.nickname})</p>
+        )}
+        <p className="text-[10px] text-gray-500 italic mt-0.5">{member.role}</p>
+        
+         <a href={`mailto:${member.email}`}
+          className="text-[10px] text-[#800000] border-b border-[#80000040] mt-1 hover:text-[#4a0b16] break-all"
+        >
           {member.email}
         </a>
       </div>
@@ -83,31 +113,37 @@ function StaffCard({ member, size }: { member: StaffMember; size: 'large' | 'sma
 
 export default function StaffPage() {
   return (
-    <div className={styles.page}>
+    <div className="min-h-screen bg-stone-50 pb-16">
 
       {/* Page header */}
-      <div className={styles.pageHeader}>
-        <h1 className={styles.heading}>Staff Directory</h1>
-        <p className={styles.subtext}>
+      <div className="bg-[#4a0b16] border-b-4 border-[#c9922a] px-5 pt-14 pb-9 text-center">
+        <h1 className="text-[#e8c97a] text-3xl font-bold tracking-widest uppercase mb-1.5">
+          Staff Directory
+        </h1>
+        <p className="text-white/50 text-sm">
           Academic Establishments Division · University of Peradeniya
         </p>
       </div>
 
       {/* Senior officers */}
-      <div className={styles.section}>
-        <p className={styles.sectionLabel}>Senior Officers</p>
-        <div className={styles.seniorGrid}>
+      <div className="max-w-5xl mx-auto px-6 pt-10">
+        <p className="text-center text-[11px] font-bold tracking-widest uppercase text-[#c9922a] mb-7">
+          Senior Officers
+        </p>
+        <div className="flex justify-center gap-12 flex-wrap">
           {seniorOfficers.map((member) => (
             <StaffCard key={member.id} member={member} size="large" />
           ))}
         </div>
-        <div className={styles.divider} />
+        <div className="w-14 h-0.5 bg-[#c9922a] mx-auto mt-10" />
       </div>
 
       {/* Management assistants */}
-      <div className={styles.section}>
-        <p className={styles.sectionLabel}>Management Assistants</p>
-        <div className={styles.staffGrid}>
+      <div className="max-w-5xl mx-auto px-6 pt-10">
+        <p className="text-center text-[11px] font-bold tracking-widest uppercase text-[#c9922a] mb-7">
+          Management Assistants
+        </p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
           {managementAssistants.map((member) => (
             <StaffCard key={member.id} member={member} size="small" />
           ))}
