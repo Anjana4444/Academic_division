@@ -1,18 +1,10 @@
-import styles from './AboutPage.module.css'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination, Autoplay } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
-interface AboutSection {
-  id: number
-  title: string
-  description: string
-  icon: string
-}
-
-const divisionDetails: AboutSection[] = [
+const divisionDetails = [
   {
     id: 1,
     title: 'Our Vision',
@@ -34,97 +26,126 @@ const divisionDetails: AboutSection[] = [
 ]
 
 const slides = [
-  { id: 1, src: '/uop.jpg', alt: 'University View 1' },
+  { id: 1, src: '/uop.jpg',  alt: 'University View 1' },
   { id: 2, src: '/uop1.jpg', alt: 'University View 2' },
   { id: 3, src: '/uop2.jpg', alt: 'University View 3' },
-];
+]
 
+const functions = [
+  'Determining the cadre requirements of academic and academic support staff',
+  'Updating and maintaining cadre statistics',
+  'Handling recruitment, confirmation, increments, and promotions',
+  'Maintaining personal files of all staff members',
+  'Managing leave, training, and scholarships',
+  'Attending to staff welfare (loans, insurance, service certificates)',
+  'Handling Research Allowance and salary revisions',
+  'Coordinating disciplinary and litigation matters',
+  'Managing retirement benefits (UPF, EPF, ETF, Pensions)',
+  'Handling contractual and assignment-based appointments',
+  'Appointing Heads of Academic Departments',
+  'Coordinating trade union issues and recruitment exams',
+  'Managing Bonds and Agreements (including violations)',
+  'Convening the Leave and Awards Committee',
+]
 
 export default function AboutPage() {
   return (
-    <div className={styles.aboutContainer}>
-      {/* Pink Top Section */}
-      <section className={styles.heroHeader}>
-        <h1 className={styles.mainHeading}>About us</h1>
-      </section>
+    <div className="font-sans text-gray-800 bg-white">
 
-      {/* Overlapping Content Section */}
-      <section className={styles.contentSection}>
-        <div className={styles.swiperBackground}>
-    <div className={styles.imageWrapper}>
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={0}
-        slidesPerView={1}
-        navigation
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 4000 }}
-        loop={true}
-        className={styles.heroImage} 
-      >
-        {slides.map((slide) => (
-          <SwiperSlide key={slide.id}>
-            <img 
-              src={slide.src} 
-              alt={slide.alt} 
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
-            />
-          </SwiperSlide>
+      {/* Page header */}
+      <div className="bg-[#4a0b16] border-b-4 border-[#c9922a] px-5 pt-14 pb-9 text-center">
+        <h1 className="text-[#e8c97a] text-3xl font-bold tracking-widest uppercase">
+          About Us
+        </h1>
+      </div>
+
+      {/* Swiper banner */}
+      <div className="relative w-full bg-[#4a0b16] py-14 overflow-hidden">
+        {/* Blurred background */}
+        <div
+          className="absolute inset-0 scale-110 blur-2xl brightness-40 z-0"
+          style={{ backgroundImage: "url('/uop.jpg')", backgroundSize: 'cover', backgroundPosition: 'center', filter: 'blur(15px) brightness(0.4)' }}
+        />
+        {/* Swiper */}
+        <div className="relative z-10 w-11/12 max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl h-112.5">
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={0}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 4000 }}
+            loop={true}
+            style={{ width: '100%', height: '100%' }}
+          >
+            {slides.map((slide) => (
+              <SwiperSlide key={slide.id}>
+                <img
+                  src={slide.src}
+                  alt={slide.alt}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+
+      {/* About text */}
+      <div className="max-w-3xl mx-auto px-5 py-12 text-base leading-relaxed text-gray-700 space-y-4">
+        <p>
+          The Academic Establishments Division is one of the most important Divisions in the University.
+          Presently the entire Department is managed by two officers — one at the Senior Assistant Registrar
+          level and the other at the Assistant Registrar level — with the assistance of several Management Assistants.
+        </p>
+        <p>
+          The primary function of the Establishments Division is the recruitment of qualified staff and
+          retaining them in the service in line with the corporate goals of the University. The Division
+          also assists the University Council in the development, maintenance, and interpretation of human
+          resources management procedures in accordance with the Establishment Code and Rules and Regulations
+          of the University Grants Commission.
+        </p>
+        <p>
+          This Division not only recruits teaching staff but also performs all functions necessary to promote
+          them to higher grades, handles annual salary increments, and grants various types of leave to academic staff.
+        </p>
+        <p>
+          The Division is also responsible for advertising academic cadre positions twice a year — in January
+          and July — and maintains the personal files of all academic and academic support staff.
+        </p>
+      </div>
+
+      {/* Functions card */}
+      <div className="max-w-4xl mx-auto px-5 mb-14">
+        <div className="bg-[#ffcc00] rounded-xl p-10 shadow-md">
+          <h2 className="text-xl font-extrabold uppercase tracking-wide text-center border-b-2 border-gray-800 pb-3 mb-6">
+            Main Functions of the Department
+          </h2>
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-3 list-none p-0">
+            {functions.map((fn, i) => (
+              <li key={i} className="relative pl-6 text-sm font-medium leading-snug">
+                <span className="absolute left-0 font-bold text-[#800000]">✓</span>
+                {fn}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* Vision / Mission / Services cards */}
+      <div className="max-w-4xl mx-auto px-5 pb-20 grid grid-cols-1 md:grid-cols-3 gap-6">
+        {divisionDetails.map((item) => (
+          <div
+            key={item.id}
+            className="border border-gray-100 rounded-xl p-8 hover:-translate-y-1 transition-transform duration-200"
+          >
+            <div className="text-3xl mb-4">{item.icon}</div>
+            <h3 className="text-lg font-bold mb-2">{item.title}</h3>
+            <p className="text-sm text-gray-500 leading-relaxed">{item.description}</p>
+          </div>
         ))}
-      </Swiper>
-    </div>
-  </div>
+      </div>
 
-        <div className={styles.textContent}>
-          <p>
-            The Academic Establishments Division is one of the most important Divisions in the University. Presently the entire Department is managed by two officers one at the Senior Assistant Registrar level and the other at the Assistant Registrar level with the assistance of several Management Assistants.
-
-The primary function of the Establishments Division is the recruitment of qualified staff and retaining them in the service in line with the corporate goals of the University. The Establishments Division also assists the University Council in the development, maintenance, and interpretation of human resources management procedures in accordance with the Establishment Code and Rule and Regulations of the University Grants Commission and Administrative policies of the University.
-
-This Division not only recruits teaching staff but also performs all functions necessary to promote them to higher grades. It also completes various tasks related to the payment of annual salary increments. The Division also takes action to grant the members of the Academic staff various types of leave they are entitled to.
-
-In addition to performing the above functions, the Division is also responsible for advertising the academic cadre positions vacant in the Departments of different Faculties in the newspapers as well as on the University website twice a year, i.e. in January and July.
-
-Moreover, the Division maintains the personal files of the academic staff members and academic support staff. The Academic Establishments Division also updates information on approved cadres and makes requests to the UGC for additional cadre positions.
-
-Academic Establishments Division is pleased to provide the Rules and Regulations that are currently in force so that the members of staff can select and follow the correct procedures in matters related to their employment, with, in turn, will enable the Division to offer a better and more efficient service for them.
-          </p>
-        </div>
-
-        {/* New Yellow Functions Card */}
-<div className={styles.functionsCard}>
-  <h2 className={styles.functionsHeading}>Main Functions of the Department</h2>
-  <ul className={styles.functionsList}>
-    <li>Determining the cadre requirements of academic and academic support staff</li>
-    <li>Updating and maintaining cadre statistics</li>
-    <li>Handling recruitment, confirmation, increments, and promotions</li>
-    <li>Maintaining personal files of all staff members</li>
-    <li>Managing leave, training, and scholarships</li>
-    <li>Attending to staff welfare (loans, insurance, service certificates)</li>
-    <li>Handling Research Allowance and salary revisions</li>
-    <li>Coordinating disciplinary and litigation matters</li>
-    <li>Managing retirement benefits (UPF, EPF, ETF, Pensions)</li>
-    <li>Handling contractual and assignment-based appointments</li>
-    <li>Appointing Heads of Academic Departments</li>
-    <li>Coordinating trade union issues and recruitment exams</li>
-    <li>Managing Bonds and Agreements (including violations)</li>
-    <li>Convening the Leave and Awards Committee</li>
-  </ul>
-</div>
-
-        {/* Bottom Grid */}
-        <div className={styles.grid}>
-          {divisionDetails.map((item) => (
-            <div key={item.id} className={styles.card}>
-              <div className={styles.icon}>{item.icon}</div>
-              <h3 className={styles.cardTitle}>{item.title}</h3>
-              <p className={styles.cardDescription}>{item.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      
     </div>
   )
 }

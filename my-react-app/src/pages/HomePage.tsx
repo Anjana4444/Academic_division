@@ -32,7 +32,7 @@ const HomePage: React.FC = () => {
         <div className="hero-content">
          
           
-          <h1 className="main-title text-red-300">
+          <h1 className="main-title">
             <span className="title-line-1">Academic</span>
             <span className="title-line-2">
               <span className="gold-highlight">Establishments</span> Division
