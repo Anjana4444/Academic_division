@@ -13,7 +13,7 @@ export default function Navbar() {
   const location = useLocation()
 
   return (
-    <nav className="bg-[#3C0008] fixed top-0 left-0 w-full h-[70px] z-[1000] flex items-center shadow-lg">
+    <nav className="bg-[#3C0008] fixed top-0 left-0 w-full h-17.5 z-1000 flex items-center shadow-lg">
       <div className="w-[90%] mx-auto flex items-center justify-between">
 
         {/* Logo */}
@@ -21,7 +21,7 @@ export default function Navbar() {
           <img
             src="/logo-2.webp"
             alt="Academic Establishments Division"
-            className="h-[58px] w-auto"
+            className="h-14.5 w-auto"
           />
           <div>
             <div className="text-white text-sm font-semibold leading-tight">

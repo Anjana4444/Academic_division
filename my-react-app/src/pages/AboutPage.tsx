@@ -53,7 +53,7 @@ export default function AboutPage() {
     <div className="font-sans text-gray-800 bg-white">
 
       {/* Page header */}
-      <div className="bg-[#4a0b16] border-b-4 border-[#c9922a] px-5 pt-14 pb-9 text-center">
+      <div className="bg-[#4a0b16] border-b-4 border-[#c9922a] px-5 pt-24 pb-9 text-center">
         <h1 className="text-[#e8c97a] text-3xl font-bold tracking-widest uppercase">
           About Us
         </h1>
