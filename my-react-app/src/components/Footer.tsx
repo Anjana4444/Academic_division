@@ -16,7 +16,7 @@ export default function Footer() {
           src='logo-2.webp' 
           alt="ACADEMIC ESTABLISHMENTS DIVISION- University of Peradeniya" 
           className="itc-logo"
-          style={{ height: '58px', width: 'auto' }}
+          style={{ height: '58px', width: '58px' }}
           />
       </div>
       <div>

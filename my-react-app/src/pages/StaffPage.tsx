@@ -1,3 +1,5 @@
+import React from 'react'
+
 interface StaffMember {
   id: number
   name: string
@@ -52,60 +54,103 @@ const managementAssistants: StaffMember[] = [
 function StaffCard({ member, size }: { member: StaffMember; size: 'large' | 'small' }) {
   if (size === 'large') {
     return (
-      <div className="flex flex-col items-center text-center w-48">
-        <img
-          src={member.image}
-          alt={member.name}
-          className="w-36 h-44 object-cover object-top border-3 border-[#c9922a] mb-3"
-          style={{ border: '3px solid #c9922a' }}
-          onError={(e) => {
-            (e.target as HTMLImageElement).style.display = 'none'
-          }}
-        />
-        <p className="text-xs font-bold text-[#4a0b16] leading-snug">{member.name}</p>
+      <div className="group bg-white border border-stone-200 shadow-sm rounded-xl p-5 flex flex-col items-center text-center w-64 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-md hover:border-[#c9922a]/50">
+        <div className="relative w-40 h-48 mb-4 overflow-hidden rounded-lg border-2 border-[#c9922a]/30 transition-colors duration-300 group-hover:border-[#c9922a]">
+          <img
+            src={member.image}
+            alt={member.name}
+            className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            onError={(e) => {
+              (e.target as HTMLImageElement).style.display = 'none'
+            }}
+          />
+        </div>
+        
+        <h3 className="text-sm font-bold text-[#4a0b16] leading-snug group-hover:text-[#800000] transition-colors duration-200">
+          {member.name}
+        </h3>
         {member.nickname && (
-          <p className="text-[11px] text-gray-400">({member.nickname})</p>
-        )}
-        <p className="text-[11px] text-gray-500 italic mt-0.5">{member.role}</p>
-        {member.phone && (
-          <p className="text-[11px] text-gray-500 mt-1">{member.phone}</p>
+          <p className="text-xs text-stone-400 font-medium mt-0.5">({member.nickname})</p>
         )}
         
-         <a href={`mailto:${member.email}`}
-          className="text-[11px] text-[#800000] border-b border-[#80000040] mt-1 hover:text-[#4a0b16] break-all"
-        >
-          {member.email}
-        </a>
+        <p className="text-xs font-semibold text-[#c9922a] tracking-wide uppercase mt-2 px-2.5 py-0.5 bg-[#c9922a]/10 rounded-full">
+          {member.role}
+        </p>
+
+        <div className="w-full border-t border-stone-100 my-3.5" />
+
+        <div className="flex flex-col gap-1.5 w-full text-xs text-stone-600">
+          {member.phone && (
+            <div className="flex items-center justify-center gap-1.5">
+              <svg className="w-3.5 h-3.5 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.72.73.73 0 00.58.53l3.28.9a1 1 0 01.7.94v3.9a1 1 0 01-.68.94l-2.69.94a11.95 11.95 0 005.61 5.61l.94-2.7a1 1 0 01.94-.68h3.9a1 1 0 01.94.7l.9 3.28a1 1 0 01-.7.94l-3.79 1.2a1 1 0 01-1.14-.34l-2.28-2.28a11.947 11.947 0 01-5.61-5.61L9.72 9.72a1 1 0 01-.34-1.14l1.2-3.79z" />
+              </svg>
+              <span>{member.phone}</span>
+            </div>
+          )}
+          
+          <a 
+            href={`mailto:${member.email}`}
+            className="flex items-center justify-center gap-1.5 text-stone-500 hover:text-[#4a0b16] transition-colors break-all group/link"
+          >
+            <svg className="w-3.5 h-3.5 text-stone-400 group-hover/link:text-[#4a0b16]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span className="border-b border-transparent group-hover/link:border-[#4a0b16]/40">{member.email}</span>
+          </a>
+        </div>
       </div>
     )
   }
 
+  /* FIXED SMALL CARD CONFIGURATION */
   return (
-    <div className="bg-white border border-[#80000020] border-t-4 border-t-[#c9922a] rounded-b-lg flex flex-col items-center text-center overflow-hidden hover:shadow-md transition-shadow duration-200 min-h-[280px]">
-      <img
-        src={member.image}
-        alt={member.name}
-        className="w-full h-48 object-cover object-[center_15%] block"
-        onError={(e) => {
-          const target = e.target as HTMLImageElement
-          target.style.display = 'none'
-          if (target.parentElement) {
-            target.parentElement.style.background = '#f0e8e8'
-          }
-        }}
-      />
-      <div className="px-2.5 py-3 flex flex-col items-center gap-0.5">
-        <p className="text-[11px] font-bold text-[#4a0b16] leading-snug">{member.name}</p>
-        {member.nickname && (
-          <p className="text-[10px] text-gray-400">({member.nickname})</p>
-        )}
-        <p className="text-[10px] text-gray-500 italic mt-0.5">{member.role}</p>
+    <div className="group bg-white border border-stone-200/80 rounded-xl flex flex-col overflow-hidden shadow-sm transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-md hover:border-[#c9922a]/40 w-full">
+      {/* Changed aspect ratio to 4:3 landscape layout to stop vertical/head cropping */}
+      <div className="relative w-full aspect-[4/3] overflow-hidden bg-stone-100 border-b border-stone-100">
+        <img
+          src={member.image}
+          alt={member.name}
+          /* Using object-cover with top centering focus so faces aren't clipped out of view */
+          className="w-full h-full object-cover object-[center_20%] transition-transform duration-500 group-hover:scale-105"
+          onError={(e) => {
+            const target = e.target as HTMLImageElement
+            target.style.display = 'none'
+            if (target.parentElement) {
+              target.parentElement.style.background = '#f5f0f0'
+            }
+          }}
+        />
+        <div className="absolute top-0 left-0 w-full h-1 bg-[#c9922a] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+      </div>
+
+      <div className="p-4 flex flex-col flex-grow items-center text-center justify-between min-h-[140px]">
+        <div>
+          <h3 className="text-xs font-bold text-[#4a0b16] leading-snug group-hover:text-[#800000] transition-colors duration-200 line-clamp-2">
+            {member.name}
+          </h3>
+          {member.nickname && (
+            <p className="text-[10px] text-stone-400 mt-0.5 font-medium">({member.nickname})</p>
+          )}
+          
+          <p className="text-[11px] text-stone-500 italic mt-1">
+            {member.role}
+          </p>
+        </div>
         
-         <a href={`mailto:${member.email}`}
-          className="text-[10px] text-[#800000] border-b border-[#80000040] mt-1 hover:text-[#4a0b16] break-all"
-        >
-          {member.email}
-        </a>
+        <div className="w-full">
+          <div className="w-full border-t border-stone-100 my-2.5" />
+          
+          <a 
+            href={`mailto:${member.email}`}
+            className="flex items-center gap-1 text-[10px] text-stone-500 hover:text-[#4a0b16] transition-colors w-full justify-center group/link"
+          >
+            <svg className="w-3 h-3 text-stone-400 group-hover/link:text-[#4a0b16] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span className="truncate border-b border-transparent group-hover/link:border-[#4a0b16]/40">{member.email}</span>
+          </a>
+        </div>
       </div>
     </div>
   )
@@ -113,43 +158,51 @@ function StaffCard({ member, size }: { member: StaffMember; size: 'large' | 'sma
 
 export default function StaffPage() {
   return (
-    <div className="min-h-screen bg-stone-50 pb-16">
-
+    <div className="min-h-screen bg-stone-50 pb-20 selection:bg-[#4a0b16] selection:text-white">
       {/* Page header */}
-      <div className="bg-[#4a0b16] border-b-4 border-[#c9922a] px-5 pt-24 pb-9 text-center">
-        <h1 className="text-[#e8c97a] text-3xl font-bold tracking-widest uppercase mb-1.5">
+      <div className="bg-[#4a0b16] border-b-4 border-[#c9922a] px-5 pt-24 pb-12 text-center shadow-inner relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/5 pointer-events-none" />
+        <h1 className="text-[#e8c97a] text-3xl md:text-4xl font-bold tracking-widest uppercase mb-2">
           Staff Directory
         </h1>
-        <p className="text-white/50 text-sm">
+        <p className="text-white/70 text-sm max-w-xl mx-auto font-medium">
           Academic Establishments Division · University of Peradeniya
         </p>
       </div>
 
       {/* Senior officers */}
-      <div className="max-w-5xl mx-auto px-6 pt-10">
-        <p className="text-center text-[11px] font-bold tracking-widest uppercase text-[#c9922a] mb-7">
-          Senior Officers
-        </p>
-        <div className="flex justify-center gap-12 flex-wrap">
+      <div className="max-w-6xl mx-auto px-6 pt-14">
+        <div className="flex flex-col items-center mb-8">
+          <p className="text-[11px] font-bold tracking-widest uppercase text-[#c9922a]">
+            Senior Officers
+          </p>
+          <div className="w-8 h-0.5 bg-[#c9922a] mt-2" />
+        </div>
+        <div className="flex justify-center gap-8 flex-wrap">
           {seniorOfficers.map((member) => (
             <StaffCard key={member.id} member={member} size="large" />
           ))}
         </div>
-        <div className="w-14 h-0.5 bg-[#c9922a] mx-auto mt-10" />
+      </div>
+
+      <div className="max-w-5xl mx-auto px-6 my-6">
+        <div className="w-full h-px bg-stone-200" />
       </div>
 
       {/* Management assistants */}
-      <div className="max-w-5xl mx-auto px-6 pt-10">
-        <p className="text-center text-[11px] font-bold tracking-widest uppercase text-[#c9922a] mb-7">
-          Management Assistants
-        </p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+      <div className="max-w-6xl mx-auto px-6 pt-6">
+        <div className="flex flex-col items-center mb-8">
+          <p className="text-[11px] font-bold tracking-widest uppercase text-[#c9922a]">
+            Management Assistants
+          </p>
+          <div className="w-8 h-0.5 bg-[#c9922a] mt-2" />
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {managementAssistants.map((member) => (
             <StaffCard key={member.id} member={member} size="small" />
           ))}
         </div>
       </div>
-
     </div>
   )
 }
