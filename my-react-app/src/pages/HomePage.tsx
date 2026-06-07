@@ -37,7 +37,7 @@ const HomePage: React.FC = () => {
         
         {/* Main background image with its dark overlay */}
         <div 
-          className="absolute inset-0 z-1 bg-cover bg-center contrast-110 grayscale-85 " 
+          className="absolute inset-0 blur-[1px] z-1 bg-cover bg-center contrast-110 grayscale-85 " 
           style={{ backgroundImage: "url('/slide-4.jpg')" }}
         />
         <div className="absolute inset-0 z-2 bg-[radial-gradient(circle,rgba(60,0,8,0.55)_10%,rgba(60,0,8,0.35)_80%)] " />
@@ -122,7 +122,7 @@ const HomePage: React.FC = () => {
               <img 
                 src="/side.png" 
                 alt="Division Feature" 
-                className="block h-full w-full object-cover blur-[1px] scale-[1.02]" 
+                className="block h-full w-full object-cover  scale-[1.02]" 
               />
               {/* Fade gradient overlay matching side block background */}
               <div className="absolute inset-0 pointer-events-none bg-linear-to-r from-transparent via-transparent to-[#3C0008]/98" />
