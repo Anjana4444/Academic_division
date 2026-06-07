@@ -35,16 +35,16 @@ export default function ContactPage() {
     <div className="w-full">
 
       {/* Hero banner */}
-      <section className="relative h-64 w-full overflow-hidden">
+      <section className="relative h-[370px] w-full overflow-hidden">
         <img
-          src="/uop2.jpg"
+          src="/aeu.png"
           alt="University Campus"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
-        <div className="absolute inset-0 bg-[#4a0b16]/70 z-10" />
+        <div className="absolute inset-0 bg-[#4a0b16]/60 z-10" />
         <div className="absolute inset-0 flex items-center justify-center z-20">
-          <h1 className="text-white text-4xl font-bold tracking-widest uppercase">
-            Contact
+          <h1 className="text-white font-sans text-4xl font-bold tracking-widest uppercase drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
+            Contact 
           </h1>
         </div>
       </section>
@@ -55,7 +55,7 @@ export default function ContactPage() {
           <a
             key={method.id}
             href={method.link}
-            className="bg-white shadow-lg px-6 py-10 flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-200 no-underline"
+            className="bg-[white] px-6 py-10 flex flex-col items-center text-center [box-shadow:inset_0_0_15px_rgba(201,146,42,0.25)] hover:[box-shadow:inset_0_0_15px_rgba(201,146,42,0.15),0_10px_25px_-5px_rgba(74,11,22,0.4)] hover:-translate-y-2 transition-all duration-300 no-underline rounded-xl"
           >
             <span className="text-4xl mb-4">{method.icon}</span>
             <span className="text-xs font-bold tracking-widest uppercase text-[#4a0b16] mb-2">
@@ -68,7 +68,7 @@ export default function ContactPage() {
 
       {/* Contact form */}
 <div className="max-w-4xl mx-auto px-6 mb-16">
-  <div className="bg-white rounded-xl shadow-md border-l-4 border-[#c9922a] p-8">
+  <div className="bg-[white] rounded-xl shadow-md border-l-4 border-[#c9922a] p-8">
     
     <h2 className="text-2xl font-bold text-[#4a0b16] mb-6 flex items-center gap-2">
       <span className="w-1.5 h-6 bg-[#4a0b16] rounded-full inline-block"></span>

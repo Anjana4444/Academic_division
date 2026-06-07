@@ -21,14 +21,32 @@ export default function SpecialNoticesPage() {
     <div className="min-h-screen bg-stone-50 pb-20">
 
       {/* Page header */}
-      <div className="bg-[#4a0b16] border-b-4 border-[#c9922a] px-5 pt-24 pb-9 text-center">
-        <h1 className="text-[#e8c97a] text-3xl font-bold tracking-widest uppercase mb-1.5">
-          Special Notices
-        </h1>
-        <p className="text-white/50 text-sm">
-          Important announcements from the Academic Establishments Division
-        </p>
-      </div>
+      <section className="relative h-[360px] w-full overflow-hidden">
+       
+        <div 
+          className="absolute inset-0  z-1 bg-cover bg-center contrast-100 grayscale-45 " 
+          style={{ backgroundImage: "url('/aeu.png')" }}
+        />
+        <div className="absolute inset-0 z-2 bg-[radial-gradient(circle,rgba(60,0,8,0.55)_10%,rgba(60,0,8,0.35)_80%)] " />
+
+        {/* Decorative shape - Right Bottom */}
+        <div
+          className="absolute top-0 right-0 z-30 h-full w-[55%] bg-[#3C0008]/60"
+          style={{ 
+            clipPath: 'polygon(100% 0, 100% 100%, 35% 100%, 55% 0)' 
+          }}
+        />
+
+        {/* Title - Left Corner */}
+        <div className="absolute bottom-12 left-8 md:left-12 z-40">
+          <h1 className="text-[#ffffff] text-4xl md:text-5xl font-bold tracking-widest uppercase drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
+            Special Notices
+          </h1>
+          <p className="text-white/70 text-sm md:text-base mt-2 tracking-wide">
+            Important announcements from the Academic Establishments Division
+          </p>
+        </div>
+      </section>
 
       {/* Notices list */}
       <div className="max-w-3xl mx-auto mt-12 px-6 flex flex-col gap-4">

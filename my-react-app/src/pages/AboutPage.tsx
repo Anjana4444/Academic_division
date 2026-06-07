@@ -12,7 +12,7 @@ export default function AboutPage() {
   {/* Left Section (1/3 width on desktop): Solid Color & Text */}
   <div className="flex flex-col justify-center bg-[#ffffff] px-8 py-12 md:col-span-1 md:px-12">
     <div className="w-full text-left">
-      <h1 className="m-0 mb-6 font-sans text-3xl font-bold leading-tight tracking-normal text-[#3C0008] lg:text-4xl">
+      <h1 className="m-0 mb-6 font-sans text-4xl font-bold leading-tight uppercase tracking-normal text-[#3C0008] lg:text-4xl drop-shadow-[0_1px_1px_rgba(0,0,0,1)]">
         About <span className="text-[#B59410]">Our Division</span>
       </h1>
       
@@ -27,8 +27,8 @@ export default function AboutPage() {
     {/* Main background image */}
     
     <div 
-      className="absolute inset-0 bg-cover bg-center contrast-110 grayscale-[85%]" 
-      style={{ backgroundImage: "url('/slide-4.jpg')" }}
+      className="absolute inset-0 bg-cover bg-center contrast-100 grayscale-[45%] " 
+      style={{ backgroundImage: "url('/aboutt.png')" }}
     />
     {/* Radial overlay */}
     <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(60,0,8,0.2)_10%,rgba(60,0,8,0.6)_90%)]" />
@@ -40,22 +40,25 @@ export default function AboutPage() {
           2. CORE INTENTION QUOTE BLOCK 
           (Ref: Screenshot 2026-06-02 141817.png)
          ========================================== */}
-      <section className="relative flex min-h-[280px] w-full flex-col justify-center items-center overflow-hidden bg-[#7d6a6a] px-6 py-12 text-center ">
-        <div className="relative z-[4] w-full max-w-4xl px-5 flex flex-col items-center">         
-          
-          {/* Top Elegant Quotation Treatment */}
-          <span className="font-serif text-5xl text-[#B59410]/40 leading-none mb-1 select-none">“</span>
+      <section className="relative flex min-h-[280px] w-full flex-col justify-center items-center overflow-hidden bg-[#7d6a6a] px-6 py-16 text-center">
+        {/* Decorative Top-Left Corner */}
+        <div className="absolute border-4 border-[#B59410]/55 border-b-0 border-r-0 top-6 left-6 h-40 w-40" />
+        
+        {/* Decorative Bottom-Right Corner */}
+        <div className="absolute border-4 border-[#B59410]/55 border-t-0 border-l-0 bottom-6 right-6 h-40 w-40" /> 
 
-          {/* Core Intention Statement */}
-          <p className="font-serif italic text-lg md:text-2xl font-normal leading-relaxed text-neutral-200 max-w-3xl tracking-wide">
+        <div className="relative z-[4] w-full max-w-4xl px-8 flex flex-col items-center">     
+          
+          {/* Core Intention Statement with Integrated Quotation Marks */}
+          <p className="font-sans text-lg md:text-2xl font-normal leading-relaxed text-neutral-200 max-w-3xl tracking-wide">
+            <span className="font-serif text-4xl md:text-5xl text-[#3C0008]/40 select-none align-top mr-1">“</span>
             The Academic Establishments Division is one of the most important Divisions in the University, 
             dedicated to recruiting qualified staff and retaining them in service in line with the corporate goals of the University.
+            <span className="font-serif text-4xl md:text-5xl text-[#3C0008]/40 select-none align-bottom ml-1">”</span>
           </p>
 
-          <span className="font-serif text-5xl text-[#B59410]/40 leading-none mt-1 h-3 select-none">”</span>
-
           {/* Accent Gold Divider Line */}
-          <div className="mt-6 h-[2px] w-16 bg-[#B59410]/80" />
+          <div className="mt-6 h-[2px] w-16 bg-[#3C0008]/80" />
         </div>
       </section>
 
@@ -68,17 +71,15 @@ export default function AboutPage() {
         {/* Left Side: Body Descriptions */}
         <div className="lg:col-span-7 space-y-6 text-left">
           <div className="flex items-center gap-3 mb-2">
-            <span className="h-[1px] w-6 bg-[#B59410]" />
-            <span className="text-[10px] font-bold tracking-[3px] uppercase text-[#B59410]">
-              Our Division
-            </span>
+            
+            
           </div>
 
-          <h2 className="font-sans text-3xl md:text-4xl font-light text-[#B59410] leading-tight">
+          <h2 className="font-sans text-[2.8rem] md:text-4xl font-bold text-[#B59410] leading-tight">
             Managing <span className="text-[#3C0008] font-serif italic">Academic Human Resources</span> with Excellence
           </h2>
 
-          <div className="space-y-5 text-sm md:text-base text-[#3C0008] font-bold leading-relaxed pt-2">
+          <div className="space-y-5 text-sm md:text-base text-[#3C0008] font-normal font-sans leading-relaxed pt-2 text-justify">
             <p>
               The entire Department is presently managed by two officers — one at the Senior Assistant Registrar 
               level and the other at the Assistant Registrar level — supported by several Management Assistants.
@@ -149,13 +150,9 @@ export default function AboutPage() {
   <div className="max-w-6xl mx-auto px-6">
     
     <div className="text-center mb-16">
-      <div className="flex items-center justify-center gap-3 mb-2">
-        <span className="h-[1px] w-6 bg-[#B59410]" />
-        <span className="text-[10px] font-bold tracking-[3px] uppercase text-[#B59410]">What We Do</span>
-        <span className="h-[1px] w-6 bg-[#B59410]" />
-      </div>
-      <h2 className="font-sans text-3xl font-light text-white">
-        Main <span className="text-[#B59410] font-serif italic">Functions</span> of the Division
+      
+      <h2 className="font-sans text-[2.8rem]  font-bold text-white">
+        Main <span className="text-[#3C0008] font-serif italic">Functions</span> of the Division
       </h2>
     </div>
 
@@ -178,8 +175,8 @@ export default function AboutPage() {
 
       {/* Featured Card 3 */}
       <div className="group relative bg-white border-2 border-[#B59410] p-8 rounded-lg shadow-md shadow-[#B59410]/10 hover:bg-[#FFF9E6] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-        <div className="absolute top-6 right-8 font-serif text-xl text-[#B59410]/40 group-hover:text-[#B59410]/60 font-bold">03</div>
-        <h3 className="text-base font-bold text-[#B59410] mb-2">Personal File Management</h3>
+        <div className="absolute top-6 right-8 font-serif text-xl  text-neutral-300 group-hover:text-[#B59410]/30 font-bold">03</div>
+        <h3 className="text-base font-bold text-[#3C0008] mb-2 group-hover:text-[#B59410]">Personal File Management</h3>
         <p className="text-xs text-neutral-600 leading-relaxed font-medium group-hover:text-neutral-700">Maintaining personal files of all academic, temporary and academic support staff with accurate, up-to-date records.</p>
       </div>
 
@@ -205,19 +202,19 @@ export default function AboutPage() {
       </div>
 
       <div className="group relative bg-white border border-neutral-200 p-8 rounded-lg shadow-sm hover:border-[#B59410] hover:bg-[#FFF9E6] hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-        <div className="absolute top-6 right-8 font-serif text-xl text-neutral-300 group-hover:text-[#B59410]/30 font-bold">06</div>
+        <div className="absolute top-6 right-8 font-serif text-xl text-neutral-300 group-hover:text-[#B59410]/30 font-bold">07</div>
         <h3 className="text-base font-semibold text-[#3C0008] mb-2 group-hover:text-[#B59410]">Disciplinary & Legal Matters</h3>
         <p className="text-xs text-neutral-500 leading-relaxed group-hover:text-neutral-600">Handling and coordinating all disciplinary matters of staff and attending to litigation matters with regard to recruitment and termination of services.</p>
       </div>
 
       <div className="group relative bg-white border border-neutral-200 p-8 rounded-lg shadow-sm hover:border-[#B59410] hover:bg-[#FFF9E6] hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-        <div className="absolute top-6 right-8 font-serif text-xl text-neutral-300 group-hover:text-[#B59410]/30 font-bold">06</div>
+        <div className="absolute top-6 right-8 font-serif text-xl text-neutral-300 group-hover:text-[#B59410]/30 font-bold">08</div>
         <h3 className="text-base font-semibold text-[#3C0008] mb-2 group-hover:text-[#B59410]">Retirement Benefits</h3>
         <p className="text-xs text-neutral-500 leading-relaxed group-hover:text-neutral-600">Attending to matters relating to retirement benefits — UPF, EPF, ETF, Pensions Fund etc. — on cessation of staff employment.</p>
       </div>
 
       <div className="group relative bg-white border border-neutral-200 p-8 rounded-lg shadow-sm hover:border-[#B59410] hover:bg-[#FFF9E6] hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-        <div className="absolute top-6 right-8 font-serif text-xl text-neutral-300 group-hover:text-[#B59410]/30 font-bold">06</div>
+        <div className="absolute top-6 right-8 font-serif text-xl text-neutral-300 group-hover:text-[#B59410]/30 font-bold">09</div>
         <h3 className="text-base font-semibold text-[#3C0008] mb-2 group-hover:text-[#B59410]">Contractual Appointments & Trade Unions</h3>
         <p className="text-xs text-neutral-500 leading-relaxed group-hover:text-neutral-600">Handling contractual and assignment-basis appointments, coordinating trade union issues, and conducting recruitment examinations and trade tests.</p>
       </div>
@@ -231,83 +228,163 @@ export default function AboutPage() {
          ========================================== */}
       <section className="max-w-6xl mx-auto px-6 py-20">
         <div className="text-center mb-14">
-          <div className="flex items-center justify-center gap-3 mb-2">
-            <span className="h-[1px] w-6 bg-[#B59410]" />
-            <span className="text-[10px] font-bold tracking-[3px] uppercase text-[#B59410]">Full Scope</span>
-            <span className="h-[1px] w-6 bg-[#B59410]" />
-          </div>
-          <h2 className="font-sans text-3xl font-light text-white">
-            Complete <span className="text-[#B59410] font-serif italic">Responsibilities</span>
+          
+          <h2 className="font-sans text-[2.8rem] font-bold  text-[#3C0008]">
+            Complete <span className="text-[#B59410] font-bold font-serif italic">Responsibilities</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 border border-neutral-800 divide-y md:divide-y-0 md:divide-x divide-neutral-800 rounded-lg overflow-hidden bg-[#121212]">
+        {/* HIGHLIGHT: Cleaned parent grid wrapper container by removing shared table/divider lines and adding a gap-4 space system */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 rounded-lg">
           
-          {/* Column 1 items grouped together */}
-          <div className="divide-y divide-neutral-800/60">
-            <div className="p-6 flex items-start gap-4">
-              <span className="flex-shrink-0 w-8 h-8 rounded-full border border-neutral-700 flex items-center justify-center text-[10px] font-mono text-[#B59410]">01</span>
-              <div>
-                <h4 className="text-sm font-semibold text-neutral-200 mb-1">Cadre Requirements</h4>
-                <p className="text-xs text-neutral-500">Determining the cadre requirements of academic and academic support staff across all Faculties.</p>
-              </div>
-            </div>
-            <div className="p-6 flex items-start gap-4">
-              <span className="flex-shrink-0 w-8 h-8 rounded-full border border-neutral-700 flex items-center justify-center text-[10px] font-mono text-[#B59410]">03</span>
-              <div>
-                <h4 className="text-sm font-semibold text-neutral-200 mb-1">Recruitment & Lifecycle</h4>
-                <p className="text-xs text-neutral-500">Handling all matters pertaining to recruitment, confirmation, annual increments, promotion, extension of services and termination of staff.</p>
-              </div>
-            </div>
-            <div className="p-6 flex items-start gap-4">
-              <span className="flex-shrink-0 w-8 h-8 rounded-full border border-neutral-700 flex items-center justify-center text-[10px] font-mono text-[#B59410]">05</span>
-              <div>
-                <h4 className="text-sm font-semibold text-neutral-200 mb-1">Leave, Training & Scholarships</h4>
-                <p className="text-xs text-neutral-500">Handling matters relating to leave, training opportunities and scholarships for academic and academic support staff.</p>
-              </div>
-            </div>
-            <div className="p-6 flex items-start gap-4">
-              <span className="flex-shrink-0 w-8 h-8 rounded-full border border-neutral-700 flex items-center justify-center text-[10px] font-mono text-[#B59410]">07</span>
-              <div>
-                <h4 className="text-sm font-semibold text-neutral-200 mb-1">Disciplinary & Litigation</h4>
-                <p className="text-xs text-neutral-500">Coordinating complex disciplinary investigations and managing ongoing litigation matters with legal counsel.</p>
-              </div>
+          {/* CARD 01 */}
+          {/* HIGHLIGHT: Turned each entry into an independent block with distinct borders, unique backgrounds, and micro-interaction animations */}
+          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
+            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[10px] font-mono text-[#B59410]">01</span>
+            <div>
+              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Cadre Requirements</h4>
+              <p className="text-xs text-neutral-500">Determining the cadre requirements of academic and academic support staff across all Faculties.</p>
             </div>
           </div>
 
-          {/* Column 2 items grouped together */}
-          <div className="divide-y divide-neutral-800/60">
-            <div className="p-6 flex items-start gap-4">
-              <span className="flex-shrink-0 w-8 h-8 rounded-full border border-neutral-700 flex items-center justify-center text-[10px] font-mono text-[#B59410]">02</span>
-              <div>
-                <h4 className="text-sm font-semibold text-neutral-200 mb-1">Cadre Statistics</h4>
-                <p className="text-xs text-neutral-500">Updating and maintaining cadre statistics of academic staff, academic support staff and temporary academic staff.</p>
-              </div>
-            </div>
-            <div className="p-6 flex items-start gap-4">
-              <span className="flex-shrink-0 w-8 h-8 rounded-full border border-neutral-700 flex items-center justify-center text-[10px] font-mono text-[#B59410]">04</span>
-              <div>
-                <h4 className="text-sm font-semibold text-neutral-200 mb-1">Personal File Maintenance</h4>
-                <p className="text-xs text-neutral-500">Maintaining personal files of all academic, temporary and academic support staff with accurate, current records.</p>
-              </div>
-            </div>
-            <div className="p-6 flex items-start gap-4">
-              <span className="flex-shrink-0 w-8 h-8 rounded-full border border-neutral-700 flex items-center justify-center text-[10px] font-mono text-[#B59410]">06</span>
-              <div>
-                <h4 className="text-sm font-semibold text-neutral-200 mb-1">Staff Welfare</h4>
-                <p className="text-xs text-neutral-500">Loans, long service awards, railway warrants, season tickets, health insurance, vehicle permits and issuing service certificates.</p>
-              </div>
-            </div>
-            <div className="p-6 flex items-start gap-4">
-              <span className="flex-shrink-0 w-8 h-8 rounded-full border border-neutral-700 flex items-center justify-center text-[10px] font-mono text-[#B59410]">08</span>
-              <div>
-                <h4 className="text-sm font-semibold text-neutral-200 mb-1">Retirement Benefits</h4>
-                <p className="text-xs text-neutral-500">Managing comprehensive retirement disbursements including UPF, EPF, ETF, and institutional Pensions scheme setups.</p>
-              </div>
+          {/* CARD 02 */}
+          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
+            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">02</span>
+            <div>
+              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Cadre Statistics</h4>
+              <p className="text-xs text-neutral-500">Updating and maintaining cadre statistics of academic staff, academic support staff and temporary academic staff.</p>
             </div>
           </div>
+
+          {/* CARD 03 */}
+          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
+            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">03</span>
+            <div>
+              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Recruitment & Lifecycle</h4>
+              <p className="text-xs text-neutral-500">Handling all matters pertaining to recruitment, confirmation, annual increments, promotion, extension of services and termination of staff.</p>
+            </div>
+          </div>
+
+          {/* CARD 04 */}
+          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
+            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">04</span>
+            <div>
+              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Personal File Maintenance</h4>
+              <p className="text-xs text-neutral-500">Maintaining personal files of all academic, temporary and academic support staff with accurate, current records.</p>
+            </div>
+          </div>
+
+          {/* CARD 05 */}
+          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
+            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">05</span>
+            <div>
+              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Leave, Training & Scholarships</h4>
+              <p className="text-xs text-neutral-500">Handling matters relating to leave, training opportunities and scholarships for academic and academic support staff.</p>
+            </div>
+          </div>
+
+          {/* CARD 06 */}
+          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
+            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">06</span>
+            <div>
+              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Staff Welfare</h4>
+              <p className="text-xs text-neutral-500">Loans, long service awards, railway warrants, season tickets, health insurance, vehicle permits and issuing service certificates.</p>
+            </div>
+          </div>
+
+          {/* CARD 07 */}
+          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
+            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">07</span>
+            <div>
+              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Research Allowance</h4>
+              <p className="text-xs text-neutral-500">Handling matters relating to payment of Research Allowance to all eligible staff members.</p>
+            </div>
+          </div>
+
+          {/* CARD 08 */}
+          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
+            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">08</span>
+            <div>
+              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Salary Revisions</h4>
+              <p className="text-xs text-neutral-500">Handling matters relating to salary revisions and rectification of salaries for all categories of staff.</p>
+            </div>
+          </div>
+
+          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
+            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">09</span>
+            <div>
+              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Disciplinary Matters</h4>
+              <p className="text-xs text-neutral-500">Handling and coordinating all disciplinary matters of academic and academic support staff.</p>
+            </div>
+          </div>
+
+          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
+            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">10</span>
+            <div>
+              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Retirement Benefits</h4>
+              <p className="text-xs text-neutral-500">UPF, EPF, ETF, Pensions Fund and all related matters on cessation of employment.</p>
+            </div>
+          </div>
+
+          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
+            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">11</span>
+            <div>
+              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Contractual Appointments</h4>
+              <p className="text-xs text-neutral-500">Handling matters relating to appointment of academic and academic support staff on contractual and assignment basis.</p>
+            </div>
+          </div>
+
+          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
+            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">12</span>
+            <div>
+              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Academic Positions</h4>
+              <p className="text-xs text-neutral-500">Handling matters relating to appointments to academic positions such as Heads of Academic Departments.</p>
+            </div>
+          </div>
+
+          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
+            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">13</span>
+            <div>
+              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Trade Union Coordination</h4>
+              <p className="text-xs text-neutral-500">Coordinating all matters relating to trade union issues across academic departments and faculties.</p>
+            </div>
+          </div>
+
+          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
+            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">14</span>
+            <div>
+              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Recruitment Examinations</h4>
+              <p className="text-xs text-neutral-500">Coordinating and conducting recruitment examinations and trade tests for academic support staff.</p>
+            </div>
+          </div>
+
+          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
+            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">15</span>
+            <div>
+              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Bonds & Agreements</h4>
+              <p className="text-xs text-neutral-500">Handling all administrative functions of bonds and agreements including bond violation of university academic staff.</p>
+            </div>
+          </div>
+
+          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
+            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">16</span>
+            <div>
+              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Litigation Matters</h4>
+              <p className="text-xs text-neutral-500">Attending to litigation matters with regard to academic and academic support staff recruitment and termination of services.</p>
+            </div>
+          </div>
+
+          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
+            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">17</span>
+            <div>
+              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Leave & Awards Committee</h4>
+              <p className="text-xs text-neutral-500">Convening the meetings of the Leave and Awards Committee and ensuring timely follow-up action on all decisions.</p>
+            </div>
+          </div>       
 
         </div>
+
+        
       </section>
 
     </div>

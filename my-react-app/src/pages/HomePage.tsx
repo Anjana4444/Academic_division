@@ -44,7 +44,7 @@ const HomePage: React.FC = () => {
         
         {/* Hero Content */}
         <div className="relative z-4 max-w-225 px-5">
-          <h1 className="m-0 mb-6 font-sans text-[3.2rem] font-bold leading-[1.2] tracking-normal text-white md:text-5xl drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
+          <h1 className="m-0 mb-6 font-sans text-[3.2rem] font-bold leading-[1.2] tracking-normal text-white md:text-4xl uppercase drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
             Academic <span className="text-[#B59410]">Establishments</span> Division
           </h1>
           
@@ -74,8 +74,8 @@ const HomePage: React.FC = () => {
         <div className="absolute rounded-full bg-[#B59410] h-1 w-1 top-[58%] left-[42%] opacity-25" />
         
         {/* Structural Frames */}
-        <div className="absolute border border-[#3C0008]/55 border-b-0 border-r-0 top-10 left-10 h-16.25 w-40" />
-        <div className="absolute border border-[#3C0008]/55 border-top-0 border-l-0 bottom-10 right-10 h-40 w-40" />
+        <div className="absolute border-4 border-[#3C0008]/55 border-b-0 border-r-0 top-10 left-10 h-40 w-40" />
+        <div className="absolute border-4 border-[#3C0008]/55 border-t-0 border-l-0 bottom-10 right-10 h-40 w-40" />
 
         <div className="relative z-5 w-full max-w-225">
           <h2 className="font-sans text-[3.2rem] font-bold leading-[1.3] tracking-[0.5px] text-[#3C0008] mb-11.25">
@@ -193,7 +193,7 @@ const HomePage: React.FC = () => {
 
           {/* Section Header */}
           <div className="mx-auto mb-10 max-w-187.5 text-center">
-            <h2 className="m-0 mb-3 font-sans text-2xl font-bold text-[#ffffff] md:text-3xl">
+            <h2 className="m-0 mb-3 font-sans text-[2.8rem] font-bold text-[#ffffff] md:text-3xl">
               Downloads & <span className="text-[#B59410]">Applications</span>
             </h2>
             <p className="text-sm leading-relaxed font-normal text-[#ffffff]">

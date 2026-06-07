@@ -52,16 +52,31 @@ export default function ApplicationsPage() {
 
   return (
     <div className="min-h-screen bg-stone-50 pb-20">
+      <section className="relative h-[360px] w-full overflow-hidden">
+      <div 
+          className="absolute inset-0  z-1 bg-cover bg-center contrast-100 grayscale-45 " 
+          style={{ backgroundImage: "url('/aeu.png')" }}
+        />
+        <div className="absolute inset-0 z-2 bg-[radial-gradient(circle,rgba(60,0,8,0.55)_10%,rgba(60,0,8,0.35)_80%)] " />
+
+        {/* Decorative shape - Right Bottom */}
+        <div
+          className="absolute top-0 left-0 z-30 h-full w-[57%] bg-[#B59410]/40"
+          style={{ 
+            clipPath: 'polygon(0% 0, 0% 100%, 65% 100%, 45% 0)' 
+          }}
+        />
 
       {/* Page header */}
-      <div className="bg-[#4a0b16] border-b-4 border-[#c9922a] px-5 pt-24 pb-9 text-center">
-        <h1 className="text-[#e8c97a] text-3xl font-bold tracking-widest uppercase mb-1.5">
-          Applications & Forms
-        </h1>
-        <p className="text-white/50 text-sm">
-          Download the relevant forms and submit them to the division
-        </p>
-      </div>
+          <div className="absolute bottom-12 left-8 md:left-12 z-40">
+            <h1 className="text-[#ffffff] text-4xl md:text-5xl font-bold tracking-widest uppercase drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
+              Applications & <span className="text-[#B59410] ">Forms</span>
+            </h1>
+            <p className="text-white/50 text-sm">
+              Download the relevant forms and submit them to the division
+            </p>
+          </div>
+      </section>
 
       <div className="max-w-4xl mx-auto mt-10 px-6">
 

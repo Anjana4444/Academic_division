@@ -155,16 +155,24 @@ function StaffCard({ member, size }: { member: StaffMember; size: 'large' | 'sma
 export default function StaffPage() {
   return (
     <div className="min-h-screen bg-stone-50 pb-20 selection:bg-[#4a0b16] selection:text-white">
+      <section className="relative h-[360px] w-full overflow-hidden">
+      <div 
+          className="absolute inset-0  z-1 bg-cover bg-center contrast-100 grayscale-45 " 
+          style={{ backgroundImage: "url('/staffbg.png')" }}
+          
+        />
+        <div className="absolute inset-0 z-2 bg-[radial-gradient(circle,rgba(60,0,8,0.55)_10%,rgba(60,0,8,0.35)_80%)] " />
       {/* Page header */}
-      <div className="bg-[#4a0b16] border-b-4 border-[#c9922a] px-5 pt-24 pb-12 text-center shadow-inner relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/5 pointer-events-none" />
-        <h1 className="text-[#e8c97a] text-3xl md:text-4xl font-bold tracking-widest uppercase mb-2">
+      <div className="absolute inset-0 z-40 flex flex-col items-center justify-center text-center px-4">
+        <h1 className="text-[#ffffff] text-4xl md:text-5xl font-bold tracking-widest uppercase drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
           Staff Directory
         </h1>
         <p className="text-white/70 text-sm max-w-xl mx-auto font-medium">
           Academic Establishments Division · University of Peradeniya
         </p>
       </div>
+
+    </section>
 
       {/* Senior officers */}
       <div className="max-w-6xl mx-auto px-6 pt-14">
