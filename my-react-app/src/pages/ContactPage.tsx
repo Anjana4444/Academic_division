@@ -66,24 +66,78 @@ export default function ContactPage() {
         ))}
       </div>
 
-      {/* Map section */}
-      <div className="max-w-5xl mx-auto px-6 mb-16">
-        <p className="text-[11px] font-bold tracking-widest uppercase text-[#c9922a] mb-3">
-          Location
-        </p>
-        <div className="w-full h-72 rounded-lg overflow-hidden border border-[#80000020]">
-          <iframe
-            title="University of Peradeniya"
-            src="https://maps.google.com/maps?q=7.254004,80.596754&z=15&output=embed"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </div>
+      {/* Contact form */}
+<div className="max-w-4xl mx-auto px-6 mb-16">
+  <div className="bg-white rounded-xl shadow-md border-l-4 border-[#c9922a] p-8">
+    
+    <h2 className="text-2xl font-bold text-[#4a0b16] mb-6 flex items-center gap-2">
+      <span className="w-1.5 h-6 bg-[#4a0b16] rounded-full inline-block"></span>
+      Send Us a Message
+    </h2>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+      {/* Full Name */}
+      <div className="flex flex-col gap-1.5">
+        <label className="text-sm text-gray-700">Full Name <span className="text-red-500">*</span></label>
+        <input
+          type="text"
+          placeholder="Enter your full name"
+          className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-[#4a0b16] transition-colors duration-150"
+        />
       </div>
+
+      {/* Email */}
+      <div className="flex flex-col gap-1.5">
+        <label className="text-sm text-gray-700">Email Address <span className="text-red-500">*</span></label>
+        <input
+          type="email"
+          placeholder="student@university.edu"
+          className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-[#4a0b16] transition-colors duration-150"
+        />
+      </div>
+
+      {/* Department */}
+      <div className="flex flex-col gap-1.5">
+        <label className="text-sm text-gray-700">Department / Office</label>
+        <select className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-[#4a0b16] transition-colors duration-150 bg-white">
+          <option>General Inquiry</option>
+          <option>Academic Staff Appointments</option>
+          <option>Leave Applications</option>
+          <option>Promotions</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      {/* Subject */}
+      <div className="flex flex-col gap-1.5">
+        <label className="text-sm text-gray-700">Subject <span className="text-red-500">*</span></label>
+        <input
+          type="text"
+          placeholder="Brief subject of your inquiry"
+          className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-[#4a0b16] transition-colors duration-150"
+        />
+      </div>
+
+      {/* Message - full width */}
+      <div className="flex flex-col gap-1.5 md:col-span-2">
+        <label className="text-sm text-gray-700">Message <span className="text-red-500">*</span></label>
+        <textarea
+          rows={6}
+          placeholder="Please provide detailed information about your inquiry..."
+          className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-[#4a0b16] transition-colors duration-150 resize-y"
+        />
+      </div>
+
+    </div>
+
+    {/* Submit button */}
+    <button className="mt-6 w-full bg-[#4a0b16] text-white font-semibold py-3.5 rounded-lg hover:bg-[#6b1020] transition-colors duration-200 tracking-wide">
+      Send Message to University
+    </button>
+
+  </div>
+</div>
 
     </div>
   )

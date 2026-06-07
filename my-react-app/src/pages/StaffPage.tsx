@@ -55,7 +55,7 @@ function StaffCard({ member, size }: { member: StaffMember; size: 'large' | 'sma
   if (size === 'large') {
     return (
       <div className="group bg-white border border-stone-200 shadow-sm rounded-xl p-5 flex flex-col items-center text-center w-64 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-md hover:border-[#c9922a]/50">
-        <div className="relative w-40 h-48 mb-4 overflow-hidden rounded-lg border-2 border-[#c9922a]/30 transition-colors duration-300 group-hover:border-[#c9922a]">
+        <div className="relative w-50 h-58 mb-4 overflow-hidden rounded-lg border-2 border-[#c9922a]/30 transition-colors duration-300 group-hover:border-[#c9922a]">
           <img
             src={member.image}
             alt={member.name}
@@ -107,19 +107,15 @@ function StaffCard({ member, size }: { member: StaffMember; size: 'large' | 'sma
   return (
     <div className="group bg-white border border-stone-200/80 rounded-xl flex flex-col overflow-hidden shadow-sm transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-md hover:border-[#c9922a]/40 w-full">
       {/* Changed aspect ratio to 4:3 landscape layout to stop vertical/head cropping */}
-      <div className="relative w-full aspect-[4/3] overflow-hidden bg-stone-100 border-b border-stone-100">
+      <div className="relative w-full aspect-[3/3] overflow-hidden bg-stone-100 border-b border-stone-100">
         <img
           src={member.image}
           alt={member.name}
           /* Using object-cover with top centering focus so faces aren't clipped out of view */
           className="w-full h-full object-cover object-[center_20%] transition-transform duration-500 group-hover:scale-105"
           onError={(e) => {
-            const target = e.target as HTMLImageElement
-            target.style.display = 'none'
-            if (target.parentElement) {
-              target.parentElement.style.background = '#f5f0f0'
-            }
-          }}
+  (e.target as HTMLImageElement).src = '/staff/placeholder.svg'
+}}
         />
         <div className="absolute top-0 left-0 w-full h-1 bg-[#c9922a] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
       </div>
