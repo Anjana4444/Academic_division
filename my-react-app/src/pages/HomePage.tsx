@@ -19,7 +19,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white font-sans text-[#333333] scroll-smooth">
-      <Navbar />
+      
 
       {/* ==========================================
           HERO SECTION
@@ -83,7 +83,7 @@ const HomePage: React.FC = () => {
           </h2>
 
           <div className="relative mx-auto max-w-190">
-            <span className="absolute -top-11.25 -left-13.75 select-none font-serif text-[11rem] leading-none text-[#3C0008] opacity-25 pointer-events-none">
+            <span className="absolute -top-11.25 -left-23.75 select-none font-serif text-[11rem] leading-none text-[#3C0008] opacity-25 pointer-events-none">
               “
             </span>
             <p className="font-sans font-light text-base leading-[1.8] text-[#3C0008]">
@@ -92,6 +92,9 @@ const HomePage: React.FC = () => {
               level and the other at the Assistant Registrar level — with the assistance of several Management 
               Assistants.
             </p>
+            <span className="absolute -bottom-35 -right-6.75 select-none font-serif text-[11rem] leading-none text-[#3C0008] opacity-25 pointer-events-none">
+              ”
+            </span>
           </div>
         </div>
       </section>
@@ -102,20 +105,20 @@ const HomePage: React.FC = () => {
       <section className="flex w-full justify-center overflow-hidden bg-[#3C0008] px-5 py-20 text-white">
         <div className="w-full max-w-300">
           
-          <div className="mx-auto mb-12.5 max-w-212.5 text-center">
+          <div className="mr-auto mb-6 max-w-212.5 text-start">
             <h2 className="font-sans text-[2.8rem] font-bold text-white mb-5">
               Core <span className="text-[#B59410]">Functions</span>       
             </h2>
-            <p className="text-base font-light leading-[1.8] text-white">
-              The Division manages all key human resource functions of the university. 
-              We handle staff recruitment, cadre management, training, welfare, compensation, 
-              and administrative support services. Our goal is to create a productive and 
+            <p className="text-base font-light leading-[1.8] text-white text-justify">
+              The Division manages all key human resource functions of the university. <br />
+              We handle staff recruitment, cadre management, training, welfare, compensation, <br />
+              and administrative support services. Our goal is to create a productive and <br />
               supportive environment for academic and non-academic staff.
             </p>
           </div>
 
           {/* Split Wrapper Layout */}
-          <div className="relative flex flex-col items-center gap-7.5 lg:flex-row lg:gap-0 w-full">
+          <div className="relative flex flex-col items-center gap-7.5 lg:flex-row lg:gap-0 w-full lg:-mt-12">
             
             {/* Left Column: 65% width image layout pane */}
             <div className="relative z-1 w-full max-w-full rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.55)] lg:flex-[0_0_65%] lg:max-w-[65%] lg:-translate-x-1.25 h-75 lg:h-auto">
@@ -129,7 +132,7 @@ const HomePage: React.FC = () => {
             </div>
 
             {/* Right Column: 35% overlay container block stacked in front */}
-            <div className="relative z-5 flex w-full flex-col justify-center gap-3.5 lg:flex-[0_0_45%] lg:max-w-[35%] lg:ml-[-10%]">
+            <div className="relative z-5 flex w-full flex-col justify-center gap-3.5 lg:flex-[0_0_45%] lg:max-w-[35%] lg:ml-[-10%] lg:-mt-28">
               {coursesData.map((course) => (
                 <div 
                   key={course.id} 
@@ -200,40 +203,7 @@ const HomePage: React.FC = () => {
           
           {/* Applications List Container */}
           <div className="mx-auto flex max-w-225 w-full flex-row gap-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-neutral-200">
-            {[
-              { id: 1, title: "Application for Academic Long Leave (Sabbatical / Study)", fileType: "PDF", fileSize: "245 KB" },
-              { id: 2, title: "Registration Form for Annual University Research Sessions", fileType: "DOCX", fileSize: "120 KB" },
-              { id: 3, title: "Research Grant Application & Proposal Template", fileType: "PDF", fileSize: "1.2 MB" },
-              { id: 4, title: "Medical Leave Submission & Reimbursement Claim Form", fileType: "PDF", fileSize: "185 KB" }
-            ].map((app) => (
-              <div 
-                key={app.id}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-lg border border-neutral-200 bg-white p-5 shadow-sm transition-all duration-300 hover:border-[#3C0008]/30 hover:shadow-md w-70 shrink-0"
-              >
-                {/* Subtle accent line that slides down the side on hover */}
-                <div className="absolute left-0 top-0 h-full w-1 scale-y-0 bg-[#B59410] transition-transform duration-300 group-hover:scale-y-100" />
-
-                {/* Top Part: Badge and File Info */}
-                <div className="flex flex-col gap-3 pl-1">
-                  {/* File Type Badge */}
-                  <span className={`flex h-6 w-12 items-center justify-center rounded text-[10px] font-bold tracking-wider self-start ${
-                    app.fileType === 'PDF' ? 'bg-red-50 text-red-700' : 'bg-blue-50 text-blue-700'
-                  }`}>
-                    {app.fileType}
-                  </span>
-
-                  {/* Text Metadata */}
-                  <div>
-                    <h3 className="font-sans text-sm font-medium text-neutral-800 transition-colors group-hover:text-[#B59410] line-clamp-2 min-h-10 leading-snug">
-                      {app.title}
-                    </h3>
-                    <p className="font-mono text-[11px] text-neutral-400 mt-2">
-                      Size: {app.fileSize}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
+            
           </div>
 
           {/* Bottom View All Link Button */}

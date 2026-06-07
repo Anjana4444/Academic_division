@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 const navLinks = [
   { label: 'Home',            to: '/' },
@@ -11,9 +12,28 @@ const navLinks = [
 
 export default function Navbar() {
   const location = useLocation()
+  {/* HIGHLIGHT: Added scroll state listener */}
+  const [isScrolled, setIsScrolled] = useState(false)
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true)
+      } else {
+        setIsScrolled(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
   return (
-    <nav className="bg-[#3C0008] fixed top-0 left-0 w-full h-17.5 z-1000 flex items-center shadow-lg">
+    <nav style={{ backgroundColor: isScrolled ? 'rgba(60, 0, 8, 0.65)' : '#3C0008' }}
+  className={`fixed top-0 left-0 w-full h-17.5 z-1000 flex items-center transition-all duration-300 ${
+    isScrolled 
+      ? 'backdrop-blur-md border-b border-white/10 shadow-lg' 
+      : 'border-b border-transparent shadow-none'
+  }`}>
       <div className="w-[90%] mx-auto flex items-center justify-between">
 
         {/* Logo */}
