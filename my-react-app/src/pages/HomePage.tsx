@@ -171,7 +171,7 @@ const HomePage: React.FC = () => {
             </h2>
 
             <button 
-              onClick={() => navigate('/special-notices')}
+              onClick={() => navigate('/notices')}
               className="border border-[#B59410]/50 bg-transparent px-7.5 py-3 text-[12px] font-semibold tracking-[2px] text-[#3C0008] cursor-pointer transition-all duration-300 ease-in-out hover:border-[#B59410] hover:bg-[#B59410]/10"
             >
               LEARN MORE <span className="ml-2 text-[#B59410]">↓</span>
@@ -230,8 +230,8 @@ const HomePage: React.FC = () => {
         />
         
         {/* Heavy Blur and Dark Tint Overlay */}
-        <div className="absolute inset-0 bg-[#ffffff]/40 backdrop-blur-md" />
-        <div className="absolute inset-0 bg-linear-to-t from-[#ffffff]/80 via-transparent to-[#200004]/50" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(60,0,8,0.2)_10%,rgba(60,0,8,0.6)_90%)] " />
+        <div className="absolute inset-0 bg-linear-to-t from-[#ffffff]/20 via-transparent" />
 
         {/* Content Box */}
         <div className="relative z-10 max-w-175 rounded-xl border border-[#3C0008]/10 bg-[#3C0008]/10 p-8 backdrop-blur-sm shadow-2xl">

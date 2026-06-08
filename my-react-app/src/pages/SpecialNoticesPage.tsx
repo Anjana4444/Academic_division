@@ -31,7 +31,7 @@ export default function SpecialNoticesPage() {
 
         {/* Decorative shape - Right Bottom */}
         <div
-          className="absolute top-0 right-0 z-30 h-full w-[55%] bg-[#3C0008]/60"
+          className="absolute top-0 right-0 z-30 h-full w-[55%] bg-[#3C0008]/40"
           style={{ 
             clipPath: 'polygon(100% 0, 100% 100%, 35% 100%, 55% 0)' 
           }}

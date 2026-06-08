@@ -51,14 +51,14 @@ export default function AboutPage() {
           
           {/* Core Intention Statement with Integrated Quotation Marks */}
           <p className="font-sans text-lg md:text-2xl font-normal leading-relaxed text-neutral-200 max-w-3xl tracking-wide">
-            <span className="font-serif text-4xl md:text-5xl text-[#3C0008]/40 select-none align-top mr-1">“</span>
+            <span className="font-serif text-4xl md:text-5xl text-[#B59410]/40 select-none align-top mr-1">“</span>
             The Academic Establishments Division is one of the most important Divisions in the University, 
             dedicated to recruiting qualified staff and retaining them in service in line with the corporate goals of the University.
-            <span className="font-serif text-4xl md:text-5xl text-[#3C0008]/40 select-none align-bottom ml-1">”</span>
+            <span className="font-serif text-4xl md:text-5xl text-[#B59410]/40 select-none align-bottom ml-1">”</span>
           </p>
 
           {/* Accent Gold Divider Line */}
-          <div className="mt-6 h-[2px] w-16 bg-[#3C0008]/80" />
+          <div className="mt-6 h-[2px] w-16 bg-[#B59410]/80" />
         </div>
       </section>
 
@@ -222,10 +222,10 @@ export default function AboutPage() {
     </div>
   </div>
 </section>
-      {/* ==========================================
-          5. COMPLETE SCOPE MATRIX 
-          (Ref: Screenshot 2026-06-02 141908.png)
-         ========================================== */}
+      
+
+
+
       <section className="max-w-6xl mx-auto px-6 py-20">
         <div className="text-center mb-14">
           

@@ -61,7 +61,7 @@ export default function ApplicationsPage() {
 
         {/* Decorative shape - Right Bottom */}
         <div
-          className="absolute top-0 left-0 z-30 h-full w-[57%] bg-[#B59410]/40"
+          className="absolute top-0 left-0 z-30 h-full w-[57%] bg-[#B59410]/20"
           style={{ 
             clipPath: 'polygon(0% 0, 0% 100%, 65% 100%, 45% 0)' 
           }}
