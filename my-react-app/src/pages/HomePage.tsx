@@ -1,6 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
+import { notices } from '../data/notices'
+import { applications } from '../data/applications'
 
 const coursesData = [
   { id: 1, tag: "CCNA", title: "Cadre Determination & Statistics", duration: "6 Weeks", starts: "5/4/2026", img: "/slide-4.jpg" },
@@ -20,7 +22,6 @@ const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white font-sans text-[#333333] scroll-smooth">
       
-
       {/* ==========================================
           HERO SECTION
          ========================================== */}
@@ -57,7 +58,7 @@ const HomePage: React.FC = () => {
             onClick={() => navigate('/about')}
             className="group border border-[#B59410]/50 bg-transparent px-7.5 py-3 text-[12px] font-semibold tracking-[2px] text-white cursor-pointer transition-all duration-300 ease-in-out hover:border-[#B59410] hover:bg-[#B59410]/10 hover:shadow-[0_0_15px_rgba(212,175,55,0.2)]"
           >
-            LEARN MORE <span className="ml-2 text-[#B59410] inline-block transition-transform duration-300 group-hover:translate-y-1">↓</span>
+            LEAR MORE <span className="ml-2 text-[#B59410] inline-block transition-transform duration-300 group-hover:translate-y-1">↓</span>
           </button>
         </div>
       </header>
@@ -160,26 +161,66 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* ==========================================
-          NOTICES SECTION
+          NOTICES SECTION (Updated to Blocks Grid)
          ========================================== */}
-      <section className="flex w-full justify-center bg-white px-5 py-20">
+      <section className="flex w-full justify-center bg-[#fcfcfc] px-5 py-20 border-b border-neutral-100">
         <div className="w-full max-w-300">
 
-          <div className="mx-auto mb-12.5 max-w-212.5 text-center">
-            <h2 className="font-sans text-[2.8rem] font-bold text-[#3C0008] m-0 mb-4">
+          <div className="mx-auto mb-12 max-w-212.5 text-center">
+            <h2 className="font-sans text-[2.8rem] font-bold text-[#3C0008] m-0 mb-3">
               Special <span className="text-[#B59410]">Notices</span>
             </h2>
-
-            <button 
-              onClick={() => navigate('/notices')}
-              className="border border-[#B59410]/50 bg-transparent px-7.5 py-3 text-[12px] font-semibold tracking-[2px] text-[#3C0008] cursor-pointer transition-all duration-300 ease-in-out hover:border-[#B59410] hover:bg-[#B59410]/10"
-            >
-              LEARN MORE <span className="ml-2 text-[#B59410]">↓</span>
-            </button>
+            <p className="text-neutral-500 text-sm max-w-md mx-auto">
+              Stay updated with latest announcements, official directives, and procedural changes within the division.
+            </p>
           </div>
           
-          <div className="flex w-full flex-col gap-5">
-            {/* Notices mapped rows can go here */}
+          {/* Blocks Container Grid */}
+          <div className="grid w-full grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto px-2">
+            {notices.slice(0, 2).map((notice) => (
+              <div
+                key={notice.id}
+                className="relative bg-white rounded-xl p-6 flex flex-col justify-between min-h-[180px] shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-neutral-100 hover:border-[#B59410]/30 transition-all duration-300 ease-out cursor-pointer group hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(60,0,8,0.08)]"
+                onClick={() => navigate('/notices')}
+              >
+                {/* Visual Accent Tab */}
+                <div className="absolute top-0 left-6 h-[4px] w-12 bg-[#3C0008] group-hover:bg-[#B59410] transition-colors duration-300" />
+                
+                <div>
+                  {/* Date Flag */}
+                  <div className="flex items-center gap-2 mb-4 mt-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B59410]" />
+                    <p className="text-neutral-400 text-[11px] font-bold tracking-widest uppercase">
+                      {new Date(notice.date).toLocaleDateString('en-LK', {
+                        year: 'numeric', month: 'long', day: 'numeric',
+                      })}
+                    </p>
+                  </div>
+
+                  {/* Title */}
+                  <p className="text-[#3C0008] text-base font-semibold leading-snug line-clamp-3 group-hover:text-[#B59410] transition-colors duration-200">
+                    {notice.title}
+                  </p>
+                </div>
+
+                {/* Footer Action Anchor */}
+                <div className="flex items-center justify-between mt-6 pt-4 border-t border-neutral-50 w-full text-[11px] tracking-wider font-bold text-[#3C0008]/70 group-hover:text-[#3C0008]">
+                  <span>READ ANNOUNCEMENT</span>
+                  <span className="text-[#B59410] text-lg transform group-hover:translate-x-1.5 transition-transform duration-200">
+                    →
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex justify-center bg-transparent px-5 py-12">
+            <button 
+              onClick={() => navigate('/notices')}
+              className="border border-[#B59410]/50 bg-transparent px-7.5 py-3 text-[12px] font-semibold tracking-[2px] text-[#3C0008] cursor-pointer transition-all duration-300 ease-in-out hover:border-[#B59410] hover:bg-[#B59410]/10 hover:shadow-[0_4px_15px_rgba(181,148,16,0.1)]"
+            >
+              VIEW ALL NOTICES <span className="ml-2 text-[#B59410]">↓</span>
+            </button>
           </div>
 
         </div>

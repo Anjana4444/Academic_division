@@ -1,21 +1,8 @@
-interface Notice {
-  id: number
-  title: string
-  date: string
-  downloadLabel?: string
-  downloadUrl?: string
-}
 
-const notices: Notice[] = [
-  {
-    id: 1,
-    title: 'Important Notice for Obtaining Approval for University Officials to Travel Abroad',
-    date: '2024-01-15',
-    downloadLabel: 'Online System for Obtaining Approval for University Officials to Travel Abroad',
-    downloadUrl: '#',
-  },
-]
 
+
+
+import { notices } from '../data/notices'
 export default function SpecialNoticesPage() {
   return (
     <div className="min-h-screen bg-stone-50 pb-20">
