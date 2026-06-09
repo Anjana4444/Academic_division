@@ -16,6 +16,14 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'        // Change to 'smooth' if you want smooth animation
+    })
+  }, [location.pathname])
+
+  useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
         setIsScrolled(true)
@@ -44,10 +52,10 @@ export default function Navbar() {
             className="h-14.5 w-auto"
           />
           <div>
-            <div className="text-white text-sm font-semibold leading-tight">
+            <div className="text-white text-sm font-bold leading-tight">
               Academic Establishments Division
             </div>
-            <div className="text-[#B59410] text-xs mt-0.5">
+            <div className="text-[#B59410] text-xs font-bold mt-0.5">
               University of Peradeniya
             </div>
           </div>
@@ -59,10 +67,10 @@ export default function Navbar() {
             <Link
               key={link.to}
               to={link.to}
-              className={`text-sm font-medium uppercase tracking-wide transition-colors duration-200 ${
+              className={`text-sm font-bold uppercase tracking-wide transition-colors duration-200 ${
                 location.pathname === link.to
                   ? 'text-[#B59410]'
-                  : 'text-white hover:text-[#B59410]'
+                  : 'text-white  hover:text-[#B59410]'
               }`}
             >
               {link.label}

@@ -40,7 +40,7 @@ const HomePage: React.FC = () => {
           className="absolute inset-0 blur-[1px] z-1 bg-cover bg-center contrast-110 grayscale-85 " 
           style={{ backgroundImage: "url('/slide-4.jpg')" }}
         />
-        <div className="absolute inset-0 z-2 bg-[radial-gradient(circle,rgba(60,0,8,0.55)_10%,rgba(60,0,8,0.35)_80%)] " />
+        <div className="absolute inset-0 z-2 bg-[radial-gradient(circle,rgba(60,0,8,0.45)_10%,rgba(60,0,8,0.35)_80%)] " />
         
         {/* Hero Content */}
         <div className="relative z-4 max-w-225 px-5">
@@ -231,7 +231,7 @@ const HomePage: React.FC = () => {
         
         {/* Heavy Blur and Dark Tint Overlay */}
         <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(60,0,8,0.2)_10%,rgba(60,0,8,0.6)_90%)] " />
-        <div className="absolute inset-0 bg-linear-to-t from-[#ffffff]/20 via-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-[#ffffff]/20 via-transparent to-[#200004]/50" />
 
         {/* Content Box */}
         <div className="relative z-10 max-w-175 rounded-xl border border-[#3C0008]/10 bg-[#3C0008]/10 p-8 backdrop-blur-sm shadow-2xl">
