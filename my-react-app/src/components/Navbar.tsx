@@ -63,19 +63,23 @@ export default function Navbar() {
 
         {/* Nav links */}
         <div className="flex items-center gap-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              className={`text-sm font-bold uppercase tracking-wide transition-colors duration-200 ${
-                location.pathname === link.to
-                  ? 'text-[#B59410]'
-                  : 'text-white  hover:text-[#B59410]'
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.to;
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`relative py-1 text-sm font-bold uppercase tracking-wide text-white hover:text-[#B59410] transition-colors duration-200`}
+              >
+                {link.label}
+                
+                {/* White active indicator line block */}
+                {isActive && (
+                  <span className="absolute bottom-0 left-0 w-full h-[3px] bg-white rounded-full" />
+                )}
+              </Link>
+            );
+            })}
 
 
           {/* External UoP link */}
