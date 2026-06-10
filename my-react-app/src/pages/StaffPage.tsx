@@ -177,7 +177,7 @@ export default function StaffPage() {
       {/* Senior officers */}
       <div className="max-w-6xl mx-auto px-6 pt-14">
         <div className="flex flex-col items-center mb-8">
-          <p className="text-[11px] font-bold tracking-widest uppercase text-[#c9922a]">
+          <p className="text-[12px] font-bold tracking-widest uppercase text-[#c9922a]">
             Senior Officers
           </p>
           <div className="w-8 h-0.5 bg-[#c9922a] mt-2" />
@@ -192,22 +192,26 @@ export default function StaffPage() {
       <div className="max-w-5xl mx-auto px-6 my-6">
         <div className="w-full h-px bg-stone-200" />
       </div>
+      <div className= "bg-[#e2d6ce]">
+            <div className="max-w-6xl mx-auto px-6 pt-6 pb-12 ">
+          <div className="flex flex-col items-center mb-8 ">
+            <p className="text-[12px] font-bold tracking-widest uppercase text-[#3C0008] ">
+              Management Assistants
+            </p>
+            <div className="w-8 h-0.5 bg-[#3C0008] mt-2" />
 
-      <div className= "bg-[#7d6a6a]">
-      {/* Management assistants */}
-        <div className="max-w-6xl mx-auto px-6 pt-6">
-            <div className="flex flex-col items-center mb-8">
-              <p className="text-[11px] font-bold tracking-widest uppercase text-[#ffffff]">
-                Management Assistants
-              </p>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {managementAssistants.map((member) => (
-                <StaffCard key={member.id} member={member} size="small" />
-              ))}
-            </div>
-        </div>
-      </div>     
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {managementAssistants.map((member) => (
+              <StaffCard key={member.id} member={member} size="small" />
+            ))}
+          </div>
+      </div> 
+
+
+
+</div>
+  
     </div>
   )
 }

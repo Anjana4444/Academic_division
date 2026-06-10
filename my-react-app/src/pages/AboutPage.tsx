@@ -36,10 +36,8 @@ export default function AboutPage() {
 
 </header>
 
-      {/* ==========================================
-          2. CORE INTENTION QUOTE BLOCK 
-          (Ref: Screenshot 2026-06-02 141817.png)
-         ========================================== */}
+    
+
       <section className="relative flex min-h-[280px] w-full flex-col justify-center items-center overflow-hidden bg-[#7d6a6a] px-6 py-16 text-center">
         {/* Decorative Top-Left Corner */}
         <div className="absolute border-4 border-[#B59410]/55 border-b-0 border-r-0 top-6 left-6 h-40 w-40" />
@@ -50,7 +48,7 @@ export default function AboutPage() {
         <div className="relative z-[4] w-full max-w-4xl px-8 flex flex-col items-center">     
           
           {/* Core Intention Statement with Integrated Quotation Marks */}
-          <p className="font-sans text-lg md:text-2xl font-normal leading-relaxed text-neutral-200 max-w-3xl tracking-wide">
+          <p className="font-serif text-lg md:text-2xl font-normal italic leading-relaxed text-neutral-200 max-w-3xl tracking-wide">
             <span className="font-serif text-4xl md:text-5xl text-[#B59410]/40 select-none align-top mr-1">“</span>
             The Academic Establishments Division is one of the most important Divisions in the University, 
             dedicated to recruiting qualified staff and retaining them in service in line with the corporate goals of the University.
@@ -62,10 +60,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ==========================================
-          3. SPLIT TWO-COLUMN CONTENT & METRICS GRID 
-          (Ref: Screenshot 2026-06-02 141830.png & 141843.png)
-         ========================================== */}
+      
+
+
+
       <section className="max-w-7xl mx-auto px-6 md:px-12 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         
         {/* Left Side: Body Descriptions */}
@@ -108,6 +106,9 @@ export default function AboutPage() {
           </div>
         </div>
 
+
+
+
         {/* Right Side: Stacked Gold Accent KPI Metric Cards */}
         <div className="lg:col-span-5 w-full space-y-4">
   
@@ -142,10 +143,10 @@ export default function AboutPage() {
       </div>
       </section>
 
-      {/* ==========================================
-          4. MAIN FUNCTIONS MATRIX 
-          (Ref: Screenshot 2026-06-02 141854.jpg)
-         ========================================== */}
+     
+     
+
+
       <section className="bg-[#7d6a6a] py-20 border-t border-b border-neutral-200">
   <div className="max-w-6xl mx-auto px-6">
     

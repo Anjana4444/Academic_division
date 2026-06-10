@@ -49,13 +49,13 @@ export default function Navbar() {
           <img
             src="/logo-2.webp"
             alt="Academic Establishments Division"
-            className="h-14.5 w-auto"
+            className="h-15.5 w-auto"
           />
           <div>
-            <div className="text-white text-sm font-bold leading-tight">
+            <div className="text-white text-[18px] font-bold leading-tight">
               Academic Establishments Division
             </div>
-            <div className="text-[#B59410] text-xs font-bold mt-0.5">
+            <div className="text-[#B59410] text-[15px] font-bold mt-0.5">
               University of Peradeniya
             </div>
           </div>
@@ -76,6 +76,7 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+
 
           {/* External UoP link */}
           <a

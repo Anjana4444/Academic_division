@@ -90,7 +90,7 @@ export default function ApplicationsPage() {
                 className="bg-white border border-[#80000020] border-l-4 border-l-[#c9922a] rounded-r-lg px-5 py-4 flex items-center gap-4 hover:shadow-md transition-shadow duration-200"
               >
                 {/* Icon */}
-                <span className="text-2xl shrink-0">📄</span>
+                <span className="text-2xl shrink-0">📜</span>
 
                 {/* Title */}
                 <p className="flex-1 text-sm font-semibold text-[#4a0b16] leading-snug">

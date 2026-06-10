@@ -67,12 +67,7 @@ const HomePage: React.FC = () => {
           ABOUT SECTION
          ========================================== */}
       <section className="relative flex w-full items-center justify-center overflow-hidden bg-white px-5 py-30 text-center">
-        {/* Micro Decorative Ambient Nodes */}
-        <div className="absolute rounded-full bg-[#B59410] opacity-35 h-0.75 w-0.75 top-[15%] left-[12%]" />
-        <div className="absolute rounded-full bg-[#B59410] h-1 w-1 top-[22%] right-[18%] opacity-50" />
-        <div className="absolute rounded-full bg-[#B59410] opacity-35 h-1 w-1 bottom-[28%] left-[22%]" />
-        <div className="absolute rounded-full bg-[#B59410] opacity-35 h-1 w-1 bottom-[18%] right-[8%]" />
-        <div className="absolute rounded-full bg-[#B59410] h-1 w-1 top-[58%] left-[42%] opacity-25" />
+        
         
         {/* Structural Frames */}
         <div className="absolute border-4 border-[#3C0008]/55 border-b-0 border-r-0 top-10 left-10 h-40 w-40" />

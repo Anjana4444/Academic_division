@@ -69,7 +69,7 @@ export default function ContactPage() {
         </div>
 
         {/* Right Column: Perfect Circular Image Mask */}
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center py-6">
           <div className="w-full max-w-[420px] aspect-square rounded-full overflow-hidden border-[10px] border-gray-50 shadow-sm">
             <img
               src="/aeu.png"
@@ -85,11 +85,11 @@ export default function ContactPage() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
         
         {/* Block 1: Detailed Phone Matrix */}
-        <div className="bg-[#7d6a6a] p-8 flex flex-col min-h-[190px]">
-          <h3 className="text-xs font-bold tracking-widest uppercase text-gray-900 mb-4 flex items-center gap-2">
+        <div className="bg-[#e2d6ce] p-8 flex flex-col min-h-[190px]">
+          <h3 className="text-[20px] font-bold tracking-widest uppercase text-gray-900 mb-4 flex items-center gap-2">
             <span>📞</span> CALL US
           </h3>
-          <div className="text-xs text-gray-700 space-y-1.5 font-medium leading-relaxed">
+          <div className="text-[16px] text-gray-700 space-y-1.5 font-medium leading-relaxed">
             <p><span className="font-bold text-gray-900">Direct:</span> +94 81 208 5208</p>
             <p><span className="font-bold text-gray-900">Internal:</span> +94 81 239 2341</p>
             <p><span className="font-bold text-gray-900">Ext:</span> 2341 / 2342</p>
@@ -98,25 +98,26 @@ export default function ContactPage() {
         </div>
 
         {/* Block 2: Formal Postal Location */}
-        <div className="bg-[#7d6a6a] p-8 flex flex-col min-h-[190px]">
-          <h3 className="text-xs font-bold tracking-widest uppercase text-gray-900 mb-4 flex items-center gap-2">
+        <div className="bg-[#e2d6ce] p-8 flex flex-col min-h-[190px]">
+          <h3 className="text-[20px] font-bold tracking-widest uppercase text-gray-900 mb-4 flex items-center gap-2">
             <span>📍</span> LOCATION
           </h3>
-          <p className="text-xs text-white- font-medium leading-relaxed">
+          <p className="text--[16px]"> <span className="font-bold text-gray-900">Adress:<br /></span> 
             Academic Establishments Division,<br />
             Senate Building,<br />
             University of Peradeniya,<br />
             Peradeniya 20400,<br />
             Sri Lanka.
           </p>
+          
         </div>
 
         {/* Block 3: Departmental Email Grid */}
-        <div className="bg-[#7d6a6a] p-8 flex flex-col min-h-[190px]">
-          <h3 className="text-xs font-bold tracking-widest uppercase text-gray-900 mb-4 flex items-center gap-2">
+        <div className="bg-[#e2d6ce] p-8 flex flex-col min-h-[190px]">
+          <h3 className="text-[20px] font-bold tracking-widest uppercase text-gray-900 mb-4 flex items-center gap-2">
             <span>✉️</span> EMAIL CHANNELS
           </h3>
-          <div className="text-xs text-white-700 space-y-2 font-medium leading-relaxed break-all">
+          <div className="text-[16px] text-white-700 space-y-2 font-medium leading-relaxed break-all">
             <p>
               <span className="font-bold text-white-900 block mb-0.5">Main General:</span>
               <a href="mailto:acestpera@gs.pdn.ac.lk" className="hover:underline">acestpera@gs.pdn.ac.lk</a>
