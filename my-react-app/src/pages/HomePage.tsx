@@ -128,11 +128,11 @@ const HomePage: React.FC = () => {
             </div>
 
             {/* Right Column: 35% overlay container block stacked in front */}
-            <div className="relative z-5 flex w-full flex-col justify-center gap-3.5 lg:flex-[0_0_45%] lg:max-w-[35%] lg:ml-[-10%] lg:-mt-28">
+            <div className="relative z-5 flex w-full flex-col justify-center gap-3.5 lg:flex-[0_0_55%] lg:max-w-[39%] lg:ml-[-10%] lg:-mt-14">
               {coursesData.map((course) => (
                 <div 
                   key={course.id} 
-                  className="group/card relative cursor-pointer rounded-[10px] bg-white px-6 py-3.5 text-[#222222] shadow-[0_10px_30px_rgba(0,0,0,0.35)] transition-all duration-[0.25s] cubic-bezier(0.25,1,0.5,1) hover:translate-x-2 border border-transparent hover:border-[#3C0008] hover:shadow-[0_14px_35px_rgba(0,0,0,0.45),0_0_15px_rgba(255,51,51,0.4),inset_0_0_20px_rgba(255,51,51,0.25)]"
+                  className="group/card relative cursor-pointer rounded-[10px] bg-white px-6 py-2.5 text-[#222222] shadow-[0_10px_30px_rgba(0,0,0,0.35)] transition-all duration-[0.25s] cubic-bezier(0.25,1,0.5,1) hover:translate-x-2 border border-transparent hover:border-[#3C0008] hover:shadow-[0_14px_35px_rgba(0,0,0,0.45),0_0_15px_rgba(255,51,51,0.4),inset_0_0_20px_rgba(255,51,51,0.25)]"
                 >
                   {/* Underlined slide effect via group hover utility mapping */}
                   <h3 className="relative inline-block pb-1 font-sans text-[1.1rem] font-semibold">
@@ -238,9 +238,7 @@ const HomePage: React.FC = () => {
           </div>
           
           {/* Applications List Container */}
-          <div className="mx-auto flex max-w-225 w-full flex-row gap-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-neutral-200">
-            
-          </div>
+          
 
           {/* Bottom View All Link Button */}
           <div className="mt-8 text-center">

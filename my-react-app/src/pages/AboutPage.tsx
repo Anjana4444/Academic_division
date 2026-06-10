@@ -1,6 +1,26 @@
 import React from 'react'
 
 export default function AboutPage() {
+  const cardData = [
+    { id: "01", title: "Cadre Requirements", desc: "Determining the cadre requirements of academic and academic support staff across all Faculties." },
+    { id: "02", title: "Cadre Statistics", desc: "Updating and maintaining cadre statistics of academic staff, academic support staff and temporary academic staff." },
+    { id: "03", title: "Recruitment & Lifecycle", desc: "Handling all matters pertaining to recruitment, confirmation, annual increments, promotion, extension of services and termination of staff." },
+    { id: "04", title: "Personal File Maintenance", desc: "Maintaining personal files of all academic, temporary and academic support staff with accurate, current records." },
+    { id: "05", title: "Leave, Training & Scholarships", desc: "Handling matters relating to leave, training opportunities and scholarships for academic and academic support staff." },
+    { id: "06", title: "Staff Welfare", desc: "Loans, long service awards, railway warrants, season tickets, health insurance, vehicle permits and issuing service certificates." },
+    { id: "07", title: "Research Allowance", desc: "Handling matters relating to payment of Research Allowance to all eligible staff members." },
+    { id: "08", title: "Salary Revisions", desc: "Handling matters relating to salary revisions and rectification of salaries for all categories of staff." },
+    { id: "09", title: "Disciplinary Matters", desc: "Handling and coordinating all disciplinary matters of academic and academic support staff." },
+    { id: "10", title: "Retirement Benefits", desc: "UPF, EPF, ETF, Pensions Fund and all related matters on cessation of employment." },
+    { id: "11", title: "Contractual Appointments", desc: "Handling matters relating to appointment of academic and academic support staff on contractual and assignment basis." },
+    { id: "12", title: "Academic Positions", desc: "Handling matters relating to appointments to academic positions such as Heads of Academic Departments." },
+    { id: "13", title: "Trade Union Coordination", desc: "Coordinating all matters relating to trade union issues across academic departments and faculties." },
+    { id: "14", title: "Recruitment Examinations", desc: "Coordinating and conducting recruitment examinations and trade tests for academic support staff." },
+    { id: "15", title: "Bonds & Agreements", desc: "Handling all administrative functions of bonds and agreements including bond violation of university academic staff." },
+    { id: "16", title: "Litigation Matters", desc: "Attending to litigation matters with regard to academic and academic support staff recruitment and termination of services." },
+    { id: "17", title: "Leave & Awards Committee", desc: "Convening the meetings of the Leave and Awards Committee and ensuring timely follow-up action on all decisions." }
+  ];
+
   return (
     <div className="w-full bg-[#ffffff] font-sans text-neutral-300 overflow-x-hidden scroll-smooth">
 
@@ -236,153 +256,18 @@ export default function AboutPage() {
         </div>
 
         {/* HIGHLIGHT: Cleaned parent grid wrapper container by removing shared table/divider lines and adding a gap-4 space system */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 rounded-lg">
-          
-          {/* CARD 01 */}
-          {/* HIGHLIGHT: Turned each entry into an independent block with distinct borders, unique backgrounds, and micro-interaction animations */}
-          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
-            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[10px] font-mono text-[#B59410]">01</span>
-            <div>
-              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Cadre Requirements</h4>
-              <p className="text-xs text-neutral-500">Determining the cadre requirements of academic and academic support staff across all Faculties.</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-6">
+          {cardData.map((card) => (
+            <div key={card.id} className="p-6 flex items-start gap-4 bg-[#7d6a6a] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
+              <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#3C0008] flex items-center justify-center text-[15px] font-mono text-[#ffffff]">
+                {card.id}
+              </span>
+              <div>
+                <h4 className="text-[18px] font-semibold text-[#3C0008] mb-1">{card.title}</h4>
+                <p className="text-[12px] text-[#ffffff]">{card.desc}</p>
+              </div>
             </div>
-          </div>
-
-          {/* CARD 02 */}
-          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
-            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">02</span>
-            <div>
-              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Cadre Statistics</h4>
-              <p className="text-xs text-neutral-500">Updating and maintaining cadre statistics of academic staff, academic support staff and temporary academic staff.</p>
-            </div>
-          </div>
-
-          {/* CARD 03 */}
-          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
-            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">03</span>
-            <div>
-              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Recruitment & Lifecycle</h4>
-              <p className="text-xs text-neutral-500">Handling all matters pertaining to recruitment, confirmation, annual increments, promotion, extension of services and termination of staff.</p>
-            </div>
-          </div>
-
-          {/* CARD 04 */}
-          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
-            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">04</span>
-            <div>
-              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Personal File Maintenance</h4>
-              <p className="text-xs text-neutral-500">Maintaining personal files of all academic, temporary and academic support staff with accurate, current records.</p>
-            </div>
-          </div>
-
-          {/* CARD 05 */}
-          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
-            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">05</span>
-            <div>
-              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Leave, Training & Scholarships</h4>
-              <p className="text-xs text-neutral-500">Handling matters relating to leave, training opportunities and scholarships for academic and academic support staff.</p>
-            </div>
-          </div>
-
-          {/* CARD 06 */}
-          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
-            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">06</span>
-            <div>
-              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Staff Welfare</h4>
-              <p className="text-xs text-neutral-500">Loans, long service awards, railway warrants, season tickets, health insurance, vehicle permits and issuing service certificates.</p>
-            </div>
-          </div>
-
-          {/* CARD 07 */}
-          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
-            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">07</span>
-            <div>
-              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Research Allowance</h4>
-              <p className="text-xs text-neutral-500">Handling matters relating to payment of Research Allowance to all eligible staff members.</p>
-            </div>
-          </div>
-
-          {/* CARD 08 */}
-          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
-            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">08</span>
-            <div>
-              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Salary Revisions</h4>
-              <p className="text-xs text-neutral-500">Handling matters relating to salary revisions and rectification of salaries for all categories of staff.</p>
-            </div>
-          </div>
-
-          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
-            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">09</span>
-            <div>
-              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Disciplinary Matters</h4>
-              <p className="text-xs text-neutral-500">Handling and coordinating all disciplinary matters of academic and academic support staff.</p>
-            </div>
-          </div>
-
-          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
-            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">10</span>
-            <div>
-              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Retirement Benefits</h4>
-              <p className="text-xs text-neutral-500">UPF, EPF, ETF, Pensions Fund and all related matters on cessation of employment.</p>
-            </div>
-          </div>
-
-          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
-            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">11</span>
-            <div>
-              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Contractual Appointments</h4>
-              <p className="text-xs text-neutral-500">Handling matters relating to appointment of academic and academic support staff on contractual and assignment basis.</p>
-            </div>
-          </div>
-
-          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
-            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">12</span>
-            <div>
-              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Academic Positions</h4>
-              <p className="text-xs text-neutral-500">Handling matters relating to appointments to academic positions such as Heads of Academic Departments.</p>
-            </div>
-          </div>
-
-          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
-            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">13</span>
-            <div>
-              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Trade Union Coordination</h4>
-              <p className="text-xs text-neutral-500">Coordinating all matters relating to trade union issues across academic departments and faculties.</p>
-            </div>
-          </div>
-
-          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
-            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">14</span>
-            <div>
-              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Recruitment Examinations</h4>
-              <p className="text-xs text-neutral-500">Coordinating and conducting recruitment examinations and trade tests for academic support staff.</p>
-            </div>
-          </div>
-
-          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
-            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">15</span>
-            <div>
-              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Bonds & Agreements</h4>
-              <p className="text-xs text-neutral-500">Handling all administrative functions of bonds and agreements including bond violation of university academic staff.</p>
-            </div>
-          </div>
-
-          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
-            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">16</span>
-            <div>
-              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Litigation Matters</h4>
-              <p className="text-xs text-neutral-500">Attending to litigation matters with regard to academic and academic support staff recruitment and termination of services.</p>
-            </div>
-          </div>
-
-          <div className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
-            <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#7d6a6a] flex items-center justify-center text-[15px] font-mono text-[#B59410]">17</span>
-            <div>
-              <h4 className="text-sm font-semibold text-neutral-200 mb-1">Leave & Awards Committee</h4>
-              <p className="text-xs text-neutral-500">Convening the meetings of the Leave and Awards Committee and ensuring timely follow-up action on all decisions.</p>
-            </div>
-          </div>       
-
+          ))}
         </div>
 
         
