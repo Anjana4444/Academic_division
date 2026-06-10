@@ -57,7 +57,7 @@ export default function ApplicationsPage() {
             <h1 className="text-[#ffffff] text-4xl md:text-5xl font-bold tracking-widest uppercase drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
               Applications & <span className="text-[#B59410] ">Forms</span>
             </h1>
-            <p className="text-white/50 text-sm">
+            <p className="text-white text-sm">
               Download the relevant forms and submit them to the division
             </p>
           </div>

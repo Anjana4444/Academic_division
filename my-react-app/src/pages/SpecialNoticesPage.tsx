@@ -29,7 +29,7 @@ export default function SpecialNoticesPage() {
           <h1 className="text-[#ffffff] text-4xl md:text-5xl font-bold tracking-widest uppercase drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
             Special Notices
           </h1>
-          <p className="text-white/70 text-sm md:text-base mt-2 tracking-wide">
+          <p className="text-white text-sm md:text-base mt-2 tracking-wide">
             Important announcements from the Academic Establishments Division
           </p>
         </div>
