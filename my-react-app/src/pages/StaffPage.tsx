@@ -81,7 +81,7 @@ function StaffCard({ member, size }: { member: StaffMember; size: 'large' | 'sma
 
         <div className="flex flex-col gap-1.5 w-full text-xs text-stone-600">
           {member.phone && (
-            <div className="flex items-center justify-center gap-1.5">
+            <div className="flex items-center justify-center gap-1.5" p-12>
               <svg className="w-3.5 h-3.5 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.72.73.73 0 00.58.53l3.28.9a1 1 0 01.7.94v3.9a1 1 0 01-.68.94l-2.69.94a11.95 11.95 0 005.61 5.61l.94-2.7a1 1 0 01.94-.68h3.9a1 1 0 01.94.7l.9 3.28a1 1 0 01-.7.94l-3.79 1.2a1 1 0 01-1.14-.34l-2.28-2.28a11.947 11.947 0 01-5.61-5.61L9.72 9.72a1 1 0 01-.34-1.14l1.2-3.79z" />
               </svg>

@@ -2,6 +2,7 @@
   background-color: #4a0b16;
   color: #ffffff;
   margin-top: auto;
+  line-height: 0.9;
 }
 
 .topBar {
@@ -145,7 +146,7 @@
 }
 
 .description {
-  font-size: 1.02rem;
+  font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
 }
@@ -165,13 +166,13 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 13px;
   text-align: left;
   padding: 0;
 }
 
 .footerLink {
-  font-size: 1.08rem;
+  font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.6);
   transition: color 0.15s ease;
   text-decoration: none;

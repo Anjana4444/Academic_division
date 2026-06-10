@@ -67,7 +67,7 @@ export default function ApplicationsPage() {
 
         {/* Search bar */}
         <div className="flex items-center gap-3 bg-white border border-[#80000033] rounded-lg px-4 py-2.5 mb-6">
-          <span className="text-gray-400 text-sm">🔍</span>
+          <span className="text-gray-400 text-sm">🔎︎</span>
           <input
             type="text"
             placeholder="Search applications..."
@@ -103,7 +103,7 @@ export default function ApplicationsPage() {
                   className="shrink-0 text-xs font-semibold text-[#4a0b16] border border-[#80000050] px-4 py-1.5 rounded hover:bg-[#4a0b16] hover:text-[#e8c97a] transition-colors duration-150"
                   download
                 >
-                  ↓ Download
+                   Download
                 </a>
               </div>
             ))
