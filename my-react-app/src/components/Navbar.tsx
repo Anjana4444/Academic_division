@@ -14,6 +14,7 @@ export default function Navbar() {
   const location = useLocation()
   {/* HIGHLIGHT: Added scroll state listener */}
   const [isScrolled, setIsScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     window.scrollTo({
@@ -37,7 +38,7 @@ export default function Navbar() {
   }, [])
   return (
     <nav style={{ backgroundColor: isScrolled ? 'rgba(60, 0, 8, 0.65)' : '#3C0008' }}
-  className={`fixed top-0 left-0 w-full h-17.5 z-1000 flex items-center transition-all duration-300 ${
+  className={`fixed top-0 left-0 w-full h-21.5 z-1000 flex items-center transition-all duration-300 ${
     isScrolled 
       ? 'backdrop-blur-md border-b border-white/10 shadow-lg' 
       : 'border-b border-transparent shadow-none'
@@ -61,8 +62,9 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Nav links */}
-        <div className="flex items-center gap-6">
+        
+        {/* Nav links — desktop only */}
+<div className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) => {
             const isActive = location.pathname === link.to;
             return (
@@ -92,8 +94,46 @@ export default function Navbar() {
             UoP
           </a>
         </div>
+        {/* Hamburger — mobile only */}
+<button
+  className="lg:hidden flex flex-col gap-1.5 p-2 cursor-pointer"
+  onClick={() => setMenuOpen(!menuOpen)}
+  aria-label="Toggle menu"
+>
+  <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+  <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
+  <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+</button>
 
       </div>
+      {/* Mobile menu */}
+{menuOpen && (
+  <div className="lg:hidden absolute top-full left-0 w-full bg-[#2a0006]/95 backdrop-blur-md border-t border-white/10 px-6 py-4 flex flex-col gap-1">
+    {navLinks.map((link) => (
+      <Link
+        key={link.to}
+        to={link.to}
+        onClick={() => setMenuOpen(false)}
+        className={`text-sm font-bold uppercase tracking-wide py-3 border-b border-white/5 transition-colors duration-150 ${
+          location.pathname === link.to
+            ? 'text-[#B59410]'
+            : 'text-white/80 hover:text-[#B59410]'
+        }`}
+      >
+        {link.label}
+      </Link>
+    ))}
+    <a
+      href="https://www.pdn.ac.lk/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-sm font-bold uppercase tracking-wide py-3 text-white/80 hover:text-[#B59410] transition-colors duration-150"
+      onClick={() => setMenuOpen(false)}
+    >
+      UoP ↗
+    </a>
+  </div>
+)}
     </nav>
   )
 }

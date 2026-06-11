@@ -45,7 +45,7 @@ const HomePage: React.FC = () => {
         
         {/* Hero Content */}
         <div className="relative z-4 max-w-225 px-5">
-          <h1 className="m-0 mb-6 font-sans text-[3.2rem] font-bold leading-[1.2] tracking-normal text-white md:text-4xl uppercase drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
+          <h1 className="m-0 mb-6 font-sans text-[1.8rem] sm:text-[2.5rem] lg:text-[3.2rem] font-bold leading-[1.2] tracking-normal text-white uppercase drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
             Academic <span className="text-[#B59410]">Establishments</span> Division
           </h1>
           
