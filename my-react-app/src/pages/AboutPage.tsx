@@ -258,12 +258,12 @@ export default function AboutPage() {
         {/* HIGHLIGHT: Cleaned parent grid wrapper container by removing shared table/divider lines and adding a gap-4 space system */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-6">
           {cardData.map((card) => (
-            <div key={card.id} className="p-6 flex items-start gap-4 bg-[#7d6a6a] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
-              <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#3C0008] flex items-center justify-center text-[15px] font-mono text-[#ffffff]">
+            <div key={card.id} className="p-6 flex items-start gap-4 bg-[#3C0008] border border-neutral-800/80 rounded-xl shadow-md transition-transform duration-200 hover:-translate-y-1">
+              <span className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-[#B59410] flex items-center justify-center text-[15px] font-mono text-[#B59410]">
                 {card.id}
               </span>
               <div>
-                <h4 className="text-[18px] font-semibold text-[#3C0008] mb-1">{card.title}</h4>
+                <h4 className="text-[18px] font-semibold text-[#ffffff] mb-1">{card.title}</h4>
                 <p className="text-[12px] text-[#ffffff]">{card.desc}</p>
               </div>
             </div>

@@ -28,11 +28,11 @@ const HomePage: React.FC = () => {
       <header id="home" className="relative flex h-[60vh] w-full flex-col items-center justify-center overflow-hidden bg-[#3C0008] text-center text-white">
         {/* Geometric angled backgrounds */}
         <div 
-          className="absolute bottom-0 left-0 z-3 h-[45%] w-[35%] bg-[#3C0008]" 
+          className="absolute bottom-0 left-0 z-3 h-[45%] w-[35%] bg-[#3C0008]/70" 
           style={{ clipPath: 'polygon(0 100%, 100% 100%, 0 0)' }}
         />
         <div 
-          className="absolute top-0 right-0 z-3 h-[55%] w-[40%] bg-[#3C0008]" 
+          className="absolute top-0 right-0 z-3 h-[55%] w-[40%] bg-[#3C0008]/70" 
           style={{ clipPath: 'polygon(100% 0, 100% 100%, 0 0)' }}
         />
         
@@ -44,7 +44,7 @@ const HomePage: React.FC = () => {
         <div className="absolute inset-0 z-2 bg-[radial-gradient(circle,rgba(60,0,8,0.45)_10%,rgba(60,0,8,0.35)_80%)] " />
         
         {/* Hero Content */}
-        <div className="relative z-4 max-w-225 px-5">
+        <div className="relative z-4 max-w-225 px-5 top-10">
           <h1 className="m-0 mb-6 font-sans text-[1.8rem] sm:text-[2.5rem] lg:text-[3.2rem] font-bold leading-[1.2] tracking-normal text-white uppercase drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
             Academic <span className="text-[#B59410]">Establishments</span> Division
           </h1>

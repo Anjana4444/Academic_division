@@ -167,7 +167,7 @@ export default function StaffPage() {
         <h1 className="text-[#ffffff] text-4xl md:text-5xl font-bold tracking-widest uppercase drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
           Staff Directory
         </h1>
-        <p className="text-white/70 text-sm max-w-xl mx-auto font-medium">
+        <p className="text-white/70 text-sm max-w-xl mx-auto font-bold">
           Academic Establishments Division · University of Peradeniya
         </p>
       </div>
