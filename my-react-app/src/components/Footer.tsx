@@ -97,7 +97,7 @@ export default function Footer() {
       {/* Copyright */}
       <div className={styles.copyright}>
         <p>
-          © {new Date().getFullYear()} IT Center · University of Peradeniya · All rights reserved
+          © {new Date().getFullYear()} Developed by IT Center · University of Peradeniya · All rights reserved
         </p>
       </div>
 

@@ -18,7 +18,8 @@ export default function AboutPage() {
     { id: "14", title: "Recruitment Examinations", desc: "Coordinating and conducting recruitment examinations and trade tests for academic support staff." },
     { id: "15", title: "Bonds & Agreements", desc: "Handling all administrative functions of bonds and agreements including bond violation of university academic staff." },
     { id: "16", title: "Litigation Matters", desc: "Attending to litigation matters with regard to academic and academic support staff recruitment and termination of services." },
-    { id: "17", title: "Leave & Awards Committee", desc: "Convening the meetings of the Leave and Awards Committee and ensuring timely follow-up action on all decisions." }
+    { id: "17", title: "Leave & Awards Committee", desc: "Convening the meetings of the Leave and Awards Committee and ensuring timely follow-up action on all decisions." },
+    { id: "18", title: "Council & Senate Reporting", desc: "Preparing and submitting administrative progress reports, cadre recommendations, and policy briefs for University Council and Senate approvals." }
   ];
 
   return (
