@@ -32,10 +32,10 @@ const contactMethods: ContactMethod[] = [
 
 export default function ContactPage() {
   return (
-    <div className="w-full bg-white text-gray-900 font-sans min-h-screen py-16 px-6 sm:px-12 lg:px-20">
+    <div className="w-full bg-white text-gray-900 font-sans min-h-screen pt-28 pb-16 px-6 sm:px-12 lg:px-20">
       
       {/* Top Section: Split Info & Circular Artwork Mask */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-center mb-10">
         
         {/* Left Column: Headline and Primary Meta Contacts */}
         <div className="flex flex-col items-start justify-center md:pr-6">
@@ -53,7 +53,7 @@ export default function ContactPage() {
             <p>
               <span className="font-bold">Phone:</span>{' '}
               <a href="tel:+94812085208" className="underline hover:text-gray-500 transition-colors">
-                1 (232) 252 55 22
+                +94 81 208 5208
               </a>
             </p>
             <p>
