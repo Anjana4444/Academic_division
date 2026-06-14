@@ -70,27 +70,27 @@ const HomePage: React.FC = () => {
         
         
         {/* Structural Frames */}
-        <div className="absolute border-4 border-[#3C0008]/55 border-b-0 border-r-0 top-10 left-10 h-40 w-40" />
-        <div className="absolute border-4 border-[#3C0008]/55 border-t-0 border-l-0 bottom-10 right-10 h-40 w-40" />
+        <div className="hidden sm:block absolute border-4 border-[#3C0008]/55 border-b-0 border-r-0 top-10 left-10 h-40 w-40" />
+        <div className="hidden sm:block absolute border-4 border-[#3C0008]/55 border-t-0 border-l-0 bottom-10 right-10 h-40 w-40" />
 
         <div className="relative z-5 w-full max-w-225">
-          <h2 className="font-sans text-[3.2rem] font-bold leading-[1.3] tracking-[0.5px] text-[#3C0008] mb-11.25">
+          <h2 className="font-sans text-[1.4rem] sm:text-[2.4rem] lg:text-[3.2rem] font-bold leading-[1.3] tracking-[0.5px] text-[#3C0008] mb-8">
             One of the <span className="font-serif italic text-[#B59410]">most important</span> divisions in the University
           </h2>
 
           <div className="relative mx-auto max-w-190">
-            <span className="absolute -top-11.25 -left-23.75 select-none font-serif text-[11rem] leading-none text-[#3C0008] opacity-25 pointer-events-none">
-              “
-            </span>
+            <span className="hidden lg:block absolute -top-11.25 -left-23.75 select-none font-serif text-[11rem] leading-none text-[#3C0008] opacity-25 pointer-events-none">
+  “
+</span>
             <p className="font-sans font-light text-base leading-[1.8] text-[#3C0008]">
               The Academic Establishments Division is one of the most important divisions in the University. 
               Presently the entire department is managed by two officers — one at the Senior Assistant Registrar 
               level and the other at the Assistant Registrar level — with the assistance of several Management 
               Assistants.
             </p>
-            <span className="absolute -bottom-35 -right-6.75 select-none font-serif text-[11rem] leading-none text-[#3C0008] opacity-25 pointer-events-none">
-              ”
-            </span>
+            <span className="hidden lg:block absolute -bottom-35 -right-6.75 select-none font-serif text-[11rem] leading-none text-[#3C0008] opacity-25 pointer-events-none">
+  ”
+</span>
           </div>
         </div>
       </section>
@@ -101,16 +101,16 @@ const HomePage: React.FC = () => {
       <section className="flex w-full justify-center overflow-hidden bg-[#3C0008] px-5 py-20 text-white">
         <div className="w-full max-w-300">
           
-          <div className="mr-auto mb-6 max-w-212.5 text-start">
+          <div className="mr-auto mb-6 max-w-xl text-start">
             <h2 className="font-sans text-[2.8rem] font-bold text-white mb-5">
               Core <span className="text-[#B59410]">Functions</span>       
             </h2>
-            <p className="text-base font-light leading-[1.8] text-white text-justify">
-              The Division manages all key human resource functions of the university. <br />
-              We handle staff recruitment, cadre management, training, welfare, compensation, <br />
-              and administrative support services. Our goal is to create a productive and <br />
-              supportive environment for academic and non-academic staff.
-            </p>
+            <p className="text-base font-light leading-[1.8] text-white text-left">
+  The Division manages all key human resource functions of the university.
+  We handle staff recruitment, cadre management, training, welfare, compensation,
+  and administrative support services. Our goal is to create a productive and
+  supportive environment for academic and non-academic staff.
+</p>
           </div>
 
           {/* Split Wrapper Layout */}

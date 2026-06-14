@@ -32,9 +32,9 @@ export default function AboutPage() {
   {/* Left Section (1/3 width on desktop): Solid Color & Text */}
   <div className="flex flex-col justify-center bg-[#ffffff] px-8 py-12 md:col-span-1 md:px-12">
     <div className="w-full text-left">
-      <h1 className="m-0 mb-6 font-sans text-4xl font-bold leading-tight uppercase tracking-normal text-[#3C0008] lg:text-4xl drop-shadow-[0_1px_1px_rgba(0,0,0,1)]">
-        About <span className="text-[#B59410]">Our Division</span>
-      </h1>
+      <h1 className="m-14 mb-6 font-sans text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight uppercase tracking-normal text-[#3C0008] drop-shadow-[0_1px_1px_rgba(0,0,0,1)]">
+  About <span className="text-[#B59410]">Our Division</span>
+</h1>
       
       <p className="font-sans text-[14px] font-bold tracking-[0.5px] text-[#3C0008]">
         Upholding academic excellence through dedicated administration at the heart of the University of Peradeniya.
