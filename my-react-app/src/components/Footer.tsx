@@ -28,6 +28,14 @@ export default function Footer() {
       Managing academic staff appointments, promotions, leave, and establishment
       matters for the University of Peradeniya.
     </p>
+
+    <p className={styles.description}>
+
+            Academic Establishments Division,<br />
+            University of Peradeniya,<br />
+            Peradeniya 20400,<br />
+            Sri Lanka.
+          </p>
   </div>
 
   {/* Column 2 — Quick links */}

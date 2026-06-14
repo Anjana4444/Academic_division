@@ -64,6 +64,13 @@
   padding: 0;
 }
 
+.adress {
+  font-size: 1.28rem;
+  color: #e8c97a;
+  line-height: 1; 
+  
+}
+
 /* Contact list */
 .contactList {
   list-style: none;

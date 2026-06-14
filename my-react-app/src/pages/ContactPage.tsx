@@ -104,7 +104,6 @@ export default function ContactPage() {
           </h3>
           <p className="text--[16px]"> <span className="font-bold text-gray-900">Adress:<br /></span> 
             Academic Establishments Division,<br />
-            Senate Building,<br />
             University of Peradeniya,<br />
             Peradeniya 20400,<br />
             Sri Lanka.
