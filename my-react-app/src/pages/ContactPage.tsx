@@ -105,7 +105,7 @@ export default function ContactPage() {
           <p className="text--[16px]"> <span className="font-bold text-gray-900">Adress:<br /></span> 
             Academic Establishments Division,<br />
             University of Peradeniya,<br />
-            Peradeniya 20400,<br />
+            Peradeniya,<br />
             Sri Lanka.
           </p>
           
@@ -135,7 +135,7 @@ export default function ContactPage() {
       </div>
 
 
-      <div className="max-w-4xl  px-6 mb-16 py-10 mx-auto">
+<div className="max-w-4xl  px-6 mb-16 py-10 mx-auto">
   <div className="bg-[white] rounded-xl shadow-md border-l-4 border-[#c9922a] p-8">
     
     <h2 className="text-2xl font-bold text-[#4a0b16] mb-6 flex items-center gap-2">
@@ -205,7 +205,9 @@ export default function ContactPage() {
     </button>
 
   </div>
-</div>
+      </div>
+
+      
 
     </div>
   )

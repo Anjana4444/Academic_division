@@ -33,7 +33,7 @@ export default function Footer() {
 
             Academic Establishments Division,<br />
             University of Peradeniya,<br />
-            Peradeniya 20400,<br />
+            Peradeniya,<br />
             Sri Lanka.
           </p>
   </div>
