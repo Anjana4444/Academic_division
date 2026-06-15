@@ -1,5 +1,5 @@
-import { Link, useLocation } from 'react-router-dom'
-import { useState, useEffect, useRef, JSX } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useState, useEffect, useRef, JSX, FormEvent } from 'react'
 
 interface NavLink {
   label: string;
@@ -9,16 +9,20 @@ interface NavLink {
 interface LanguageOption {
   code: 'en' | 'si' | 'ta';
   label: string;
-  flag: string;
 }
 
 export default function Navbar(): JSX.Element {
   const location = useLocation()
+  const navigate = useNavigate()
   const [isScrolled, setIsScrolled] = useState<boolean>(false)
   const [menuOpen, setMenuOpen] = useState<boolean>(false)
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false)
   const [currentLang, setCurrentLang] = useState<string>('en')
+  const [searchQuery, setSearchQuery] = useState<string>('') 
+  const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false) 
+  
   const dropdownRef = useRef<HTMLDivElement | null>(null)
+  const searchFormRef = useRef<HTMLFormElement | null>(null)
 
   const navLinks: NavLink[] = [
     { label: 'Home',            to: '/' },
@@ -29,21 +33,35 @@ export default function Navbar(): JSX.Element {
     { label: 'Contact',         to: '/contact' },
   ]
 
-  // Track the language active inside Google Translate elements or cookies
+  const handleSearchSubmit = (e?: FormEvent<HTMLFormElement>): void => {
+    if (e) e.preventDefault()
+    
+    if (!isSearchOpen) {
+      setIsSearchOpen(true)
+      return
+    }
+
+    if (!searchQuery.trim()) {
+      setIsSearchOpen(false)
+      return
+    }
+    
+    navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`)
+    setMenuOpen(false)
+  }
+
   useEffect(() => {
     const checkGoogleLang = (): void => {
-      // 1. Try reading Google's active state combo element value
       const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement | null
       if (selectElement && selectElement.value) {
         setCurrentLang(selectElement.value)
         return
       }
 
-      // 2. Fallback: Parse cookie value if DOM isn't completely ready
       const match = document.cookie.match(/(^| )googtrans=([^;]+)/)
       if (match && match[2]) {
         const parts = match[2].split('/')
-        const lang = parts[parts.length - 1] // Extracts 'si', 'ta' etc.
+        const lang = parts[parts.length - 1]
         if (['en', 'si', 'ta'].includes(lang)) {
           setCurrentLang(lang)
         }
@@ -53,26 +71,20 @@ export default function Navbar(): JSX.Element {
     return () => clearInterval(interval)
   }, [])
 
-  // Programmatically execute language switching on Google Translate's core
   const changeGoogleLanguage = (langCode: 'en' | 'si' | 'ta'): void => {
     try {
-      // 1. Force state updates directly into Google's standard tracking cookies
       const targetCookieValue = langCode === 'en' ? '' : `/en/${langCode}`
       document.cookie = `googtrans=${targetCookieValue}; path=/; domain=${window.location.hostname};`
-      document.cookie = `googtrans=${targetCookieValue}; path=/;` // Localhost execution handling fallback
+      document.cookie = `googtrans=${targetCookieValue}; path=/;`
 
-      // 2. Trigger programmatic value injection inside Google's element layout
       const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement | null
       if (selectElement) {
         selectElement.value = langCode
-        // Bubbles: true tells the parent window elements that a state transformation action occurred
         selectElement.dispatchEvent(new Event('change', { bubbles: true }))
       }
 
       setCurrentLang(langCode)
 
-      // 3. If Google's widget dropdown hasn't rendered in the DOM yet, 
-      // reloading ensures the cookie we just set handles the page translation instantly.
       if (!selectElement) {
         window.location.reload()
       }
@@ -81,12 +93,10 @@ export default function Navbar(): JSX.Element {
     }
   }
 
-  // Scroll to top on route change
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
   }, [location.pathname])
 
-  // Scroll listener for blur effect
   useEffect(() => {
     const handleScroll = (): void => {
       setIsScrolled(window.scrollY > 20)
@@ -95,21 +105,26 @@ export default function Navbar(): JSX.Element {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent): void => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      const target = event.target as Node;
+      
+      if (dropdownRef.current && !dropdownRef.current.contains(target)) {
         setDropdownOpen(false)
+      }
+      
+      if (searchFormRef.current && !searchFormRef.current.contains(target) && !searchQuery.trim()) {
+        setIsSearchOpen(false)
       }
     }
     document.addEventListener('mousedown', handleClickOutside)
     return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
+  }, [searchQuery])
 
   const languages: LanguageOption[] = [
-    { code: 'en', label: 'English', flag: '🇬🇧' },
-    { code: 'si', label: 'සිංහල',   flag: '🇱🇰' },
-    { code: 'ta', label: 'தமிழ்',   flag: '🇱🇰' },
+    { code: 'en', label: 'English' },
+    { code: 'si', label: 'සිංහල' },
+    { code: 'ta', label: 'தமிழ்' },
   ]
 
   return (
@@ -121,7 +136,7 @@ export default function Navbar(): JSX.Element {
           : 'border-b border-transparent shadow-none'
       }`}
     >
-      <div className="w-[90%] mx-auto flex items-center justify-between h-[70px]">
+      <div className="w-[95%] xl:w-[90%] mx-auto flex items-center justify-between h-[70px]">
 
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3" onClick={() => setMenuOpen(false)}>
@@ -130,46 +145,99 @@ export default function Navbar(): JSX.Element {
             alt="Academic Establishments Division"
             className="h-14 w-auto"
           />
-          <div>
-            <div className="text-white text-[16px] font-bold leading-tight">
+          <div className="hidden sm:block">
+            <div className="text-white text-[15px] xl:text-[16px] font-bold leading-tight">
               Academic Establishments Division
             </div>
-            <div className="text-[#B59410] text-[13px] font-bold mt-0.5">
+            <div className="text-[#B59410] text-[12px] xl:text-[13px] font-bold mt-0.5">
               University of Peradeniya
             </div>
           </div>
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden lg:flex items-center gap-5">
-          {navLinks.map((link) => {
-            const isActive = location.pathname === link.to
-            return (
-              <Link
-                key={link.to}
-                to={link.to}
-                className="relative py-1 text-sm font-bold uppercase tracking-wide text-white hover:text-[#B59410] transition-colors duration-200"
-              >
-                {link.label}
-                {isActive && (
-                  <span className="absolute bottom-0 left-0 w-full h-[3px] bg-white rounded-full" />
-                )}
-              </Link>
-            )
-          })}
-
-          {/* UoP external link */}
-          <a
-            href="https://www.pdn.ac.lk/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-bold uppercase tracking-wide text-white hover:text-[#B59410] transition-colors duration-200"
+        {/* Desktop Controls */}
+        <div className="hidden lg:flex items-center gap-4 xl:gap-5">
+          
+          {/* DESKTOP: Expanding Search Bar Container (Positioned on Left) */}
+          <form 
+            ref={searchFormRef}
+            onSubmit={handleSearchSubmit} 
+            className="relative flex items-center mr-2 transition-all duration-300 ease-in-out"
           >
-            UOP
-          </a>
+            <input
+              type="text"
+              placeholder="Search..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className={`bg-white/10 text-white placeholder-white/50 text-xs font-medium rounded-full transition-all duration-300 ease-in-out border border-white/10 focus:outline-none focus:bg-white/20 focus:border-white/30
+                ${isSearchOpen 
+                  ? 'w-48 xl:w-64 pl-4 pr-16 py-1.5 opacity-100' 
+                  : 'w-8 pl-0 pr-0 py-1.5 opacity-0 pointer-events-none border-transparent bg-transparent'
+                }`}
+            />
+            
+            <div className="absolute right-1.5 flex items-center gap-1">
+              {isSearchOpen && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSearchQuery('')
+                    setIsSearchOpen(false)
+                    if (location.pathname === '/search') {
+                      navigate(-1)
+                    }
+                  }}
+                  className="text-white/40 hover:text-white p-1 rounded-full transition-colors cursor-pointer"
+                  title="Close Search"
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              )}
 
-          {/* Language dropdown */}
-          <div ref={dropdownRef} className="relative ml-2 border-l border-white/20 pl-4">
+              <button 
+                type="button"
+                onClick={() => handleSearchSubmit()}
+                className="text-white/60 hover:text-white transition-all duration-200 p-1.5 rounded-full hover:bg-white/5 cursor-pointer"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </button>
+            </div>
+          </form>
+
+          {/* Navigation Links */}
+          <div className={`flex items-center gap-4 xl:gap-5 transition-opacity duration-300 ${isSearchOpen ? 'opacity-0 pointer-events-none hidden xl:flex' : 'opacity-100'}`}>
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.to
+              return (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className="relative py-1 text-xs xl:text-sm font-bold uppercase tracking-wide text-white hover:text-[#B59410] transition-colors duration-200"
+                >
+                  {link.label}
+                  {isActive && (
+                    <span className="absolute bottom-0 left-0 w-full h-[3px] bg-white rounded-full" />
+                  )}
+                </Link>
+              )
+            })}
+
+            <a
+              href="https://www.pdn.ac.lk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs xl:text-sm font-bold uppercase tracking-wide text-white hover:text-[#B59410] transition-colors duration-200"
+            >
+              UOP
+            </a>
+          </div>
+
+          {/* Language Dropdown */}
+          <div ref={dropdownRef} className="relative border-l border-white/20 pl-4">
             <button
               type="button"
               onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -189,7 +257,6 @@ export default function Navbar(): JSX.Element {
               </svg>
             </button>
 
-            {/* Dropdown menu */}
             <div 
               onMouseLeave={() => setDropdownOpen(false)}
               className={`absolute right-0 top-full mt-2 w-36 bg-[#2a0006] border border-white/10 rounded-lg shadow-xl transition-all duration-200 ${
@@ -206,13 +273,12 @@ export default function Navbar(): JSX.Element {
                     changeGoogleLanguage(lang.code)
                     setDropdownOpen(false)
                   }}
-                  className={`w-full flex items-center gap-2 px-4 py-2.5 text-xs font-semibold transition-colors duration-150 first:rounded-t-lg last:rounded-b-lg ${
+                  className={`w-full flex items-center justify-start px-4 py-2.5 text-xs font-semibold transition-colors duration-150 first:rounded-t-lg last:rounded-b-lg ${
                     currentLang === lang.code
                       ? 'bg-[#B59410] text-[#3C0008]'
                       : 'text-white/75 hover:bg-white/10 hover:text-white'
                   }`}
                 >
-                  <span>{lang.flag}</span>
                   <span>{lang.label}</span>
                 </button>
               ))}
@@ -237,6 +303,23 @@ export default function Navbar(): JSX.Element {
       {/* Mobile menu */}
       {menuOpen && (
         <div className="lg:hidden absolute top-full left-0 w-full bg-[#2a0006]/95 backdrop-blur-md border-t border-white/10 px-6 py-4 flex flex-col gap-1">
+          
+          {/* Mobile Search Bar */}
+          <form onSubmit={(e) => handleSearchSubmit(e)} className="relative flex items-center my-2">
+            <input
+              type="text"
+              placeholder="Search website..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="bg-white/10 text-white placeholder-white/40 text-sm font-medium rounded-lg pl-3 pr-10 py-2.5 w-full border border-white/10 focus:outline-none focus:bg-white/20 transition-all"
+            />
+            <button type="submit" className="absolute right-3 text-white/60 hover:text-white">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </button>
+          </form>
+
           {navLinks.map((link) => (
             <Link
               key={link.to}
@@ -252,7 +335,6 @@ export default function Navbar(): JSX.Element {
             </Link>
           ))}
 
-          {/* UoP mobile external link */}
           <a
             href="https://www.pdn.ac.lk/"
             target="_blank"
@@ -266,7 +348,7 @@ export default function Navbar(): JSX.Element {
           {/* Mobile language switcher */}
           <div className="flex items-center gap-2 pt-3 border-t border-white/10 mt-1">
             <span className="text-white/50 text-xs">Language:</span>
-            {显式类型 = (['en', 'si', 'ta'] as const).map((lang) => (
+            {(['en', 'si', 'ta'] as const).map((lang) => (
               <button
                 key={lang}
                 type="button"

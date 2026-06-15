@@ -6,6 +6,9 @@ import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
 import SpecialNoticesPage from './pages/SpecialNoticesPage'
 import ApplicationsPage from './pages/ApplicationsPage'
+import SearchPage from './pages/SearchPage' // 1. Imported SearchPage Component
+
+// Form Imports
 import AgreementForm from './applicationforms/AgreementForm'
 import Appendix16Form from './applicationforms/Appendix16Form'
 import ApplicationforConfirmationForm from './applicationforms/ApplicationforConfirmationForm'
@@ -17,7 +20,6 @@ import ConcessionaryMotorVehiclePermitForm from './applicationforms/Concessionar
 import ETFForm from './applicationforms/ETFForm'
 import ProbationaryLeaveApplicationForm from './applicationforms/ProbationaryLeaveApplicationForm'
 
-
 export default function App() {
   return (
     <Routes>
@@ -28,7 +30,11 @@ export default function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/notices" element={<SpecialNoticesPage />} />
         <Route path="/applications" element={<ApplicationsPage />} />
+        
+        {/* 2. Added the unified search engine result index path */}
+        <Route path="/search" element={<SearchPage />} />
 
+        {/* Application Sub-Forms Layout Elements */}
         <Route path="/applications/:slug" element={<ApplicationsPage />} />
         <Route path="/applications/agreement" element={<AgreementForm />} />
         <Route path="/applications/appendix-16" element={<Appendix16Form />} />
