@@ -1,0 +1,88 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "notices": "Special Notices",
+    "applications": "Applications",
+    "staff": "Staff",
+    "contact": "Contact",
+    "uop": "UoP"
+  },
+  "hero": {
+    "title": "Academic Establishments Division",
+    "subtitle": "Upholding academic excellence through dedicated administration at the heart of the University of Peradeniya.",
+    "button": "Learn More"
+  },
+  "about": {
+    "title": "One of the most important divisions in the University",
+    "description": "The Academic Establishments Division is one of the most important divisions in the University. Presently the entire department is managed by two officers — one at the Senior Assistant Registrar level and the other at the Assistant Registrar level — with the assistance of several Management Assistants."
+  },
+  "functions": {
+    "title": "Core Functions",
+    "description": "The Division manages all key human resource functions of the university. We handle staff recruitment, cadre management, training, welfare, compensation, and administrative support services."
+  },
+  "notices": {
+    "title": "Special Notices",
+    "subtitle": "Stay updated with latest announcements, official directives, and procedural changes within the division.",
+    "viewAll": "View All Notices",
+    "read": "Read Announcement"
+  },
+  "applications": {
+    "title": "Downloads & Applications",
+    "subtitle": "Access and download essential administrative forms, leave requests, and official templates managed by the division.",
+    "viewAll": "View All Forms"
+  },
+  "contact_banner": {
+    "title": "Have Any Administrative Queries?",
+    "subtitle": "Our specialized team is here to assist university faculty and staff members with cadre alignments, promotions, leave authorizations, and standard operating records.",
+    "button": "Contact Our Division"
+  },
+  "staff_page": {
+    "title": "Staff Directory",
+    "subtitle": "Academic Establishments Division · University of Peradeniya",
+    "senior": "Senior Officers",
+    "management": "Management Assistants"
+  },
+  "notices_page": {
+    "title": "Special Notices",
+    "subtitle": "Important announcements from the Academic Establishments Division",
+    "empty": "No notices at this time.",
+    "download": "Download"
+  },
+  "applications_page": {
+    "title": "Applications & Forms",
+    "subtitle": "Download the relevant forms and submit them to the division",
+    "search": "Search applications...",
+    "download": "Download",
+    "empty": "No applications found."
+  },
+  "contact_page": {
+    "title": "Contact Us",
+    "subtitle": "Academic Establishments Division — We are here to meet any administrative need.",
+    "phone": "Phone",
+    "location": "Location",
+    "mail": "Mail",
+    "call": "Call Us",
+    "email_channels": "Email Channels",
+    "form_title": "Send Us a Message",
+    "name": "Full Name",
+    "email": "Email Address",
+    "department": "Department / Office",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send Message to University"
+  },
+  "about_page": {
+    "title": "About Our Division",
+    "subtitle": "Upholding academic excellence through dedicated administration at the heart of the University of Peradeniya."
+  },
+  "footer": {
+    "division": "Academic Establishments Division",
+    "university": "University of Peradeniya",
+    "description": "Managing academic staff appointments, promotions, leave, and establishment matters for the University of Peradeniya.",
+    "quick_links": "Quick Links",
+    "contact_info": "Contact Info",
+    "location_label": "Location",
+    "copyright": "Academic Establishments Division · University of Peradeniya · All rights reserved"
+  }
+}
