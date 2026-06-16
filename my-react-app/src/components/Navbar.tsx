@@ -288,7 +288,7 @@ export default function Navbar(): JSX.Element {
 
     >
 
-      <div className="w-[95%] xl:w-[90%] mx-auto flex items-center justify-between h-[70px]">
+      <div className="w-[95%] xl:w-[90%] mx-auto flex items-center justify-between h-[80px]">
 
 
 
@@ -298,23 +298,23 @@ export default function Navbar(): JSX.Element {
 
           <img
 
-            src="/logo-2.webp"
+            src="/logo-2.webp" 
 
             alt="Academic Establishments Division"
 
-            className="h-14 w-auto"
+            className="h-16 w-auto"
 
           />
 
           <div className="hidden sm:block">
 
-            <div className="text-white text-[15px] xl:text-[16px] font-bold leading-tight">
+            <div className="text-white text-[20px] xl:text-[20px] font-bold leading-tight">
 
               Academic Establishments Division
 
             </div>
 
-            <div className="text-[#B59410] text-[12px] xl:text-[13px] font-bold mt-0.5">
+            <div className="text-[#B59410] text-[18px] xl:text-[18px] font-bold mt-0.5">
 
               University of Peradeniya
 

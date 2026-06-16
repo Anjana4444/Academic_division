@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import { notices } from '../data/notices'
@@ -18,6 +18,28 @@ const coursesData = [
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  // Monitor scroll height to show/hide the back-to-top button
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > window.innerHeight * 0.5) {
+        setShowBackToTop(true);
+      } else {
+        setShowBackToTop(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white font-sans text-[#333333] scroll-smooth">
@@ -58,8 +80,18 @@ const HomePage: React.FC = () => {
             onClick={() => navigate('/about')}
             className="group border border-[#B59410]/50 bg-transparent px-7.5 py-3 text-[12px] font-semibold tracking-[2px] text-white cursor-pointer transition-all duration-300 ease-in-out hover:border-[#B59410] hover:bg-[#B59410]/10 hover:shadow-[0_0_15px_rgba(212,175,55,0.2)]"
           >
-            LEAR MORE <span className="ml-2 text-[#B59410] inline-block transition-transform duration-300 group-hover:translate-y-1">↓</span>
+            LEARN MORE <span className="ml-2 text-[#B59410] inline-block transition-transform duration-300 group-hover:translate-y-1">↓</span>
           </button>
+        </div>
+
+        {/* Hovering Scroll Down Indicator */}
+        <div 
+          className={`absolute bottom-6 right-6 z-10 hidden sm:flex flex-col items-center gap-5 text-white/60 transition-opacity duration-500 ${showBackToTop ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+        >
+          <span className="text-[10px] font-bold tracking-[3px] uppercase rotate-180 [writing-mode:vertical-lr]">SCROLL</span>
+          <div className="flex h-12 w-7 items-start justify-center animate-bounce rounded-full border-2 border-white/40 p-2.5">
+            <div className="h-3.5 w-1.5 animate-bounce rounded-full bg-[#B59410]" />
+          </div>
         </div>
       </header>
 
@@ -67,7 +99,6 @@ const HomePage: React.FC = () => {
           ABOUT SECTION
          ========================================== */}
       <section className="relative flex w-full items-center justify-center overflow-hidden bg-white px-5 py-30 text-center">
-        
         
         {/* Structural Frames */}
         <div className="hidden sm:block absolute border-4 border-[#3C0008]/55 border-b-0 border-r-0 top-10 left-10 h-40 w-40" />
@@ -80,8 +111,8 @@ const HomePage: React.FC = () => {
 
           <div className="relative mx-auto max-w-190">
             <span className="hidden lg:block absolute -top-11.25 -left-23.75 select-none font-serif text-[11rem] leading-none text-[#3C0008] opacity-25 pointer-events-none">
-  “
-</span>
+              “
+            </span>
             <p className="font-sans font-light text-base leading-[1.8] text-[#3C0008]">
               The Academic Establishments Division is one of the most important divisions in the University. 
               Presently the entire department is managed by two officers — one at the Senior Assistant Registrar 
@@ -89,8 +120,8 @@ const HomePage: React.FC = () => {
               Assistants.
             </p>
             <span className="hidden lg:block absolute -bottom-35 -right-6.75 select-none font-serif text-[11rem] leading-none text-[#3C0008] opacity-25 pointer-events-none">
-  ”
-</span>
+              ”
+            </span>
           </div>
         </div>
       </section>
@@ -106,11 +137,11 @@ const HomePage: React.FC = () => {
               Core <span className="text-[#B59410]">Functions</span>       
             </h2>
             <p className="text-base font-light leading-[1.8] text-white text-left">
-  The Division manages all key human resource functions of the university.
-  We handle staff recruitment, cadre management, training, welfare, compensation,
-  and administrative support services. Our goal is to create a productive and
-  supportive environment for academic and non-academic staff.
-</p>
+              The Division manages all key human resource functions of the university.
+              We handle staff recruitment, cadre management, training, welfare, compensation,
+              and administrative support services. Our goal is to create a productive and
+              supportive environment for academic and non-academic staff.
+            </p>
           </div>
 
           {/* Split Wrapper Layout */}
@@ -134,7 +165,6 @@ const HomePage: React.FC = () => {
                   key={course.id} 
                   className="group/card relative cursor-pointer rounded-[10px] bg-white px-6 py-2.5 text-[#222222] shadow-[0_10px_30px_rgba(0,0,0,0.35)] transition-all duration-[0.25s] cubic-bezier(0.25,1,0.5,1) hover:translate-x-2 border border-transparent hover:border-[#3C0008] hover:shadow-[0_14px_35px_rgba(0,0,0,0.45),0_0_15px_rgba(255,51,51,0.4),inset_0_0_20px_rgba(255,51,51,0.25)]"
                 >
-                  {/* Underlined slide effect via group hover utility mapping */}
                   <h3 className="relative inline-block pb-1 font-sans text-[1.1rem] font-semibold">
                     {course.title}
                     <span className="absolute bottom-0 left-0 h-0.75 w-full scale-x-0 bg-[#B59410] origin-bottom-left transition-transform duration-300 cubic-bezier(0.25,1,0.5,1) group-hover/card:scale-x-100" />
@@ -178,11 +208,9 @@ const HomePage: React.FC = () => {
                 className="relative bg-white rounded-xl p-6 flex flex-col justify-between min-h-[180px] shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-neutral-100 hover:border-[#B59410]/30 transition-all duration-300 ease-out cursor-pointer group hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(60,0,8,0.08)]"
                 onClick={() => navigate('/notices')}
               >
-                {/* Visual Accent Tab */}
                 <div className="absolute top-0 left-6 h-[4px] w-12 bg-[#3C0008] group-hover:bg-[#B59410] transition-colors duration-300" />
                 
                 <div>
-                  {/* Date Flag */}
                   <div className="flex items-center gap-2 mb-4 mt-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#B59410]" />
                     <p className="text-neutral-400 text-[11px] font-bold tracking-widest uppercase">
@@ -192,13 +220,11 @@ const HomePage: React.FC = () => {
                     </p>
                   </div>
 
-                  {/* Title */}
                   <p className="text-[#3C0008] text-base font-semibold leading-snug line-clamp-3 group-hover:text-[#B59410] transition-colors duration-200">
                     {notice.title}
                   </p>
                 </div>
 
-                {/* Footer Action Anchor */}
                 <div className="flex items-center justify-between mt-6 pt-4 border-t border-neutral-50 w-full text-[11px] tracking-wider font-bold text-[#3C0008]/70 group-hover:text-[#3C0008]">
                   <span>READ ANNOUNCEMENT</span>
                   <span className="text-[#B59410] text-lg transform group-hover:translate-x-1.5 transition-transform duration-200">
@@ -236,9 +262,6 @@ const HomePage: React.FC = () => {
               Access and download essential administrative forms, leave requests, and official templates managed by the division.
             </p>
           </div>
-          
-          {/* Applications List Container */}
-          
 
           {/* Bottom View All Link Button */}
           <div className="mt-8 text-center">
@@ -257,17 +280,14 @@ const HomePage: React.FC = () => {
           BLURRED BACKGROUND SECTION
          ========================================== */}
       <section className="relative flex min-h-87.5 w-full items-center justify-center overflow-hidden bg-[#3C0008] px-5 py-16 text-center">
-        {/* Background image container */}
         <div 
           className="absolute inset-0 bg-cover bg-center" 
           style={{ backgroundImage: "url('/slide-4.jpg')" }}
         />
         
-        {/* Heavy Blur and Dark Tint Overlay */}
         <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(60,0,8,0.2)_10%,rgba(60,0,8,0.6)_90%)] " />
         <div className="absolute inset-0 bg-linear-to-t from-[#ffffff]/20 via-transparent to-[#200004]/50" />
 
-        {/* Content Box */}
         <div className="relative z-10 max-w-175 rounded-xl border border-[#3C0008]/10 bg-[#3C0008]/10 p-8 backdrop-blur-sm shadow-2xl">
           <h2 className="m-0 mb-4 font-sans text-2xl font-bold tracking-wide text-white md:text-3xl">
             Have Any Administrative <span className="text-[#3C0008]">Queries</span>?
@@ -283,6 +303,19 @@ const HomePage: React.FC = () => {
           </button>
         </div>
       </section>
+
+      {/* ==========================================
+          FIXED BACK TO TOP BUTTON
+         ========================================== */}
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-6 right-6 z-50 flex h-11 w-11 items-center justify-center rounded-full bg-[#B59410] text-[#3C0008] shadow-lg border border-transparent transition-all duration-300 ease-in-out hover:bg-[#ffffff] hover:text-[#3C0008] hover:border-[#B59410] ${
+          showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+        }`}
+        aria-label="Back to top"
+      >
+        <span className="text-[20px] font-bold">↑</span>
+      </button>
 
     </div>
   )
