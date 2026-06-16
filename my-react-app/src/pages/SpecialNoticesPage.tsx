@@ -197,14 +197,16 @@ export default function SpecialNoticesPage() {
                     
                     {notice.downloadUrl && (
                       <div className="pt-2.5 border-t border-white/10 w-full mt-auto">
-                        <a 
-                          href={notice.downloadUrl}
-                          className="inline-flex items-center gap-2.5 w-full bg-white/10 hover:bg-white/20 backdrop-blur-sm text-xs text-stone-200 px-2.5 py-1.5 rounded-lg transition-all group/link border border-white/5"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {/* Modern Minimalist SVG Action Icon Badge */}
-                          <span className="bg-[#e8c97a] text-[#4a0b16] p-1.5 rounded-md shrink-0 flex items-center justify-center shadow-sm group-hover/link:scale-105 transition-transform duration-150">
+                        <div className="inline-flex items-center gap-2.5 w-full bg-white/10 backdrop-blur-sm text-xs text-stone-200 px-2.5 py-1.5 rounded-lg border border-white/5">
+                          
+                          {/* 1. SEPARATED DOWNLOAD ICON BUTTON */}
+                          <a 
+                            href={notice.downloadUrl}
+                            download
+                            title="Download Document"
+                            onClick={(e) => e.stopPropagation()} // Prevents the click from triggering parent text link behaviors
+                            className="bg-[#e8c97a] text-[#4a0b16] p-1.5 rounded-md shrink-0 flex items-center justify-center shadow-sm hover:scale-110 active:scale-95 transition-transform duration-150 cursor-pointer"
+                          >
                             <svg 
                               xmlns="http://www.w3.org/2000/svg" 
                               fill="none" 
@@ -219,13 +221,20 @@ export default function SpecialNoticesPage() {
                                 d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" 
                               />
                             </svg>
-                          </span>
+                          </a>
                           
-                          {/* Explicit text display of your file label inside the element */}
-                          <span className="truncate text-stone-200 group-hover/link:text-white group-hover/link:underline font-medium text-[11px]">
+                          {/* 2. SEPARATED TEXT LINK TO OPEN/VIEW DOCUMENT */}
+                          <a 
+                            href={notice.downloadUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="Open Document in New Tab"
+                            className="truncate text-stone-200 hover:text-white hover:underline font-medium text-[11px] flex-1 cursor-pointer pr-1"
+                          >
                             {notice.downloadLabel || 'Document Link'}
-                          </span>
-                        </a>
+                          </a>
+
+                        </div>
                       </div>
                     )}
                   </div>
