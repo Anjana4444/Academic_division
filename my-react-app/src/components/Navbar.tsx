@@ -306,21 +306,14 @@ export default function Navbar(): JSX.Element {
 
           />
 
-          <div className="hidden sm:block">
-
-            <div className="text-white text-[20px] xl:text-[20px] font-bold leading-tight">
-
-              Academic Establishments Division
-
-            </div>
-
-            <div className="text-[#B59410] text-[18px] xl:text-[18px] font-bold mt-0.5">
-
-              University of Peradeniya
-
-            </div>
-
-          </div>
+          <div className="block">
+  <div className="text-white text-[13px] sm:text-[18px] xl:text-[20px] font-bold leading-tight">
+    Academic Establishments Division
+  </div>
+  <div className="text-[#B59410] text-[11px] sm:text-[16px] xl:text-[18px] font-bold mt-0.5">
+    University of Peradeniya
+  </div>
+</div>
 
         </Link>
 
