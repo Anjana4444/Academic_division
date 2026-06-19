@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 interface ContactMethod {
   id: number
   title: string
@@ -31,6 +33,9 @@ const contactMethods: ContactMethod[] = [
 ]
 
 export default function ContactPage() {
+
+  const [isFormOpen, setIsFormOpen] = useState(false)
+
   return (
     <div className="w-full bg-white text-gray-900 font-sans min-h-screen pt-28 pb-16 px-6 sm:px-12 lg:px-20">
       
@@ -43,7 +48,7 @@ export default function ContactPage() {
             CONTACT US
           </h1>
           <p className="text-gray-600 text-sm sm:text-base max-w-md mb-6 leading-relaxed">
-            Academic Establishments Division — We are here to meet any administrative need and support our university community online.
+            Reach the Academic Establishments Division — we are here to assist staff, faculty, and applicants with all academic human resources matters.
           </p>
           
           {/* Accent Divider Line */}
@@ -135,77 +140,102 @@ export default function ContactPage() {
       </div>
 
 
-<div className="max-w-4xl  px-6 mb-16 py-10 mx-auto">
-  <div className="bg-[white] rounded-xl shadow-md border-l-4 border-[#c9922a] p-8">
+      <div className="max-w-4xl px-6 mb-16 py-10 mx-auto">
+  {/* The container transitions background color seamlessly dynamically */}
+  <div className={`rounded-xl shadow-md border-l-4 border-[#c9922a] overflow-hidden transition-all duration-300 ${isFormOpen ? 'bg-white' : 'bg-[#3C0008]'}`}>
     
-    <h2 className="text-2xl font-bold text-[#4a0b16] mb-6 flex items-center gap-2">
-      <span className="w-1.5 h-6 bg-[#4a0b16] rounded-full inline-block"></span>
-      Send Us a Message
-    </h2>
-
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-
-      {/* Full Name */}
-      <div className="flex flex-col gap-1.5">
-        <label className="text-sm text-gray-700">Full Name <span className="text-red-500">*</span></label>
-        <input
-          type="text"
-          placeholder="Enter your full name"
-          className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-[#4a0b16] transition-colors duration-150"
-        />
+    {/* Clickable Header Trigger */}
+    <button 
+      onClick={() => setIsFormOpen(!isFormOpen)}
+      className="w-full text-left p-8 flex items-center justify-between hover:bg-black/5 transition-colors duration-150 focus:outline-none"
+    >
+      {/* Label shifts to white text when card is collapsed/maroon */}
+      <h2 className={`text-2xl font-bold flex items-center gap-2 transition-colors duration-300 ${isFormOpen ? 'text-[#3C0008]' : 'text-white'}`}>
+        <span className={`w-1.5 h-6 rounded-full inline-block transition-colors duration-300 ${isFormOpen ? 'bg-[#3C0008]' : 'bg-white'}`}></span>
+        Send Us a Message
+      </h2>
+      
+      {/* Smooth rotating interactive arrow wrapper */}
+      <div className={`p-2 rounded-full transition-colors duration-300 ${isFormOpen ? 'bg-gray-100 text-gray-600 hover:text-[#4a0b16]' : 'bg-white/10 text-white/80 hover:text-white'}`}>
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          strokeWidth={2.5} 
+          stroke="currentColor" 
+          className={`w-5 h-5 transition-transform duration-300 ${isFormOpen ? 'rotate-180' : 'rotate-0'}`}
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+        </svg>
       </div>
-
-      {/* Email */}
-      <div className="flex flex-col gap-1.5">
-        <label className="text-sm text-gray-700">Email Address <span className="text-red-500">*</span></label>
-        <input
-          type="email"
-          placeholder="student@university.edu"
-          className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-[#4a0b16] transition-colors duration-150"
-        />
-      </div>
-
-      {/* Department */}
-      <div className="flex flex-col gap-1.5">
-        <label className="text-sm text-gray-700">Department / Office</label>
-        <select className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-[#4a0b16] transition-colors duration-150 bg-white">
-          <option>General Inquiry</option>
-          <option>Academic Staff Appointments</option>
-          <option>Leave Applications</option>
-          <option>Promotions</option>
-          <option>Other</option>
-        </select>
-      </div>
-
-      {/* Subject */}
-      <div className="flex flex-col gap-1.5">
-        <label className="text-sm text-gray-700">Subject <span className="text-red-500">*</span></label>
-        <input
-          type="text"
-          placeholder="Brief subject of your inquiry"
-          className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-[#4a0b16] transition-colors duration-150"
-        />
-      </div>
-
-      {/* Message - full width */}
-      <div className="flex flex-col gap-1.5 md:col-span-2">
-        <label className="text-sm text-gray-700">Message <span className="text-red-500">*</span></label>
-        <textarea
-          rows={6}
-          placeholder="Please provide detailed information about your inquiry..."
-          className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-[#4a0b16] transition-colors duration-150 resize-y"
-        />
-      </div>
-
-    </div>
-
-    {/* Submit button */}
-    <button className="mt-6 w-full bg-[#4a0b16] text-white font-semibold py-3.5 rounded-lg hover:bg-[#6b1020] transition-colors duration-200 tracking-wide">
-      Send Message to University
     </button>
 
-  </div>
+    {/* Collapsible Form Body Wrapper */}
+    <div className={`transition-all duration-300 ease-in-out ${isFormOpen ? 'max-h-[1200px] opacity-100 border-t border-gray-100 p-8' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+        {/* Full Name */}
+        <div className="flex flex-col gap-1.5">
+          <label className="text-sm text-gray-700">Full Name <span className="text-red-500">*</span></label>
+          <input
+            type="text"
+            placeholder="Enter your full name"
+            className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-[#4a0b16] transition-colors duration-150"
+          />
+        </div>
+
+        {/* Email */}
+        <div className="flex flex-col gap-1.5">
+          <label className="text-sm text-gray-700">Email Address <span className="text-red-500">*</span></label>
+          <input
+            type="email"
+            placeholder="student@university.edu"
+            className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-[#4a0b16] transition-colors duration-150"
+          />
+        </div>
+
+        {/* Department */}
+        <div className="flex flex-col gap-1.5">
+          <label className="text-sm text-gray-700">Department / Office</label>
+          <select className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-[#4a0b16] transition-colors duration-150 bg-white">
+            <option>General Inquiry</option>
+            <option>Academic Staff Appointments</option>
+            <option>Leave Applications</option>
+            <option>Promotions</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        {/* Subject */}
+        <div className="flex flex-col gap-1.5">
+          <label className="text-sm text-gray-700">Subject <span className="text-red-500">*</span></label>
+          <input
+            type="text"
+            placeholder="Brief subject of your inquiry"
+            className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-[#4a0b16] transition-colors duration-150"
+          />
+        </div>
+
+        {/* Message - full width */}
+        <div className="flex flex-col gap-1.5 md:col-span-2">
+          <label className="text-sm text-gray-700">Message <span className="text-red-500">*</span></label>
+          <textarea
+            rows={6}
+            placeholder="Please provide detailed information about your inquiry..."
+            className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-[#4a0b16] transition-colors duration-150 resize-y"
+          />
+        </div>
+
       </div>
+
+      {/* Submit button */}
+      <button className="mt-6 w-full bg-[#4a0b16] text-white font-semibold py-3.5 rounded-lg hover:bg-[#6b1020] transition-colors duration-200 tracking-wide">
+        Send Message to University
+      </button>
+    </div>
+
+  </div>
+</div>
 
       
 
