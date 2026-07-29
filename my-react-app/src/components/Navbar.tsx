@@ -66,6 +66,8 @@ export default function Navbar(): JSX.Element {
 
     { label: 'Contact',         to: '/contact' },
 
+    { label: 'Dashboard',         to: '/admin' },
+
   ]
 
 
@@ -288,6 +290,8 @@ export default function Navbar(): JSX.Element {
 
     >
 
+      
+
       <div className="w-[95%] xl:w-[90%] mx-auto flex items-center justify-between h-[80px]">
 
 
@@ -357,21 +361,7 @@ export default function Navbar(): JSX.Element {
 
 
 
-            <a
-
-              href="https://www.pdn.ac.lk/"
-
-              target="_blank"
-
-              rel="noopener noreferrer"
-
-              className="text-xs xl:text-sm font-bold uppercase tracking-wide text-white hover:text-[#B59410] transition-colors duration-200"
-
-            >
-
-              UOP
-
-            </a>
+            
 
           </div>
 
@@ -487,6 +477,8 @@ export default function Navbar(): JSX.Element {
 
 
 
+
+
           {/* Language dropdown */}
 
           <div ref={dropdownRef} className="relative border-l border-white/20 pl-4">
@@ -585,7 +577,27 @@ export default function Navbar(): JSX.Element {
 
           </div>
 
-        </div>
+
+          {/*admin */}
+          <Link
+            to="/admin/Dashboard" // Change to "/admin/dashboard" if that's your route
+            className="text-white/80 hover:text-[#B59410] p-1.5 rounded-full transition-colors duration-200"
+            title="Admin Dashboard"
+          >
+            <img 
+              src="/admin.png" 
+              alt="Admin Dashboard" 
+              className="w-5 h-5 object-contain"
+            />
+              
+          </Link>
+
+          </div>
+
+      
+
+
+
 
 
 

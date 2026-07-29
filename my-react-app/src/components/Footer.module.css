@@ -30,8 +30,6 @@
   border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
 }
 
-
-
 .logoCircle {
   width: 58px;
   height: 58px;
@@ -52,7 +50,7 @@
   font-weight: 700;
   color: #ffffff;
   line-height: 1.2; /* Fixed the browser calculation syntax */
-  margin: 0;        /* Strips out native browser paragraph margins */
+  margin: 0; /* Strips out native browser paragraph margins */
   padding: 0;
 }
 
@@ -60,15 +58,8 @@
   font-size: 1.28rem;
   color: #e8c97a;
   line-height: 1.2; /* Matches division scaling */
-  margin: 0;        /* Strips out native browser paragraph margins */
+  margin: 0; /* Strips out native browser paragraph margins */
   padding: 0;
-}
-
-.adress {
-  font-size: 1.28rem;
-  color: #e8c97a;
-  line-height: 1; 
-  
 }
 
 /* Contact list */

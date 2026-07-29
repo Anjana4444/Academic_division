@@ -7,6 +7,9 @@ import ContactPage from './pages/ContactPage'
 import SpecialNoticesPage from './pages/SpecialNoticesPage'
 import ApplicationsPage from './pages/ApplicationsPage'
 import SearchPage from './pages/SearchPage' // 1. Imported SearchPage Component
+import Dashboard from './admin/Dashboard'
+import SpecialNote from './admin/SpecialNote'
+
 
 // Form Imports
 import AgreementForm from './applicationforms/AgreementForm'
@@ -31,6 +34,7 @@ export default function App() {
         <Route path="/notices" element={<SpecialNoticesPage />} />
         <Route path="/applications" element={<ApplicationsPage />} />
         
+        
         {/* 2. Added the unified search engine result index path */}
         <Route path="/search" element={<SearchPage />} />
 
@@ -46,6 +50,13 @@ export default function App() {
         <Route path="/applications/motor-vehicle" element={<ConcessionaryMotorVehiclePermitForm />} />
         <Route path="/applications/etf-form" element={<ETFForm />} />
         <Route path="/applications/probationary" element={<ProbationaryLeaveApplicationForm />} />
+      </Route>
+
+      <Route>
+        <Route path="/admin" element={<Dashboard />} />
+        <Route path="/admin/dashboard" element={<Dashboard />} />
+        <Route path="/admin/specialnote" element={<SpecialNote />} />
+
       </Route>
     </Routes>
   )

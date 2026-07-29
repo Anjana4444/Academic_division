@@ -140,40 +140,15 @@ export default function ContactPage() {
       </div>
 
 
-      <div className="max-w-4xl px-6 mb-16 py-10 mx-auto">
-  {/* The container transitions background color seamlessly dynamically */}
-  <div className={`rounded-xl shadow-md border-l-4 border-[#c9922a] overflow-hidden transition-all duration-300 ${isFormOpen ? 'bg-white' : 'bg-[#3C0008]'}`}>
-    
-    {/* Clickable Header Trigger */}
-    <button 
-      onClick={() => setIsFormOpen(!isFormOpen)}
-      className="w-full text-left p-8 flex items-center justify-between hover:bg-black/5 transition-colors duration-150 focus:outline-none"
-    >
-      {/* Label shifts to white text when card is collapsed/maroon */}
-      <h2 className={`text-2xl font-bold flex items-center gap-2 transition-colors duration-300 ${isFormOpen ? 'text-[#3C0008]' : 'text-white'}`}>
-        <span className={`w-1.5 h-6 rounded-full inline-block transition-colors duration-300 ${isFormOpen ? 'bg-[#3C0008]' : 'bg-white'}`}></span>
+        <div className="max-w-4xl  px-6 mb-16 py-10 mx-auto">
+    <div className="bg-[white] rounded-xl shadow-md border-l-4 border-[#c9922a] p-8">
+
+      <h2 className="text-2xl font-bold text-[#4a0b16] mb-6 flex items-center gap-2">
+        <span className="w-1.5 h-6 bg-[#4a0b16] rounded-full inline-block"></span>
         Send Us a Message
       </h2>
-      
-      {/* Smooth rotating interactive arrow wrapper */}
-      <div className={`p-2 rounded-full transition-colors duration-300 ${isFormOpen ? 'bg-gray-100 text-gray-600 hover:text-[#4a0b16]' : 'bg-white/10 text-white/80 hover:text-white'}`}>
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          fill="none" 
-          viewBox="0 0 24 24" 
-          strokeWidth={2.5} 
-          stroke="currentColor" 
-          className={`w-5 h-5 transition-transform duration-300 ${isFormOpen ? 'rotate-180' : 'rotate-0'}`}
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-        </svg>
-      </div>
-    </button>
 
-    {/* Collapsible Form Body Wrapper */}
-    <div className={`transition-all duration-300 ease-in-out ${isFormOpen ? 'max-h-[1200px] opacity-100 border-t border-gray-100 p-8' : 'max-h-0 opacity-0 overflow-hidden'}`}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-
         {/* Full Name */}
         <div className="flex flex-col gap-1.5">
           <label className="text-sm text-gray-700">Full Name <span className="text-red-500">*</span></label>
@@ -234,10 +209,7 @@ export default function ContactPage() {
       </button>
     </div>
 
-  </div>
-</div>
-
-      
+        </div> 
 
     </div>
   )
