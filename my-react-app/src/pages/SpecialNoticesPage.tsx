@@ -1,5 +1,5 @@
-import { useState, useMemo } from 'react'
-import { notices } from '../data/notices'
+import { useState, useEffect, useMemo } from 'react'
+import { notices as defaultNotices } from '../data/notices'
 
 interface NoticeItem {
   id: string | number
@@ -11,14 +11,25 @@ interface NoticeItem {
 
 export default function SpecialNoticesPage() {
   // --- 1. STATE MANAGEMENT ---
+  const [noticesList, setNoticesList] = useState<NoticeItem[]>([])
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [filterType, setFilterType] = useState<'latest' | 'oldest' | 'custom'>('latest')
   const [startDate, setStartDate] = useState<string>('')
   const [endDate, setEndDate] = useState<string>('')
 
+  // Load notices dynamically from localStorage (synced with Admin panel)
+  useEffect(() => {
+    const savedNotices = localStorage.getItem('admin_notices')
+    if (savedNotices) {
+      setNoticesList(JSON.parse(savedNotices))
+    } else {
+      setNoticesList(defaultNotices)
+    }
+  }, [])
+
   // --- 2. SEARCH & FILTERING LOGIC ---
   const filteredAndSortedNotices = useMemo(() => {
-    let result: NoticeItem[] = [...notices]
+    let result: NoticeItem[] = [...noticesList]
 
     if (searchQuery.trim() !== '') {
       const lowerQuery = searchQuery.toLowerCase()
@@ -49,7 +60,7 @@ export default function SpecialNoticesPage() {
     })
 
     return result
-  }, [searchQuery, filterType, startDate, endDate])
+  }, [noticesList, searchQuery, filterType, startDate, endDate])
 
   return (
     <div className="min-h-screen bg-stone-50 pb-20">
@@ -80,7 +91,7 @@ export default function SpecialNoticesPage() {
       {/* --- Global Wrapper Content Outer Alignment Panel --- */}
       <div className="w-full mt-12 px-4 sm:px-6 lg:px-8">
         
-        {/* CONTAINER A: SEARCH BAR ONLY (Stays contained to its compact max-w width block) */}
+        {/* CONTAINER A: SEARCH BAR ONLY */}
         <div className="max-w-2xl mx-auto mb-8">
           <div className="bg-white border border-[#80000015] rounded-xl p-5 shadow-sm flex flex-col gap-4">
             <div className="flex flex-col sm:flex-row gap-4">
@@ -147,8 +158,8 @@ export default function SpecialNoticesPage() {
           </div>
         </div>
 
-        {/* CONTAINER B: CARDS ONLY (Expands all the way out to 7xl to match the navbar header line layout limits) */}
-        <div className="max-w-5xl ">
+        {/* CONTAINER B: CARDS PANEL */}
+        <div className="max-w-5xl mx-auto">
           {filteredAndSortedNotices.length === 0 ? (
             <div className="bg-white border border-[#80000015] rounded-xl text-center text-gray-400 text-sm py-16 shadow-sm max-w-2xl mx-auto">
               No matching notices found for your selections.
@@ -160,13 +171,9 @@ export default function SpecialNoticesPage() {
                   key={notice.id}
                   className="relative flex flex-col justify-between h-[340px] bg-[#4a0b16] border border-[#80000020] rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
                 >
-                  {/* Background Solid Gradient Layer */}
                   <div className="absolute inset-0 bg-gradient-to-b from-[#4a0b16] to-[#28040a]" />
-                  
-                  {/* Visual mask gradient layer */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#200207] via-transparent to-black/40 z-10" />
 
-                  {/* Top Corner Floating Date Tag */}
                   <div className="absolute top-4 right-4 z-20 bg-black/40 backdrop-blur-md text-white text-xs font-semibold px-2.5 py-1 rounded">
                     {new Date(notice.date).toLocaleDateString('en-LK', {
                       day: 'numeric',
@@ -174,56 +181,37 @@ export default function SpecialNoticesPage() {
                     })}
                   </div>
 
-                  {/* Upper bell decorator element */}
                   <div className="relative z-20 pt-6 px-5 opacity-40 group-hover:opacity-80 transition-opacity">
                     <span className="text-xl">🔔</span>
                   </div>
 
-                  {/* Card Text & Dynamic Action Links Panel */}
                   <div className="relative z-20 p-5 flex flex-col gap-2 mt-auto w-full">
-                    
-                    {/* Full Date Subtitle text */}
                     <span className="text-xs text-[#c9922a] font-bold tracking-wider uppercase">
                       {new Date(notice.date).getFullYear()}
                     </span>
 
-                    {/* Main Notice Title Container */}
                     <div className="h-20 overflow-hidden">
                       <h2 className="text-base font-bold text-white leading-snug tracking-wide drop-shadow-sm line-clamp-3">
                         {notice.title}
                       </h2>
                     </div>
 
-                    
                     {notice.downloadUrl && (
                       <div className="pt-2.5 border-t border-white/10 w-full mt-auto">
                         <div className="inline-flex items-center gap-2.5 w-full bg-white/10 backdrop-blur-sm text-xs text-stone-200 px-2.5 py-1.5 rounded-lg border border-white/5">
                           
-                          {/* 1. SEPARATED DOWNLOAD ICON BUTTON */}
                           <a 
                             href={notice.downloadUrl}
                             download
                             title="Download Document"
-                            onClick={(e) => e.stopPropagation()} // Prevents the click from triggering parent text link behaviors
+                            onClick={(e) => e.stopPropagation()}
                             className="bg-[#e8c97a] text-[#4a0b16] p-1.5 rounded-md shrink-0 flex items-center justify-center shadow-sm hover:scale-110 active:scale-95 transition-transform duration-150 cursor-pointer"
                           >
-                            <svg 
-                              xmlns="http://www.w3.org/2000/svg" 
-                              fill="none" 
-                              viewBox="0 0 24 24" 
-                              strokeWidth={2.5} 
-                              stroke="currentColor" 
-                              className="w-3.5 h-3.5"
-                            >
-                              <path 
-                                strokeLinecap="round" 
-                                strokeLinejoin="round" 
-                                d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" 
-                              />
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-3.5 h-3.5">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                             </svg>
                           </a>
                           
-                          {/* 2. SEPARATED TEXT LINK TO OPEN/VIEW DOCUMENT */}
                           <a 
                             href={notice.downloadUrl}
                             target="_blank"
