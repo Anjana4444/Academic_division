@@ -298,7 +298,7 @@ export default function Navbar(): JSX.Element {
 
         {/* Logo */}
 
-        <Link to="/" className="flex items-center gap-3" onClick={() => setMenuOpen(false)}>
+        <div  className="flex items-center gap-3" onClick={() => setMenuOpen(false)}>
 
           <img
 
@@ -319,7 +319,7 @@ export default function Navbar(): JSX.Element {
   </div>
 </div>
 
-        </Link>
+        </div>
 
 
 
@@ -591,7 +591,7 @@ export default function Navbar(): JSX.Element {
             />
               
           </Link>
-
+         
           </div>
 
       

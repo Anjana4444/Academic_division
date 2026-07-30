@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import NoticesTab from './SpecialNote';
 
 interface NavItem {
   id: string;
@@ -153,9 +154,9 @@ export default function AdminDashboard(): React.JSX.Element {
               <p className="text-sm text-gray-500 mt-1">Welcome back to the Academic Establishments Division admin dashboard.</p>
             </div>
           )}
-          {activeTab === 'notices' && <div className="p-4">Special Notices Content</div>}
-          {activeTab === 'applications' && <div className="p-4">Applications Content</div>}
-          {activeTab === 'staff' && <div className="p-4">Staff Content</div>}
+          {activeTab === 'notices' && <NoticesTab />}
+{activeTab === 'applications' && <div className="p-4 text-gray-500">Applications panel coming soon.</div>}
+{activeTab === 'staff' && <div className="p-4 text-gray-500">Staff panel coming soon.</div>}
         </div>
 
       </main>
